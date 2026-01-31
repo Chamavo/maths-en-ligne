@@ -1,0 +1,203 @@
+================================================================================
+                     NIVEAU 22 - PROBLÈMES (MARATHON)
+================================================================================
+                        Calcul Mental - CM2
+                     Généré automatiquement
+                     Dernière mise à jour : Janvier 2026
+================================================================================
+
+DURÉE : 60 minutes (1 heure)
+NOMBRE DE QUESTIONS : 30
+CALCULS POSÉS : AUTORISÉS
+
+INSTRUCTIONS :
+Problèmes de type concours. Les calculs posés sont autorisés.
+Prenez le temps de bien lire chaque énoncé.
+
+================================================================================
+                              EXERCICES
+================================================================================
+
+Question 1
+----------
+Énoncé : Un réservoir de 500 litres est rempli d'eau aux 3/5. On en retire 120 litres. Quelle quantité d'eau reste-t-il ?
+Réponse : 180 L
+Astuce : 500 × 3/5 = 300 L. Reste 300 - 120 = 180 L
+
+Question 2
+----------
+Énoncé : Dans une classe de 32 élèves, les 3/8 sont des filles. Parmi les garçons, 1/4 portent des lunettes. Combien de garçons portent des lunettes ?
+Réponse : 5
+Astuce : Filles = 32 × 3/8 = 12. Garçons = 20. 20 × 1/4 = 5
+
+Question 3
+----------
+Énoncé : Un commerçant achète 150 articles à 800 F pièce et les revend avec un bénéfice de 25 %. Quel est son bénéfice total ?
+Réponse : 30000 F
+Astuce : Coût = 150 × 800 = 120 000 F. Bénéfice = 120 000 × 0,25 = 30 000 F
+
+Question 4
+----------
+Énoncé : Trois robinets remplissent un bassin. Le premier seul le remplit en 6h, le deuxième en 4h, le troisième en 3h. En combien d'heures les trois robinets ensemble remplissent-ils le bassin ?
+Réponse : 1,33 h (ou 1h20)
+Astuce : 1/6 + 1/4 + 1/3 = 2/12 + 3/12 + 4/12 = 9/12 = 3/4 par heure. Temps = 4/3 h ≈ 1,33 h
+
+Question 5
+----------
+Énoncé : Un train part de Yaoundé à 8h15 et arrive à Bertoua à 11h45. Il roule à une vitesse moyenne de 90 km/h. Quelle est la distance entre Yaoundé et Bertoua ?
+Réponse : 315 km
+Astuce : Durée = 3h30 = 3,5 h. Distance = 90 × 3,5 = 315 km
+
+Question 6
+----------
+Énoncé : Pierre a économisé 2/5 de son argent de poche. Il a dépensé 3/4 du reste pour acheter un livre à 1500 F. Quel était son argent de poche initial ?
+Réponse : 10000 F
+Astuce : Reste = 3/5. Dépense = 3/4 de 3/5 = 9/20. 9/20 × X = 1500 → X = 10 000 F
+
+Question 7
+----------
+Énoncé : Un rectangle a un périmètre de 56 cm. Sa longueur est le double de sa largeur augmentée de 4 cm. Quelles sont ses dimensions ?
+Réponse : L = 20 cm, l = 8 cm
+Astuce : L = 2l + 4. 2L + 2l = 56 → L + l = 28. 2l + 4 + l = 28 → l = 8, L = 20
+
+Question 8
+----------
+Énoncé : Dans un troupeau, il y a des vaches et des poulets. On compte 50 têtes et 140 pattes. Combien y a-t-il de vaches ?
+Réponse : 20
+Astuce : V + P = 50 et 4V + 2P = 140. 4V + 2(50-V) = 140 → 2V = 40 → V = 20
+
+Question 9
+----------
+Énoncé : On place 50 000 F à la banque au taux de 5 % par an. Quel est le montant des intérêts au bout d'un an ?
+Réponse : 2500 F
+Astuce : Intérêts = 50 000 × 5/100 = 2 500 F
+
+Question 10
+-----------
+Énoncé : Une fontaine remplit un bassin de 1 200 litres en 4 heures. Une fuite vide ce même bassin en 6 heures. Le bassin étant vide au départ et la fuite active, en combien d'heures sera-t-il plein ?
+Réponse : 12 h
+Astuce : Remplissage = 300 L/h. Fuite = 200 L/h. Net = 100 L/h. 1200/100 = 12 h
+
+Question 11
+-----------
+Énoncé : Un marchand achète 80 kg de riz à 250 F le kg. Il revend 60 kg à 300 F le kg et le reste à 200 F le kg. Quel est son bénéfice ou sa perte ?
+Réponse : 2000 F (bénéfice)
+Astuce : Achat = 20 000 F. Vente = 18 000 + 4 000 = 22 000 F. Bénéfice = 2 000 F
+
+Question 12
+-----------
+Énoncé : L'âge de Paul est le tiers de celui de son père. Dans 15 ans, l'âge de Paul sera la moitié de celui de son père. Quel est l'âge actuel de Paul ?
+Réponse : 15 ans
+Astuce : P = p/3. P + 15 = (p + 15)/2 → 2P + 30 = p + 15 → 2 × p/3 + 30 = p + 15 → p = 45, P = 15
+
+Question 13
+-----------
+Énoncé : Un cycliste parcourt les 2/5 d'un trajet en 40 minutes. À la même vitesse, combien de temps lui faudra-t-il pour parcourir tout le trajet ?
+Réponse : 100 minutes
+Astuce : 2/5 → 40 min. 1/5 → 20 min. 5/5 → 100 min
+
+Question 14
+-----------
+Énoncé : Dans une école, 3/7 des élèves sont en CM1 et 2/5 du reste sont en CM2. Les 120 autres élèves sont dans d'autres classes. Combien y a-t-il d'élèves en tout ?
+Réponse : 350
+Astuce : Reste = 4/7. CM2 = 2/5 × 4/7 = 8/35. Autres = 1 - 3/7 - 8/35 = 12/35 = 120. Total = 350
+
+Question 15
+-----------
+Énoncé : Un jardin rectangulaire a une superficie de 480 m². Sa longueur dépasse sa largeur de 8 m. Quel est le périmètre de ce jardin ?
+Réponse : 88 m
+Astuce : L × l = 480 et L = l + 8. l(l+8) = 480 → l = 20, L = 28. P = 2(20+28) = 88 m
+
+Question 16
+-----------
+Énoncé : Un avion vole pendant 2h30 à 720 km/h, puis pendant 1h45 à 640 km/h. Quelle distance totale a-t-il parcourue ?
+Réponse : 2920 km
+Astuce : D1 = 720 × 2,5 = 1800 km. D2 = 640 × 1,75 = 1120 km. Total = 2920 km
+
+Question 17
+-----------
+Énoncé : Trois amis Albert, Bernard et Charles se partagent 4 500 F. Albert reçoit le double de Bernard, et Bernard reçoit le triple de Charles. Combien chacun reçoit-il ?
+Réponse : Charles = 450 F, Bernard = 1350 F, Albert = 2700 F
+Astuce : C = x, B = 3x, A = 6x. 10x = 4 500 → x = 450
+
+Question 18
+-----------
+Énoncé : Un rectangle a pour dimensions 12 cm et 9 cm. On augmente sa longueur de 25 % et on diminue sa largeur de 1/3. Quelle est l'aire du nouveau rectangle ?
+Réponse : 90 cm²
+Astuce : Nouvelle L = 12 × 1,25 = 15. Nouvelle l = 9 × 2/3 = 6. Aire = 90 cm²
+
+Question 19
+-----------
+Énoncé : Un ouvrier fait un travail en 12 jours. Un second ouvrier fait le même travail en 8 jours. Travaillant ensemble, en combien de jours finissent-ils ce travail ?
+Réponse : 4,8 jours
+Astuce : 1/12 + 1/8 = 5/24 par jour. Temps = 24/5 = 4,8 jours
+
+Question 20
+-----------
+Énoncé : Une bouteille et son bouchon coûtent 110 F ensemble. La bouteille coûte 100 F de plus que le bouchon. Combien coûte le bouchon ?
+Réponse : 5 F
+Astuce : b + (b + 100) = 110 → 2b = 10 → b = 5 F
+
+Question 21
+-----------
+Énoncé : Sur une carte à l'échelle 1/50 000, deux villes sont séparées de 14 cm. Quelle est la distance réelle entre ces villes en km ?
+Réponse : 7 km
+Astuce : 14 × 50 000 = 700 000 cm = 7 km
+
+Question 22
+-----------
+Énoncé : Un négociant achète du tissu à 1 500 F le mètre. Pour le revendre, il majore de 20%. Quel est son bénéfice par mètre ?
+Réponse : 300 F
+Astuce : Prix de vente = 1500 × 1,20 = 1800 F. Bénéfice = 1800 - 1500 = 300 F
+
+Question 23
+-----------
+Énoncé : L'aire d'un carré est 36 cm². On double le côté de ce carré. Quelle est l'aire du nouveau carré ?
+Réponse : 144 cm²
+Astuce : Côté = 6. Nouveau côté = 12. Aire = 144 cm²
+
+Question 24
+-----------
+Énoncé : Un automobiliste parcourt 240 km en 3 heures. Puis il ralentit et parcourt les 180 km suivants en 2h30. Quelle est sa vitesse moyenne sur l'ensemble du trajet ?
+Réponse : 76,36 km/h
+Astuce : Distance totale = 420 km. Temps = 5,5 h. Vitesse = 420/5,5 ≈ 76,36 km/h
+
+Question 25
+-----------
+Énoncé : Un père a 42 ans et son fils 14 ans. Dans combien d'années l'âge du père sera-t-il le double de celui du fils ?
+Réponse : 14 ans
+Astuce : 42 + n = 2(14 + n) → 42 + n = 28 + 2n → n = 14 ans
+
+Question 26
+-----------
+Énoncé : Une cuve contient 750 litres d'eau. On en retire 15 % puis on ajoute 50 litres. Combien de litres y a-t-il maintenant dans la cuve ?
+Réponse : 687,5 L
+Astuce : 750 × 0,85 = 637,5. 637,5 + 50 = 687,5 L
+
+Question 27
+-----------
+Énoncé : Trois nombres consécutifs ont pour somme 156. Quel est le plus grand de ces trois nombres ?
+Réponse : 53
+Astuce : n + (n+1) + (n+2) = 156 → 3n + 3 = 156 → n = 51. Plus grand = 53
+
+Question 28
+-----------
+Énoncé : Un article subit une hausse de 10 % et coûte maintenant 495 F. Quel était son prix initial ?
+Réponse : 450 F
+Astuce : Prix initial × 1,10 = 495 → Prix initial = 495 ÷ 1,10 = 450 F
+
+Question 29
+-----------
+Énoncé : Un bassin peut être rempli par un robinet A en 5h ou par un robinet B en 3h. On ouvre d'abord A seul pendant 2h, puis A et B ensemble. En combien de temps le bassin sera-t-il plein au total ?
+Réponse : 3,125 h (ou 3h 7min 30s)
+Astuce : Après 2h: 2/5 rempli. Reste 3/5. Ensemble: 1/5 + 1/3 = 8/15 par h. 3/5 ÷ 8/15 = 9/8 h. Total = 2 + 1,125 = 3,125 h
+
+Question 30
+-----------
+Énoncé : Un rectangle a un périmètre de 84 cm. Si on augmente sa longueur de 5 cm et qu'on diminue sa largeur de 3 cm, le périmètre reste le même. Quelles sont les dimensions initiales ?
+Réponse : L = 25 cm, l = 17 cm
+Astuce : L + l = 42. Les dimensions peuvent varier tant que L + l = 42. Exemple: L = 25, l = 17
+
+================================================================================
+                           FIN DU NIVEAU 22
+================================================================================
