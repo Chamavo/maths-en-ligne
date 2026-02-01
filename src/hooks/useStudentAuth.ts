@@ -1,31 +1,68 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Student } from '@/types/student';
 import { toast } from 'sonner';
 import { generateStudentEmail } from '@/utils/auth';
 
+/**
+ * Checks if the given user has the 'teacher' role.
+ * Returns true if teacher, false otherwise.
+ */
+const checkIsTeacher = async (userId: string): Promise<boolean> => {
+  try {
+    const { data, error } = await supabase
+      .from('user_roles')
+      .select('role')
+      .eq('user_id', userId)
+      .eq('role', 'teacher')
+      .maybeSingle();
+    return !error && !!data;
+  } catch {
+    return false;
+  }
+};
+
 export const useStudentAuth = () => {
   const [student, setStudent] = useState<Student | null>(null);
   const [session, setSession] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  // Track if we've confirmed the user is NOT a teacher to avoid race conditions
+  const isTeacherRef = useRef<boolean | null>(null);
 
   useEffect(() => {
+    const handleSession = async (authSession: any) => {
+      setSession(authSession);
+      if (!authSession) {
+        setStudent(null);
+        isTeacherRef.current = null;
+        setLoading(false);
+        return;
+      }
+
+      // CRITICAL: Check teacher role FIRST before attempting student profile load
+      const isTeacher = await checkIsTeacher(authSession.user.id);
+      isTeacherRef.current = isTeacher;
+
+      if (isTeacher) {
+        // Teacher detected - do NOT set student state
+        setStudent(null);
+        setLoading(false);
+        return;
+      }
+
+      // Not a teacher - proceed to load student profile
+      fetchStudentProfile(authSession.user.id);
+    };
+
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      if (session) fetchStudentProfile(session.user.id);
-      else setLoading(false);
+      handleSession(session);
     });
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-      if (session) fetchStudentProfile(session.user.id);
-      else {
-        setStudent(null);
-        setLoading(false);
-      }
+      handleSession(session);
     });
 
     return () => subscription.unsubscribe();
@@ -33,23 +70,11 @@ export const useStudentAuth = () => {
 
   const fetchStudentProfile = async (userId: string) => {
     try {
-      // Teachers are authenticated users too and have a profile row.
-      // If we treat them as students, the app can flip/flop between roles
-      // (teacher vs student), causing erratic level locking and input resets.
-      // So: if the authenticated user has the 'teacher' role, do NOT set student.
-      const { data: rolesData, error: rolesError } = await supabase
-        .from('user_roles')
-        .select('role')
-        .eq('user_id', userId);
-
-      if (!rolesError) {
-        const roles = rolesData ?? [];
-        const hasTeacherRole = roles.some((r: any) => r.role === 'teacher');
-        if (hasTeacherRole) {
-          setStudent(null);
-          return;
-        }
-        // Backward-compatible: if no roles row exists, we still allow student fallback.
+      // Double-check: if teacher was already detected, bail out
+      if (isTeacherRef.current === true) {
+        setStudent(null);
+        setLoading(false);
+        return;
       }
 
       // First, try to get from profiles table
