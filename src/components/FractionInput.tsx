@@ -18,6 +18,12 @@ const FractionInput: React.FC<FractionInputProps> = ({
   category = '',
   disabled = false,
 }) => {
+  const baseInputClass =
+    "bg-background text-foreground placeholder:text-muted-foreground caret-foreground";
+
+  const focusInputClass =
+    "border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary";
+
   // Memoize question analysis to prevent recalculation on every render
   const questionAnalysis = useMemo(() => ({
     isFractionOp: isFractionOperationQuestion(question),
@@ -202,7 +208,7 @@ const FractionInput: React.FC<FractionInputProps> = ({
           value={value}
           onChange={handleNumericChange}
           onKeyDown={handleKeyDown}
-          className="w-full text-center text-4xl font-bold px-4 py-4 border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary"
+           className={`w-full text-center text-4xl font-bold px-4 py-4 ${baseInputClass} ${focusInputClass}`}
           placeholder="?"
           disabled={disabled}
         />
@@ -216,7 +222,7 @@ const FractionInput: React.FC<FractionInputProps> = ({
             value={numerator}
             onChange={handleNumeratorChange}
             onKeyDown={handleKeyDown}
-            className="w-24 text-center text-3xl font-bold px-3 py-3 border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary"
+             className={`w-24 text-center text-3xl font-bold px-3 py-3 ${baseInputClass} ${focusInputClass}`}
             placeholder="?"
             disabled={disabled}
           />
@@ -226,7 +232,7 @@ const FractionInput: React.FC<FractionInputProps> = ({
             value={denominator}
             onChange={handleDenominatorChange}
             onKeyDown={handleKeyDown}
-            className="w-24 text-center text-3xl font-bold px-3 py-3 border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary"
+             className={`w-24 text-center text-3xl font-bold px-3 py-3 ${baseInputClass} ${focusInputClass}`}
             placeholder="?"
             disabled={disabled}
           />
@@ -243,7 +249,7 @@ const FractionInput: React.FC<FractionInputProps> = ({
             value={hours}
             onChange={handleHoursChange}
             onKeyDown={handleKeyDown}
-            className="w-20 text-center text-3xl font-bold px-3 py-3 border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary"
+             className={`w-20 text-center text-3xl font-bold px-3 py-3 ${baseInputClass} ${focusInputClass}`}
             placeholder="H"
             disabled={disabled}
           />
@@ -255,7 +261,7 @@ const FractionInput: React.FC<FractionInputProps> = ({
             value={minutes}
             onChange={handleMinutesChange}
             onKeyDown={handleKeyDown}
-            className="w-20 text-center text-3xl font-bold px-3 py-3 border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary"
+             className={`w-20 text-center text-3xl font-bold px-3 py-3 ${baseInputClass} ${focusInputClass}`}
             placeholder="mm"
             disabled={disabled}
           />
