@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Brain, Trophy, Clock, Target, ChevronRight, CheckCircle, XCircle, RotateCcw, Users, Star, AlertCircle, Lock, LogOut, Bot } from 'lucide-react';
+import { Brain, Trophy, Clock, Target, ChevronRight, ChevronLeft, CheckCircle, XCircle, RotateCcw, Users, Star, AlertCircle, Lock, LogOut, Bot, Home, SkipForward } from 'lucide-react';
 import { generateLevelExercises, Exercise, getLevelInfo, ALL_LEVELS, getNextLevel } from '@/utils/exerciseGenerator';
 import { parseFraction, formatAnswer, isFractionQuestion, isInputFractionFormat, isFractionOperationQuestion } from '@/utils/fractionUtils';
 import { validateFractionAnswer } from '@/utils/fractionValidation';
@@ -751,6 +751,57 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
       <div className="min-h-screen bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 p-4">
         <div className="max-w-3xl mx-auto">
           <div className="bg-card rounded-2xl shadow-2xl p-8">
+            {/* Barre de navigation enseignant */}
+            {session.isTeacher && (
+              <div className="flex items-center justify-between mb-4 pb-4 border-b border-muted">
+                <button
+                  onClick={() => { setResults([]); setIsTestMode(false); }}
+                  className="flex items-center gap-2 px-4 py-2 bg-muted hover:bg-muted/80 text-foreground rounded-lg transition-colors"
+                >
+                  <Home className="w-4 h-4" />
+                  <span className="hidden sm:inline">Menu niveaux</span>
+                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => {
+                      const currentIndex = ALL_LEVELS.indexOf(currentLevel);
+                      if (currentIndex > 0) {
+                        startLevel(ALL_LEVELS[currentIndex - 1]);
+                      }
+                    }}
+                    disabled={ALL_LEVELS.indexOf(currentLevel) === 0}
+                    className="flex items-center gap-1 px-3 py-2 bg-secondary hover:bg-secondary/80 disabled:opacity-50 disabled:cursor-not-allowed text-secondary-foreground rounded-lg transition-colors"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                    <span className="hidden sm:inline">Précédent</span>
+                  </button>
+                  <span className="text-sm font-medium text-muted-foreground px-2">
+                    {levelInfo.name}
+                  </span>
+                  <button
+                    onClick={() => {
+                      const currentIndex = ALL_LEVELS.indexOf(currentLevel);
+                      if (currentIndex < ALL_LEVELS.length - 1) {
+                        startLevel(ALL_LEVELS[currentIndex + 1]);
+                      }
+                    }}
+                    disabled={ALL_LEVELS.indexOf(currentLevel) === ALL_LEVELS.length - 1}
+                    className="flex items-center gap-1 px-3 py-2 bg-secondary hover:bg-secondary/80 disabled:opacity-50 disabled:cursor-not-allowed text-secondary-foreground rounded-lg transition-colors"
+                  >
+                    <span className="hidden sm:inline">Suivant</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+                <button
+                  onClick={() => finishLevel()}
+                  className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/80 text-primary-foreground rounded-lg transition-colors"
+                >
+                  <SkipForward className="w-4 h-4" />
+                  <span className="hidden sm:inline">Terminer</span>
+                </button>
+              </div>
+            )}
+            
             <div className="flex justify-between items-center mb-6">
               <div className="flex items-center gap-3">
                 <Target className="w-6 h-6 text-primary" />
@@ -779,7 +830,6 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
                     {Math.floor(remainingTime / 60)}:{String(remainingTime % 60).padStart(2, '0')}
                   </span>
                 </div>
-                {/* Bouton Quitter masqué pendant le jeu - l'abandon involontaire = échec automatique */}
               </div>
             </div>
 
