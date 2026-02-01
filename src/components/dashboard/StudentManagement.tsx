@@ -153,21 +153,28 @@ const StudentManagement: React.FC = () => {
   }, [supabaseStudents, legacyStudents]);
 
   // Get current level from profile first, then fallback to localStorage
-  const getStudentLevel = (student: any): number => {
-    // New backend source
-    if (student.student_progression?.current_level) {
-      return student.student_progression.current_level;
+  const getStudentLevel = (studentOrName: any): number => {
+    // If it's a string, use it directly as the name
+    const studentName = typeof studentOrName === 'string' 
+      ? studentOrName 
+      : (studentOrName?.display_name || studentOrName?.first_name || '');
+    
+    // New backend source (only if object was passed)
+    if (typeof studentOrName === 'object' && studentOrName?.student_progression?.current_level) {
+      return studentOrName.student_progression.current_level;
     }
-    // Legacy fallback
-    const studentName = student.display_name || student.first_name;
-    const key = `studentProgress_${studentName.toLowerCase()}`;
-    const data = localStorage.getItem(key);
-    if (data) {
-      try {
-        const progress = JSON.parse(data);
-        return progress.currentLevel || 1;
-      } catch (e) {
-        return 1;
+    
+    // Legacy fallback using localStorage
+    if (studentName) {
+      const key = `studentProgress_${studentName.toLowerCase()}`;
+      const data = localStorage.getItem(key);
+      if (data) {
+        try {
+          const progress = JSON.parse(data);
+          return progress.currentLevel || 1;
+        } catch (e) {
+          return 1;
+        }
       }
     }
     return 1;
@@ -424,7 +431,7 @@ const StudentManagement: React.FC = () => {
                     </TableCell>
                     <TableCell>
                       <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
-                        {getLevelInfo(getStudentLevel(student.display_name || student.first_name)).name}
+                        {getLevelInfo(getStudentLevel(student)).name}
                       </Badge>
                     </TableCell>
                     <TableCell>
@@ -492,7 +499,7 @@ const StudentManagement: React.FC = () => {
                           className="bg-blue-50"
                           onClick={() => {
                             setSelectedStudent(student);
-                            const currentLevel = getStudentLevel(student.display_name || student.first_name);
+                            const currentLevel = getStudentLevel(student);
                             setSelectedLevel(String(currentLevel));
                             setIsLevelDialogOpen(true);
                           }}
@@ -575,7 +582,7 @@ const StudentManagement: React.FC = () => {
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
-                <Label>Niveau actuel : {selectedStudent && getLevelInfo(getStudentLevel(selectedStudent.display_name || selectedStudent.first_name)).name}</Label>
+                <Label>Niveau actuel : {selectedStudent && getLevelInfo(getStudentLevel(selectedStudent)).name}</Label>
                 <Select value={selectedLevel} onValueChange={setSelectedLevel}>
                   <SelectTrigger>
                     <SelectValue placeholder="Choisir un niveau" />
