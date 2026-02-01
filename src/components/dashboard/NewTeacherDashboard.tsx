@@ -16,7 +16,7 @@ import { useEvaluation } from '@/hooks/useEvaluation';
 import { supabase } from '@/integrations/supabase/client';
 import { worldQuestions } from '@/data/worldQuestions';
 import StudentManagement from './StudentManagement';
-import DataMigration from './DataMigration';
+// DataMigration removed - migration not needed with new auth system
 
 // Liste des élèves legacy à supprimer automatiquement
 const LEGACY_STUDENTS_TO_DELETE = ['jonas', 'jose', 'maitre', 'prof'];
@@ -647,7 +647,6 @@ const NewTeacherDashboard: React.FC<NewTeacherDashboardProps> = ({ isOpen, onClo
               {activeTab === 'management' && (
                 <div className="space-y-6">
                   <StudentManagement />
-                  <DataMigration />
                 </div>
               )}
             </div>
