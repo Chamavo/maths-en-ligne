@@ -18,22 +18,9 @@ const FractionInput: React.FC<FractionInputProps> = ({
   category = '',
   disabled = false,
 }) => {
-  // CRITICAL: Force WHITE background and DARK text for visibility on dark theme.
-  // The app uses a dark blue background, so theme tokens (--background/--foreground)
-  // may result in invisible text. We hardcode white/dark for exercise inputs.
-  const forcedInputStyle = useMemo(
-    () =>
-      ({
-        backgroundColor: '#ffffff',
-        color: '#1a1a2e',
-        caretColor: '#1a1a2e',
-        WebkitTextFillColor: '#1a1a2e',
-      }) as React.CSSProperties,
-    []
-  );
-
-  // Use explicit white bg class to override any inherited styles
-  const baseInputClass = "bg-white text-gray-900 placeholder:text-gray-400";
+  // High-contrast styling is handled via the `.exercise-input` utility class
+  // (defined in src/index.css) so inputs stay readable on the dark app theme.
+  const baseInputClass = "exercise-input";
 
   const focusInputClass =
     "border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary focus:outline-none";
@@ -222,7 +209,6 @@ const FractionInput: React.FC<FractionInputProps> = ({
           value={value}
           onChange={handleNumericChange}
           onKeyDown={handleKeyDown}
-          style={forcedInputStyle}
           className={`w-full text-center text-4xl font-bold px-4 py-4 ${baseInputClass} ${focusInputClass}`}
           placeholder="?"
           disabled={disabled}
@@ -237,7 +223,6 @@ const FractionInput: React.FC<FractionInputProps> = ({
             value={numerator}
             onChange={handleNumeratorChange}
             onKeyDown={handleKeyDown}
-            style={forcedInputStyle}
             className={`w-24 text-center text-3xl font-bold px-3 py-3 ${baseInputClass} ${focusInputClass}`}
             placeholder="?"
             disabled={disabled}
@@ -248,7 +233,6 @@ const FractionInput: React.FC<FractionInputProps> = ({
             value={denominator}
             onChange={handleDenominatorChange}
             onKeyDown={handleKeyDown}
-            style={forcedInputStyle}
             className={`w-24 text-center text-3xl font-bold px-3 py-3 ${baseInputClass} ${focusInputClass}`}
             placeholder="?"
             disabled={disabled}
@@ -266,7 +250,6 @@ const FractionInput: React.FC<FractionInputProps> = ({
             value={hours}
             onChange={handleHoursChange}
             onKeyDown={handleKeyDown}
-            style={forcedInputStyle}
             className={`w-20 text-center text-3xl font-bold px-3 py-3 ${baseInputClass} ${focusInputClass}`}
             placeholder="H"
             disabled={disabled}
@@ -279,7 +262,6 @@ const FractionInput: React.FC<FractionInputProps> = ({
             value={minutes}
             onChange={handleMinutesChange}
             onKeyDown={handleKeyDown}
-            style={forcedInputStyle}
             className={`w-20 text-center text-3xl font-bold px-3 py-3 ${baseInputClass} ${focusInputClass}`}
             placeholder="mm"
             disabled={disabled}

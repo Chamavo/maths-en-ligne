@@ -51,6 +51,11 @@
     --input: 220 40% 30%;
     --ring: 195 90% 55%;
 
+    /* Exercise inputs must stay high-contrast regardless of theme */
+    --exercise-input-bg: 0 0% 100%;
+    --exercise-input-fg: 222 47% 11%;
+    --exercise-input-placeholder: 220 10% 50%;
+
     --radius: 1.25rem;
 
     /* Custom vibrant colors for cards */
@@ -114,6 +119,11 @@
     --border: 220 40% 25%;
     --input: 220 40% 25%;
     --ring: 195 90% 55%;
+
+    /* Keep exercise inputs readable in dark mode as well */
+    --exercise-input-bg: 0 0% 100%;
+    --exercise-input-fg: 222 47% 11%;
+    --exercise-input-placeholder: 220 10% 50%;
 
     --sidebar-background: 220 55% 14%;
     --sidebar-foreground: 0 0% 95%;
@@ -242,6 +252,18 @@
   /* Icon container with white background */
   .icon-circle {
     @apply bg-white/90 rounded-full p-4 shadow-lg;
+  }
+
+  /* High-contrast exercise input styling (used by FractionInput and friends) */
+  .exercise-input {
+    background-color: hsl(var(--exercise-input-bg));
+    color: hsl(var(--exercise-input-fg));
+    caret-color: hsl(var(--exercise-input-fg));
+    -webkit-text-fill-color: hsl(var(--exercise-input-fg));
+  }
+
+  .exercise-input::placeholder {
+    color: hsl(var(--exercise-input-placeholder));
   }
 }
 
