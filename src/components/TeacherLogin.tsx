@@ -66,23 +66,15 @@ const TeacherLogin: React.FC<TeacherLoginProps> = ({ onLoginSuccess, onBack }) =
         }
 
         if (data.user) {
-          // Check if user has teacher role - using direct query instead of RPC to avoid migration issues
-          const { data: profileRaw, error: profileError } = await supabase
-            .from('profiles')
+          // Check if user has teacher role via user_roles table
+          const { data: roleData } = await supabase
+            .from('user_roles')
             .select('role')
-            .eq('id', data.user.id)
-            .single();
+            .eq('user_id', data.user.id)
+            .eq('role', 'teacher')
+            .maybeSingle();
 
-          const profile = profileRaw as any;
-          const hasRole = profile?.role === 'teacher';
-
-          // Fallback: check metadata if profile retrieval fails (sometimes triggers are slow)
-          const metadataRole = data.user.user_metadata?.role === 'teacher';
-
-          if (!hasRole && !metadataRole) {
-            // Only sign out if BOTH checks fail. 
-            // (If profile is missing but metadata is OK, we might want to let them in, 
-            // but usually profile is source of truth. Let's be lenient for this debugging session)
+          if (!roleData) {
             await supabase.auth.signOut();
             setError('Ce compte n\'a pas les droits enseignant');
             setIsLoading(false);
