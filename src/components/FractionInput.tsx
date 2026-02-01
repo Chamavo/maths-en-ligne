@@ -18,21 +18,22 @@ const FractionInput: React.FC<FractionInputProps> = ({
   category = '',
   disabled = false,
 }) => {
-  // Force explicit theme tokens for visibility in all contexts.
-  // We also set inline styles to override any accidental global CSS that could
-  // make the text invisible (notably on some mobile/Safari combinations).
+  // CRITICAL: Force WHITE background and DARK text for visibility on dark theme.
+  // The app uses a dark blue background, so theme tokens (--background/--foreground)
+  // may result in invisible text. We hardcode white/dark for exercise inputs.
   const forcedInputStyle = useMemo(
     () =>
       ({
-        backgroundColor: 'hsl(var(--background))',
-        color: 'hsl(var(--foreground))',
-        caretColor: 'hsl(var(--foreground))',
-        WebkitTextFillColor: 'hsl(var(--foreground))',
+        backgroundColor: '#ffffff',
+        color: '#1a1a2e',
+        caretColor: '#1a1a2e',
+        WebkitTextFillColor: '#1a1a2e',
       }) as React.CSSProperties,
     []
   );
 
-  const baseInputClass = "bg-background text-foreground placeholder:text-muted-foreground";
+  // Use explicit white bg class to override any inherited styles
+  const baseInputClass = "bg-white text-gray-900 placeholder:text-gray-400";
 
   const focusInputClass =
     "border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary focus:outline-none";
