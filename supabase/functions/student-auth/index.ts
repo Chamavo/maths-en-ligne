@@ -1,28 +1,10 @@
-
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-// Allowed origins
-const ALLOWED_ORIGINS = [
-  'https://cm2.lovable.app',
-  'https://id-preview--935b3045-ce82-4628-8f59-63cf32ae0be0.lovable.app',
-  'http://localhost:5173',
-  'http://localhost:5174',
-  'http://localhost:8080',
-];
-
-function getCorsHeaders(req: Request): Record<string, string> {
-  const origin = req.headers.get('origin') || '';
-  const isAllowed = ALLOWED_ORIGINS.includes(origin) ||
-    origin.endsWith('.lovable.app') ||
-    origin.endsWith('.lovableproject.com');
-  const allowedOrigin = isAllowed ? origin : ALLOWED_ORIGINS[0];
-  return {
-    'Access-Control-Allow-Origin': allowedOrigin,
-    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
-    'Access-Control-Allow-Credentials': 'true',
-  };
-}
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
+};
 
 // Generate consistent email from username/firstname
 function generateEmail(username: string): string {
@@ -31,7 +13,6 @@ function generateEmail(username: string): string {
 }
 
 serve(async (req) => {
-  const corsHeaders = getCorsHeaders(req);
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
   }
@@ -44,22 +25,22 @@ serve(async (req) => {
 
     const { action, ...params } = await req.json();
 
-    // Verify Teacher Role for protected administrative actions
-    // Helper to check if caller is teacher
-    const isTeacher = async (authHeader: string | null) => {
+    // Helper to check if caller is teacher using user_roles table
+    const isTeacher = async (authHeader: string | null): Promise<boolean> => {
       if (!authHeader) return false;
       const token = authHeader.replace('Bearer ', '');
       const { data: { user }, error } = await supabase.auth.getUser(token);
       if (error || !user) return false;
 
-      // Check profile role
-      const { data: profile } = await supabase
-        .from('profiles')
+      // Check role in user_roles table
+      const { data: roleData } = await supabase
+        .from('user_roles')
         .select('role')
-        .eq('id', user.id)
-        .single();
+        .eq('user_id', user.id)
+        .eq('role', 'teacher')
+        .maybeSingle();
 
-      return profile?.role === 'teacher';
+      return !!roleData;
     };
 
     switch (action) {
@@ -70,11 +51,11 @@ serve(async (req) => {
         }
 
         const { firstName, password, displayName } = params;
-        if (!firstName || !password) return new Response(JSON.stringify({ error: 'Données manquantes' }), { status: 400, headers: corsHeaders });
+        if (!firstName || !password) {
+          return new Response(JSON.stringify({ error: 'Données manquantes' }), { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+        }
 
         const email = generateEmail(firstName);
-
-        // Check availability (optional, Supabase will fail if email exists)
 
         // Create User in Supabase Auth
         const { data: user, error: createError } = await supabase.auth.admin.createUser({
@@ -93,7 +74,14 @@ serve(async (req) => {
           return new Response(JSON.stringify({ error: createError.message }), { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
         }
 
-        // Return the student data
+        // Add student role to user_roles table
+        if (user.user) {
+          await supabase.from('user_roles').insert({
+            user_id: user.user.id,
+            role: 'student'
+          });
+        }
+
         return new Response(JSON.stringify({ success: true, student: user.user }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
       }
 
@@ -103,26 +91,44 @@ serve(async (req) => {
           return new Response(JSON.stringify({ error: 'Non autorisé' }), { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
         }
 
-        // Fetch profiles + progression
-        // Supabase-js doesn't support complex joins easily on auth.users, but we have 'profiles' now!
-        const { data: students, error } = await supabase
-          .from('profiles')
-          .select(`
-            *,
-            student_progression (
-              current_level,
-              status,
-              consecutive_failures
-            )
-          `)
-          .eq('role', 'student')
-          .order('first_name');
+        // Fetch students from user_roles joined with profiles
+        const { data: studentRoles, error: rolesError } = await supabase
+          .from('user_roles')
+          .select('user_id')
+          .eq('role', 'student');
 
-        if (error) {
-          return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+        if (rolesError) {
+          console.error("Fetch roles error", rolesError);
+          return new Response(JSON.stringify({ error: rolesError.message }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
         }
 
-        // Map to expected format if needed
+        if (!studentRoles || studentRoles.length === 0) {
+          return new Response(JSON.stringify({ students: [] }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+        }
+
+        const studentUserIds = studentRoles.map(r => r.user_id);
+
+        // Fetch profiles for these students
+        const { data: profiles, error: profilesError } = await supabase
+          .from('profiles')
+          .select('*')
+          .in('user_id', studentUserIds)
+          .order('display_name');
+
+        if (profilesError) {
+          console.error("Fetch profiles error", profilesError);
+          return new Response(JSON.stringify({ error: profilesError.message }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+        }
+
+        // Map to expected format
+        const students = (profiles || []).map(p => ({
+          id: p.user_id,
+          firstName: p.display_name?.split(' ')[0] || p.display_name,
+          displayName: p.display_name,
+          isActive: true, // We don't track this in profiles currently
+          createdAt: p.created_at
+        }));
+
         return new Response(JSON.stringify({ students }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
       }
 
@@ -137,7 +143,9 @@ serve(async (req) => {
           password: newPassword
         });
 
-        if (error) return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+        if (error) {
+          return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+        }
         return new Response(JSON.stringify({ success: true }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
       }
 
@@ -148,19 +156,14 @@ serve(async (req) => {
         }
 
         const { studentId, isActive } = params;
-        const { error } = await supabase
-          .from('profiles')
-          .update({ is_active: isActive })
-          .eq('id', studentId);
-
-        // Also ban/unban in Auth?
+        
+        // Ban/unban in Auth
         if (isActive) {
           await supabase.auth.admin.updateUserById(studentId, { ban_duration: 'none' });
         } else {
           await supabase.auth.admin.updateUserById(studentId, { ban_duration: '876000h' }); // 100 years
         }
 
-        if (error) return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
         return new Response(JSON.stringify({ success: true }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
       }
 
@@ -169,6 +172,7 @@ serve(async (req) => {
     }
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Unknown error';
+    console.error("Edge function error:", message);
     return new Response(JSON.stringify({ error: message }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
   }
 });
