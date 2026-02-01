@@ -8,18 +8,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { 
   StudentProgress, 
-  getAllStudentsProgress, 
   resetStudentProgress,
-  deleteStudent,
 } from '@/types/studentProgress';
 import { useEvaluation } from '@/hooks/useEvaluation';
 import { supabase } from '@/integrations/supabase/client';
 import { worldQuestions } from '@/data/worldQuestions';
 import StudentManagement from './StudentManagement';
 // DataMigration removed - migration not needed with new auth system
-
-// Liste des élèves legacy à supprimer automatiquement
-const LEGACY_STUDENTS_TO_DELETE = ['jonas', 'jose', 'maitre', 'prof'];
 
 interface NewTeacherDashboardProps {
   isOpen: boolean;
@@ -61,11 +56,6 @@ const NewTeacherDashboard: React.FC<NewTeacherDashboardProps> = ({ isOpen, onClo
 
   useEffect(() => {
     if (isOpen) {
-      // Nettoyer automatiquement les élèves legacy obsolètes
-      LEGACY_STUDENTS_TO_DELETE.forEach(name => {
-        deleteStudent(name);
-      });
-      
       setIsLoading(true);
       Promise.all([
         loadStudents(),
@@ -88,14 +78,14 @@ const NewTeacherDashboard: React.FC<NewTeacherDashboardProps> = ({ isOpen, onClo
       console.error('Error fetching Supabase students:', e);
     }
 
-    // 2. Créer un set des noms d'élèves Supabase pour éviter les doublons
-    const supabaseNames = new Set(
-      supabaseStudents.map(s => (s.display_name || s.first_name).toLowerCase())
-    );
+    // 2. Construire la liste unifiée à partir de Supabase
+    // NB: l'endpoint renvoie du camelCase (displayName/firstName/createdAt...),
+    // mais on tolère le snake_case pour compat.
+    const allStudents: StudentProgress[] = supabaseStudents
+      .map((s) => {
+        const studentName = (s.displayName || s.display_name || s.firstName || s.first_name || '').trim();
+        if (!studentName) return null;
 
-    // 3. Construire la liste unifiée à partir de Supabase
-    const allStudents: StudentProgress[] = supabaseStudents.map(s => {
-      const studentName = s.display_name || s.first_name;
       const key = `studentProgress_${studentName.toLowerCase()}`;
       const localData = localStorage.getItem(key);
       
@@ -106,7 +96,7 @@ const NewTeacherDashboard: React.FC<NewTeacherDashboardProps> = ({ isOpen, onClo
             username: studentName,
             currentLevel: progress.currentLevel || 1,
             totalAttempts: progress.totalAttempts || 0,
-            lastActivity: progress.lastActivity || s.last_login_at || '',
+            lastActivity: progress.lastActivity || s.lastLoginAt || s.last_login_at || '',
             attempts: progress.attempts || [],
             errorStats: progress.errorStats || {
               fraction: 0, addition: 0, soustraction: 0, multiplication: 0,
@@ -124,7 +114,7 @@ const NewTeacherDashboard: React.FC<NewTeacherDashboardProps> = ({ isOpen, onClo
         username: studentName,
         currentLevel: 1,
         totalAttempts: 0,
-        lastActivity: s.last_login_at || '',
+        lastActivity: s.lastLoginAt || s.last_login_at || '',
         attempts: [],
         errorStats: {
           fraction: 0, addition: 0, soustraction: 0, multiplication: 0,
@@ -132,15 +122,8 @@ const NewTeacherDashboard: React.FC<NewTeacherDashboardProps> = ({ isOpen, onClo
           vitesse: 0, partage: 0, temps: 0, autre: 0
         }
       };
-    });
-
-    // 4. Ajouter les élèves localStorage qui ne sont PAS dans Supabase (données legacy)
-    const localStudents = getAllStudentsProgress();
-    for (const localStudent of localStudents) {
-      if (!supabaseNames.has(localStudent.username.toLowerCase())) {
-        allStudents.push(localStudent);
-      }
-    }
+      })
+      .filter(Boolean) as StudentProgress[];
     
     setStudents(allStudents.sort((a, b) => a.username.localeCompare(b.username)));
   };
