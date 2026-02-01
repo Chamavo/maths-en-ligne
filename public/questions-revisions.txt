@@ -1,0 +1,938 @@
+===================================================================================
+                    QUESTIONS DU MODULE "RÉVISIONS" - 6 CATÉGORIES
+                    Plateforme Maths en ligne CM2
+                    50 questions par catégorie (300 questions au total)
+===================================================================================
+
+Ce fichier contient toutes les questions des 6 catégories de révisions.
+Vous pouvez les corriger et me les renvoyer avec vos modifications.
+
+===================================================================================
+                    CATÉGORIE 1 : NUMÉRATION (50 questions)
+===================================================================================
+
+1.  Écris en chiffres : Deux millions cinq cent huit mille onze.
+    → Réponse : 2508011
+
+2.  Écris en lettres le nombre : 5 214 807.
+    → Réponse : Cinq millions deux cent quatorze mille huit cent sept
+    (QCM)
+
+3.  Écris en chiffres : cinq millions trois cent trente-sept mille vingt.
+    → Réponse : 5337020
+
+4.  Écris en chiffres : cinq unités quatre millièmes.
+    → Réponse : 5,004
+
+5.  Écris en chiffres : cinq millions trois cent trente-sept mille quatre cents.
+    → Réponse : 5337400
+
+6.  Écris en chiffres : cinq millions trois cent trente-sept mille quatre-vingt-cinq.
+    → Réponse : 5337085
+
+7.  Combien y a-t-il de dizaines dans 326,15 ?
+    → Réponse : 32
+
+8.  Dans 4376, combien y a-t-il de centaines ?
+    → Réponse : 43
+
+9.  Parmi ces nombres, lequel est divisible par 9 : 7341, 4500, 653, 9291 ?
+    → Réponse : 7341 et 9291 (QCM)
+
+10. Parmi ces nombres, lesquels sont divisibles par 3 ET par 5 : 325, 402, 600, 702, 1230 ?
+    → Réponse : 600 et 1230 (QCM)
+
+11. Arrondis 24,74 au dixième près.
+    → Réponse : 24,7
+
+12. Arrondis 24,657 au centième près.
+    → Réponse : 24,66
+
+13. Arrondis 24,6554 au millième près.
+    → Réponse : 24,655
+
+14. Range du plus petit au plus grand : 1 ; 3/4 ; 0,5 ; 1,2
+    → Réponse : 0,5 ; 3/4 ; 1 ; 1,2 (Glisser-déposer)
+
+15. Écris en lettres : 5 337 400.
+    → Réponse : Cinq millions trois cent trente-sept mille quatre cents (QCM)
+
+16. Écris en lettres : 5 337 085.
+    → Réponse : Cinq millions trois cent trente-sept mille quatre-vingt-cinq (QCM)
+
+17. Écris en chiffres : sept millions deux cent cinquante mille cent vingt-trois.
+    → Réponse : 7250123
+
+18. Décompose 45 678 : combien de dizaines de mille ?
+    → Réponse : 4
+
+19. Dans le nombre 87 345, combien y a-t-il d'unités de mille ?
+    → Réponse : 87
+
+20. Range dans l'ordre décroissant : 12,5 ; 12,05 ; 12,55 ; 12,505
+    → Réponse : 12,55 ; 12,505 ; 12,5 ; 12,05 (Glisser-déposer)
+
+21. Écris en chiffres : trois milliards cent millions.
+    → Réponse : 3100000000
+
+22. Combien y a-t-il de chiffres dans le nombre un million ?
+    → Réponse : 7
+
+23. Quel est le successeur de 999 999 ?
+    → Réponse : 1000000
+
+24. Quel est le prédécesseur de 1 000 000 ?
+    → Réponse : 999999
+
+25. Écris sous forme décimale : 5 unités et 7 centièmes.
+    → Réponse : 5,07
+
+26. Dans 45,678, quelle est la partie entière ?
+    → Réponse : 45
+
+27. Dans 345 678, quelle est la valeur du chiffre 5 ?
+    → Réponse : 5000
+
+28. Combien y a-t-il de dixièmes dans 3,4 ?
+    → Réponse : 34
+
+29. Combien y a-t-il de centièmes dans 2,37 ?
+    → Réponse : 237
+
+30. Écris 2024 en chiffres romains.
+    → Réponse : MMXXIV (QCM)
+
+31. Que vaut MCMXC en chiffres arabes ?
+    → Réponse : 1990
+
+32. Encadre 45,7 à l'unité près. Quel est l'entier inférieur ?
+    → Réponse : 45
+
+33. Encadre 3,456 au dixième près. Quel est le dixième inférieur ?
+    → Réponse : 3,4
+
+34. Quel est le double de 4 567 ?
+    → Réponse : 9134
+
+35. Quelle est la moitié de 8 426 ?
+    → Réponse : 4213
+
+36. Quel est le plus grand : 3,45 ou 3,405 ?
+    → Réponse : 3,45 (QCM)
+
+37. Écris 45 000 sous forme de produit avec une puissance de 10.
+    → Réponse : 45 × 1000 ou 4,5 × 10000 (QCM)
+
+38. Parmi 345, 678, 891, 1234, lesquels sont divisibles par 2 ?
+    → Réponse : 678 et 1234 (QCM)
+
+39. Parmi 125, 234, 560, 789, lesquels sont divisibles par 5 ?
+    → Réponse : 125 et 560 (QCM)
+
+40. Le nombre 4 567 est-il pair ou impair ?
+    → Réponse : Impair (QCM)
+
+41. Quelle est la somme des chiffres du nombre 4 589 ?
+    → Réponse : 26
+
+42. Écris 5 678 sous forme développée : 5000 + ? + 70 + 8. Quel nombre manque ?
+    → Réponse : 600
+
+43. Donne une valeur approchée à la dizaine près de 4 567.
+    → Réponse : 4570
+
+44. Avec les chiffres 3, 7, 1, 5, forme le plus petit nombre possible.
+    → Réponse : 1357
+
+45. Avec les chiffres 3, 7, 1, 5, forme le plus grand nombre possible.
+    → Réponse : 7531
+
+46. Trouve un nombre décimal compris entre 5,6 et 5,7.
+    → Réponse : 5,65 (QCM)
+
+47. Écris 25/100 sous forme décimale.
+    → Réponse : 0,25
+
+48. Combien y a-t-il de millièmes dans 0,456 ?
+    → Réponse : 456
+
+49. Simplifie l'écriture : 007,500. Quel nombre obtiens-tu ?
+    → Réponse : 7,5
+
+50. Je suis un nombre de 4 chiffres. Milliers = 3, Centaines = double de 3, Dizaines = 0, Unités = moitié de 3. Qui suis-je ?
+    → Réponse : 3601
+
+===================================================================================
+                    CATÉGORIE 2 : OPÉRATIONS (50 questions)
+===================================================================================
+
+51. Calcule : 123 × 11
+    → Réponse : 1353
+
+52. Calcule : 42 × 11
+    → Réponse : 462
+
+53. Calcule : 3,5 × 1,1
+    → Réponse : 3,85
+
+54. Calcule : 124 × 0,76
+    → Réponse : 94,24
+
+55. Calcule : 248 × 0,5
+    → Réponse : 124
+
+56. Calcule : 0,23 ÷ 0,01
+    → Réponse : 23
+
+57. Calcule : 0,0537 ÷ 0,0001
+    → Réponse : 537
+
+58. Calcule : 72,75 ÷ 2,5
+    → Réponse : 29,1
+
+59. Calcule : 6 ÷ 0,125
+    → Réponse : 48
+
+60. Calcule : 66 × 1,5
+    → Réponse : 99
+
+61. Calcule : 320 × 2,25
+    → Réponse : 720
+
+62. Calcule : 23,74 × 10
+    → Réponse : 237,4
+
+63. Calcule : 44,799 ÷ 1000
+    → Réponse : 0,044799
+
+64. Calcule : 282,6 ÷ 3,14
+    → Réponse : 90
+
+65. Calcule l'aire : 22 mètres × 0,5 mètre = ? m²
+    → Réponse : 11
+
+66. Calcule : 4 567 + 3 894
+    → Réponse : 8461
+
+67. Calcule : 10 000 − 4 567
+    → Réponse : 5433
+
+68. Calcule : 456 × 234
+    → Réponse : 106704
+
+69. Effectue la division : 4 567 ÷ 12. Quel est le quotient entier ?
+    → Réponse : 380
+
+70. Complète : 345 + … = 1000. Quel est le nombre manquant ?
+    → Réponse : 655
+
+71. Complète : … × 8 = 456. Quel est le nombre manquant ?
+    → Réponse : 57
+
+72. Calcule : 12,5 + 7,89 + 3,456
+    → Réponse : 23,846
+
+73. Calcule : 45,67 − 23,89
+    → Réponse : 21,78
+
+74. Calcule : 12 × 5 × 8
+    → Réponse : 480
+
+75. Calcule : 5 + 3 × 4
+    → Réponse : 17
+
+76. Calcule : (5 + 3) × 4
+    → Réponse : 32
+
+77. Calcule : 20 − 4 × 3 + 2
+    → Réponse : 10
+
+78. Calcule le carré de 12.
+    → Réponse : 144
+
+79. Calcule le cube de 5.
+    → Réponse : 125
+
+80. Calcule la somme de 456 et 789.
+    → Réponse : 1245
+
+81. Le double du tiers de 630 = ?
+    → Réponse : 420
+
+82. Le quadruple de la moitié de 80 = ?
+    → Réponse : 160
+
+83. Calcule : 678 × 9
+    → Réponse : 6102
+
+84. Calcule : 56 × 99
+    → Réponse : 5544
+
+85. Calcule : 2 500 ÷ 25
+    → Réponse : 100
+
+86. Calcule mentalement : 47 + 38
+    → Réponse : 85
+
+87. Calcule mentalement : 83 − 27
+    → Réponse : 56
+
+88. Calcule mentalement : 25 × 4
+    → Réponse : 100
+
+89. Calcule : 0,5 × 0,4
+    → Réponse : 0,2
+
+90. Calcule : 3,6 ÷ 0,4
+    → Réponse : 9
+
+91. Calcule : 3 h 45 min + 5 h 27 min
+    → Réponse : 9h12
+
+92. Calcule : 10 h 45 min − 8 h 50 min
+    → Réponse : 1h55
+
+93. Donne un ordre de grandeur du produit : 487 × 52
+    → Réponse : 25 000 (QCM)
+
+94. Vérifie : 145 = 12 × 12 + 1. Est-ce correct ?
+    → Réponse : Oui (QCM)
+
+95. Quel nombre faut-il ajouter à 67 pour obtenir 100 ?
+    → Réponse : 33
+
+96. Quel nombre faut-il ajouter à 456 pour obtenir 1000 ?
+    → Réponse : 544
+
+97. Calcule : 100 − (25 + 15)
+    → Réponse : 60
+
+98. Calcule : 8 × 7 − 6 × 5 + 4 × 3
+    → Réponse : 38
+
+99. Calcule : 1000 ÷ 8
+    → Réponse : 125
+
+100. Calcule : 7,5 × 4
+     → Réponse : 30
+
+===================================================================================
+                    CATÉGORIE 3 : FRACTIONS ET POURCENTAGES (50 questions)
+===================================================================================
+
+101. Calcule : 5/4 de 48
+     → Réponse : 60
+
+102. Trouve le numérateur : 17,21 = ?/100
+     → Réponse : 1721
+
+103. Range dans l'ordre croissant : 3/5 ; 5/3 ; 2/3 ; 6/4
+     → Réponse : 3/5 ; 2/3 ; 6/4 ; 5/3 (Glisser-déposer)
+
+104. Ordonne de manière croissante : 2/19 ; 2/21 ; 2/7 ; 2/14 ; 2/3
+     → Réponse : 2/21 ; 2/19 ; 2/14 ; 2/7 ; 2/3 (Glisser-déposer)
+
+105. Écris 1,08 sous forme de fraction décimale.
+     → Réponse : 108/100 (QCM)
+
+106. Écris 1,7 sous forme de fraction décimale.
+     → Réponse : 17/10 (QCM)
+
+107. Écris 0,9 sous forme de fraction décimale.
+     → Réponse : 9/10 (QCM)
+
+108. Écris 1/8 sous forme décimale.
+     → Réponse : 0,125
+
+109. Écris 75% sous forme décimale.
+     → Réponse : 0,75
+
+110. Écris en fraction : sept dixièmes.
+     → Réponse : 7/10 (QCM)
+
+111. Calcule et simplifie : 12/18 + 1/6 − 1/9
+     → Réponse : 13/18 (QCM)
+
+112. Combien gagnes-tu pour un achat de 12 500 F avec une réduction de 8% ?
+     → Réponse : 1000 F
+
+113. 25% de 25 000 FCFA = ?
+     → Réponse : 6250
+
+114. 800 candidats au CEP, 700 réussissent. Pourcentage de réussite ?
+     → Réponse : 87,5%
+
+115. Quel est le taux annuel si 4 000 F rapporte 120 F par an ?
+     → Réponse : 3%
+
+116. Un intérêt de 80 F sur un capital de 1 000 F. Quel taux ?
+     → Réponse : 8%
+
+117. Un article passe de 80 F à 100 F. L'augmentation est-elle de 20% ?
+     → Réponse : Non, c'est 25% (QCM)
+
+118. Après une hausse de 10%, un article coûte 495 F. Prix initial ?
+     → Réponse : 450
+
+119. 3 L pour 2 personnes. Combien pour 10 personnes ?
+     → Réponse : 15 L
+
+120. Recette : 2 kg sucre pour 3 kg pommes. Combien de pommes pour 3 kg sucre ?
+     → Réponse : 4,5 kg
+
+121. Marcel reçoit 3/8 d'un gâteau. Quelle fraction reste pour les autres ?
+     → Réponse : 5/8 (QCM)
+
+122. Réservoir 500 L rempli aux 3/5. On retire 120 L. Combien reste-t-il ?
+     → Réponse : 180 L
+
+123. Un bidon plein aux 2/3 contient 10 L. Combien pour le remplir ?
+     → Réponse : 5 L
+
+124. Ali dépense 650 F, soit 2/3 de son argent. Combien avait-il ?
+     → Réponse : 975 F
+
+125. 14 filles = 25% de la classe. Combien de garçons ?
+     → Réponse : 42
+
+126. Classe de 32 élèves, 3/8 sont des filles. Combien de filles ?
+     → Réponse : 12
+
+127. Simplifie la fraction 18/24.
+     → Réponse : 3/4 (QCM)
+
+128. Trouve une fraction équivalente à 3/4 avec dénominateur 20.
+     → Réponse : 15/20 (QCM)
+
+129. Quelle fraction est la plus grande : 2/3 ou 3/5 ?
+     → Réponse : 2/3 (QCM)
+
+130. Calcule : 1/4 + 1/6
+     → Réponse : 5/12 (QCM)
+
+131. Calcule : 5/6 − 1/3
+     → Réponse : 1/2 (QCM)
+
+132. Calcule : 2/3 × 3/4
+     → Réponse : 1/2 (QCM)
+
+133. Calcule : 3/4 ÷ 1/2
+     → Réponse : 3/2 (QCM)
+
+134. Calcule 1/2 de 2/3.
+     → Réponse : 1/3 (QCM)
+
+135. Exprime 40% sous forme de fraction simplifiée.
+     → Réponse : 2/5 (QCM)
+
+136. Exprime 3/5 sous forme de pourcentage.
+     → Réponse : 60%
+
+137. Un prix passe de 500 F à 600 F. Pourcentage d'augmentation ?
+     → Réponse : 20%
+
+138. Un article soldé à 60 F après une réduction de 40%. Prix initial ?
+     → Réponse : 100 F
+
+139. Calcule 15% de 800 F.
+     → Réponse : 120 F
+
+140. Après réduction de 20%, un article coûte 400 F. Prix initial ?
+     → Réponse : 500 F
+
+141. Article à 1 000 F HT avec TVA de 18%. Prix TTC ?
+     → Réponse : 1180 F
+
+142. 5 kg coûtent 2 500 F. Combien coûtent 8 kg ?
+     → Réponse : 4000 F
+
+143. 12 ouvriers font un travail en 15 jours. Combien de jours pour 20 ouvriers ?
+     → Réponse : 9 jours
+
+144. Voiture : 240 km en 3 h. Distance en 5 h à même vitesse ?
+     → Réponse : 400 km
+
+145. Échelle 1/100, bâtiment mesure 15 cm sur plan. Taille réelle en mètres ?
+     → Réponse : 15 m
+
+146. Partage 360 F proportionnellement à 2, 3, 4. Part pour le nombre 3 ?
+     → Réponse : 120 F
+
+147. Réduis 45/60 à sa forme irréductible.
+     → Réponse : 3/4 (QCM)
+
+148. Écris 0,375 sous forme de fraction simplifiée.
+     → Réponse : 3/8 (QCM)
+
+149. École de 500 élèves, 120 en CM2. Quel pourcentage ?
+     → Réponse : 24%
+
+150. Les 3/4 d'un nombre valent 60. Quel est ce nombre ?
+     → Réponse : 80
+
+===================================================================================
+                    CATÉGORIE 4 : GRANDEURS ET MESURES (50 questions)
+===================================================================================
+
+151. 15 jours = combien d'heures ?
+     → Réponse : 360
+
+152. 2,5 décennies = combien d'années ?
+     → Réponse : 25
+
+153. 2,5 décalitres = combien de dm³ ?
+     → Réponse : 25
+
+154. 1 hectare = combien de centiares ?
+     → Réponse : 10000
+
+155. 1 centiare = combien de m² ?
+     → Réponse : 1
+
+156. 1 hectare = combien de m² ?
+     → Réponse : 10000
+
+157. 1 ha 2 a 45 ca = combien de m² ?
+     → Réponse : 10245
+
+158. 1 hectare = combien d'ares ?
+     → Réponse : 100
+
+159. 1 are = combien de dam² ?
+     → Réponse : 1
+
+160. 2 hectolitres = combien de litres ?
+     → Réponse : 200
+
+161. 2,5 hectolitres = combien de dm³ ?
+     → Réponse : 250
+
+162. Combien de litres d'eau pèsent 13,5 kg ?
+     → Réponse : 13,5 L
+
+163. Camion vide : 1,5 t. Chargement : 1500 kg. Masse totale en kg ?
+     → Réponse : 3000
+
+164. 72 crayons de 11 g chacun. Poids total en grammes ?
+     → Réponse : 792
+
+165. 1/4 heure = combien de minutes ?
+     → Réponse : 15
+
+166. 3,5 kg = combien de grammes ?
+     → Réponse : 3500
+
+167. 4 500 g = combien de kg ?
+     → Réponse : 4,5
+
+168. 5,6 L = combien de cL ?
+     → Réponse : 560
+
+169. 250 cL = combien de L ?
+     → Réponse : 2,5
+
+170. 4,8 m = combien de cm ?
+     → Réponse : 480
+
+171. 345 cm = combien de m ?
+     → Réponse : 3,45
+
+172. 2,5 km = combien de m ?
+     → Réponse : 2500
+
+173. 3 450 m = combien de km ?
+     → Réponse : 3,45
+
+174. 2,5 heures = combien de minutes ?
+     → Réponse : 150
+
+175. 150 minutes = combien d'heures ?
+     → Réponse : 2,5
+
+176. 5 minutes = combien de secondes ?
+     → Réponse : 300
+
+177. 240 secondes = combien de minutes ?
+     → Réponse : 4
+
+178. 2 m² = combien de cm² ?
+     → Réponse : 20000
+
+179. 50 000 cm² = combien de m² ?
+     → Réponse : 5
+
+180. 2,5 m³ = combien de litres ?
+     → Réponse : 2500
+
+181. 500 L = combien de m³ ?
+     → Réponse : 0,5
+
+182. 3,5 daL = combien de L ?
+     → Réponse : 35
+
+183. 45 mm = combien de cm ?
+     → Réponse : 4,5
+
+184. 78 dm = combien de m ?
+     → Réponse : 7,8
+
+185. 0,5 hm = combien de m ?
+     → Réponse : 50
+
+186. 12 dag = combien de g ?
+     → Réponse : 120
+
+187. 2 500 mg = combien de g ?
+     → Réponse : 2,5
+
+188. 3,4 tonnes = combien de kg ?
+     → Réponse : 3400
+
+189. 5 600 kg = combien de tonnes ?
+     → Réponse : 5,6
+
+190. 4 hL = combien de daL ?
+     → Réponse : 40
+
+191. Carré de périmètre 4 m. Périmètre en cm ?
+     → Réponse : 400
+
+192. Rectangle d'aire 2 m². Aire en dm² ?
+     → Réponse : 200
+
+193. Cube de volume 1 dm³. Volume en cm³ ?
+     → Réponse : 1000
+
+194. Masse de 5 litres d'eau en kg ?
+     → Réponse : 5
+
+195. Combien de jours dans 3 semaines ?
+     → Réponse : 21
+
+196. 56 jours = combien de semaines ?
+     → Réponse : 8
+
+197. 2 ans = combien de mois ?
+     → Réponse : 24
+
+198. 36 mois = combien d'années ?
+     → Réponse : 3
+
+199. 10% de 3 600 F = ?
+     → Réponse : 360
+
+200. 1 hectare = combien de hm² ?
+     → Réponse : 0,01
+
+===================================================================================
+                    CATÉGORIE 5 : GÉOMÉTRIE (50 questions)
+===================================================================================
+
+201. Un triangle ayant 3 côtés égaux est un...
+     → Réponse : Triangle équilatéral (QCM)
+
+202. La longueur de la circonférence d'un cercle est aussi appelée...
+     → Réponse : Périmètre (QCM)
+
+203. La somme des angles d'un triangle est égale à...
+     → Réponse : 180° (QCM)
+
+204. Triangle rectangle avec un angle de 40°. Mesure du 3ème angle ?
+     → Réponse : 50°
+
+205. 120° + ? = 180°
+     → Réponse : 60°
+
+206. Quadrilatère : 4 côtés égaux, diagonales perpendiculaires, pas d'angles droits. Qui suis-je ?
+     → Réponse : Losange (QCM)
+
+207. Deux droites parallèles ne se croisent jamais. Vrai ou Faux ?
+     → Réponse : Vrai (QCM)
+
+208. Aire d'un triangle de base 12 m et hauteur 6 m ?
+     → Réponse : 36 m²
+
+209. Terrain triangulaire : base 12 m, hauteur 15 m. Aire ?
+     → Réponse : 90 m²
+
+210. Carré de 225 m². Côté ?
+     → Réponse : 15 m
+
+211. Carré de périmètre 24 m. Aire ?
+     → Réponse : 36 m²
+
+212. Rectangle : longueur 57 m, largeur 11 m. Surface ?
+     → Réponse : 627 m²
+
+213. Rectangle : périmètre 28 m, longueur 8 m. Surface ?
+     → Réponse : 48 m²
+
+214. Cercle de périmètre 314 m. Rayon ? (π ≈ 3,14)
+     → Réponse : 50 m
+
+215. Cylindre : diamètre 2 m, hauteur 1 m. Volume en m³ ? (π ≈ 3,14)
+     → Réponse : 3,14 m³
+
+216. Périmètre d'un carré de 15 cm de côté ?
+     → Réponse : 60 cm
+
+217. Périmètre d'un rectangle : 12 cm × 8 cm ?
+     → Réponse : 40 cm
+
+218. Aire d'un carré de 9 cm de côté ?
+     → Réponse : 81 cm²
+
+219. Aire d'un rectangle : 15 cm × 6 cm ?
+     → Réponse : 90 cm²
+
+220. Circonférence d'un cercle de rayon 5 cm ? (π ≈ 3,14)
+     → Réponse : 31,4 cm
+
+221. Aire d'un cercle de rayon 4 cm ? (π ≈ 3,14)
+     → Réponse : 50,24 cm²
+
+222. Cercle de rayon 7 cm. Diamètre ?
+     → Réponse : 14 cm
+
+223. Cercle de diamètre 18 cm. Rayon ?
+     → Réponse : 9 cm
+
+224. Volume d'un cube de côté 5 cm ?
+     → Réponse : 125 cm³
+
+225. Volume d'un parallélépipède 4 cm × 3 cm × 2 cm ?
+     → Réponse : 24 cm³
+
+226. Aire latérale d'un cube de côté 6 cm ?
+     → Réponse : 144 cm²
+
+227. Périmètre d'un losange de côté 8 cm ?
+     → Réponse : 32 cm
+
+228. Aire d'un losange : diagonales 10 cm et 6 cm ?
+     → Réponse : 30 cm²
+
+229. Aire d'un trapèze : bases 10 cm et 6 cm, hauteur 4 cm ?
+     → Réponse : 32 cm²
+
+230. Combien de faces a un cube ?
+     → Réponse : 6 (QCM)
+
+231. Combien d'arêtes a un cube ?
+     → Réponse : 12 (QCM)
+
+232. Combien de sommets a un cube ?
+     → Réponse : 8 (QCM)
+
+233. Combien de faces a un parallélépipède rectangle ?
+     → Réponse : 6 (QCM)
+
+234. Un angle de 90° est appelé...
+     → Réponse : Angle droit (QCM)
+
+235. Un angle de moins de 90° est appelé...
+     → Réponse : Angle aigu (QCM)
+
+236. Un angle de plus de 90° mais moins de 180° est appelé...
+     → Réponse : Angle obtus (QCM)
+
+237. Un angle de 180° est appelé...
+     → Réponse : Angle plat (QCM)
+
+238. Somme des angles d'un quadrilatère ?
+     → Réponse : 360°
+
+239. Somme des angles d'un pentagone (5 côtés) ?
+     → Réponse : 540°
+
+240. Somme des angles d'un hexagone (6 côtés) ?
+     → Réponse : 720°
+
+241. Triangle isocèle avec angle au sommet de 40°. Angles à la base ?
+     → Réponse : 70°
+
+242. Triangle équilatéral. Chaque angle mesure ?
+     → Réponse : 60°
+
+243. Rectangle : L = 15 cm, l = 8 cm. Diagonale ? (environ)
+     → Réponse : 17 cm
+
+244. Carré de côté 10 cm. Diagonale ? (environ)
+     → Réponse : 14,14 cm
+
+245. Deux angles complémentaires dont l'un mesure 35°. L'autre ?
+     → Réponse : 55°
+
+246. Deux angles supplémentaires dont l'un mesure 120°. L'autre ?
+     → Réponse : 60°
+
+247. Rayon de 7 cm. Aire du disque ? (π ≈ 3,14)
+     → Réponse : 153,86 cm²
+
+248. Disque d'aire 78,5 cm². Rayon ? (π ≈ 3,14)
+     → Réponse : 5 cm
+
+249. Cube d'arête 8 cm. Volume ?
+     → Réponse : 512 cm³
+
+250. Cube de volume 27 cm³. Arête ?
+     → Réponse : 3 cm
+
+===================================================================================
+                    CATÉGORIE 6 : PROBLÈMES (50 questions)
+===================================================================================
+
+251. Un commerçant achète 50 cahiers à 300 F. Il les revend à 450 F. Bénéfice total ?
+     → Réponse : 7500 F
+
+252. Papa parcourt 45 km en voiture puis 12 km à pied. Distance totale ?
+     → Réponse : 57 km
+
+253. Un car transporte 48 élèves. 15 descendent. Combien restent ?
+     → Réponse : 33
+
+254. Maman achète 3 kg de riz à 500 F/kg et 2 kg de sucre à 600 F/kg. Total ?
+     → Réponse : 2700 F
+
+255. Un rectangle a L = 12 m et l = 8 m. Quel est son périmètre ?
+     → Réponse : 40 m
+
+256. Jardin carré de 15 m de côté. Quelle est son aire ?
+     → Réponse : 225 m²
+
+257. Un train part à 8h30 et arrive à 11h15. Durée du trajet ?
+     → Réponse : 2h45
+
+258. Livre de 156 pages. J'en lis 48. Combien reste-t-il ?
+     → Réponse : 108 pages
+
+259. Cycliste 45 km en 3h. Vitesse moyenne ?
+     → Réponse : 15 km/h
+
+260. Voiture à 80 km/h pendant 2h30. Distance parcourue ?
+     → Réponse : 200 km
+
+261. Prix d'un article : 2500 F. Remise de 10%. Prix à payer ?
+     → Réponse : 2250 F
+
+262. Capital de 50000 F placé à 5% pendant 1 an. Intérêt ?
+     → Réponse : 2500 F
+
+263. Classe de 40 élèves : 60% de filles. Combien de garçons ?
+     → Réponse : 16
+
+264. Réservoir de 60 L rempli aux 3/4. Quantité d'eau ?
+     → Réponse : 45 L
+
+265. Terrain de 250 m². Prix à 1200 F/m². Coût total ?
+     → Réponse : 300000 F
+
+266. 5 ouvriers font un travail en 12 jours. Combien de jours pour 10 ouvriers ?
+     → Réponse : 6 jours
+
+267. Échelle 1/500. Distance sur plan = 8 cm. Distance réelle ?
+     → Réponse : 40 m
+
+268. Partage de 840 F entre 3 enfants proportionnellement à 2, 3, 5. Part du 2ème ?
+     → Réponse : 252 F
+
+269. Article vendu 1500 F avec bénéfice de 20%. Prix d'achat ?
+     → Réponse : 1250 F
+
+270. Volume d'une piscine : 8m × 4m × 1,5m = ?
+     → Réponse : 48 m³
+
+271. Un fermier a 24 poules et 18 canards. Quel pourcentage de poules ?
+     → Réponse : 57,14%
+
+272. Prix HT : 5000 F. TVA 18%. Prix TTC ?
+     → Réponse : 5900 F
+
+273. 240 km en 4h. À cette vitesse, temps pour 180 km ?
+     → Réponse : 3h
+
+274. Carré et rectangle même périmètre 24 cm. Si L rectangle = 8 cm, aire rectangle ?
+     → Réponse : 32 cm²
+
+275. Cube de 10 cm d'arête. Aire totale des faces ?
+     → Réponse : 600 cm²
+
+276. Deux robinets remplissent une citerne en 3h et 6h. Ensemble en combien de temps ?
+     → Réponse : 2h
+
+277. Prix réduit de 25% = 1500 F. Prix initial ?
+     → Réponse : 2000 F
+
+278. Périmètre rectangle = 30 cm. L = 2 × l. Dimensions ?
+     → Réponse : L=10 cm, l=5 cm
+
+279. Cercle de rayon 7 cm. Aire du disque ? (π ≈ 3,14)
+     → Réponse : 153,86 cm²
+
+280. 3 pizzas pour 4 personnes. Combien pour 20 personnes ?
+     → Réponse : 15 pizzas
+
+281. Un car part à 7h25 et arrive à 9h10. Durée ?
+     → Réponse : 1h45
+
+282. Somme de 3 nombres consécutifs = 24. Le plus petit ?
+     → Réponse : 7
+
+283. Rectangle : aire = 48 cm², largeur = 4 cm. Longueur ?
+     → Réponse : 12 cm
+
+284. 15% d'une somme = 450 F. La somme totale ?
+     → Réponse : 3000 F
+
+285. Vitesse 60 km/h. Distance en 2h30 ?
+     → Réponse : 150 km
+
+286. Terrain triangulaire : base 50 m, hauteur 24 m. Aire ?
+     → Réponse : 600 m²
+
+287. Papa a 40 ans, son fils a 12 ans. Dans combien d'années le père aura le double de l'âge du fils ?
+     → Réponse : 16 ans
+
+288. Prix augmente de 20% puis baisse de 20%. Prix initial 1000 F. Prix final ?
+     → Réponse : 960 F
+
+289. Cylindre : rayon 5 cm, hauteur 10 cm. Volume ? (π ≈ 3,14)
+     → Réponse : 785 cm³
+
+290. Moyenne de 4 notes : 12. Somme des notes ?
+     → Réponse : 48
+
+291. Mélange de 3 L de sirop et 7 L d'eau. Pourcentage de sirop ?
+     → Réponse : 30%
+
+292. Article soldé à 80% de son prix = 1600 F. Prix initial ?
+     → Réponse : 2000 F
+
+293. Train à 120 km/h. Temps pour 300 km ?
+     → Réponse : 2h30
+
+294. Parallélépipède : 6 cm × 4 cm × 3 cm. Volume ?
+     → Réponse : 72 cm³
+
+295. 2/5 d'une somme = 800 F. La somme totale ?
+     → Réponse : 2000 F
+
+296. Carré : périmètre 48 cm. Aire ?
+     → Réponse : 144 cm²
+
+297. 8 ouvriers × 6 jours = travail. 12 ouvriers = combien de jours ?
+     → Réponse : 4 jours
+
+298. Losange : diagonales 16 cm et 12 cm. Aire ?
+     → Réponse : 96 cm²
+
+299. Capital × taux × temps = intérêt. 5000 F × 4% × 2 ans = ?
+     → Réponse : 400 F
+
+300. Trapèze : B = 14 cm, b = 8 cm, h = 5 cm. Aire ?
+     → Réponse : 55 cm²
+
+===================================================================================
+                              FIN DU DOCUMENT
+                    300 questions de révision au total
+===================================================================================

@@ -1,0 +1,639 @@
+=====================================================
+LISTE COMPLÈTE DES EXERCICES - CALCUL MENTAL
+=====================================================
+Généré automatiquement depuis les données du projet
+Date de mise à jour: Janvier 2026
+=====================================================
+
+=== NIVEAU 1 ===
+Durée: 6 mn
+Instructions: Calcul mental uniquement. Additions et soustractions avec et sans passage de dizaine (résultats ≤ 100). Aucun calcul posé. Ce niveau exige 20/20 pour être validé.
+*** NIVEAU SPÉCIAL : 0 ERREUR PERMISE (20/20 requis) ***
+
+1. 8 + 7 = | Réponse: 15 | Type: addition | Astuce: Passage de dizaine
+2. 14 − 9 = | Réponse: 5 | Type: soustraction | Astuce: Passage de dizaine
+3. 27 + 8 = | Réponse: 35 | Type: addition | Astuce: Passage de dizaine
+4. 20 − 9 = | Réponse: 11 | Type: soustraction | Astuce: Passage de dizaine
+5. 46 + 7 = | Réponse: 53 | Type: addition | Astuce: Passage de dizaine
+6. 32 − 8 = | Réponse: 24 | Type: soustraction | Astuce: Passage de dizaine
+7. 58 + 6 = | Réponse: 64 | Type: addition | Astuce: Passage de dizaine
+8. 41 − 7 = | Réponse: 34 | Type: soustraction | Astuce: Passage de dizaine
+9. 9 + 8 = | Réponse: 17 | Type: addition | Astuce: Passage de dizaine
+10. 15 − 7 = | Réponse: 8 | Type: soustraction | Astuce: Passage de dizaine
+11. 64 + 9 = | Réponse: 73 | Type: addition | Astuce: Passage de dizaine
+12. 70 − 8 = | Réponse: 62 | Type: soustraction | Astuce: Passage de dizaine
+13. 37 + 5 = | Réponse: 42 | Type: addition | Astuce: Passage de dizaine
+14. 53 − 6 = | Réponse: 47 | Type: soustraction | Astuce: Passage de dizaine
+15. 28 + 7 = | Réponse: 35 | Type: addition | Astuce: Passage de dizaine
+16. 90 − 8 = | Réponse: 82 | Type: soustraction | Astuce: Passage de dizaine
+17. 49 + 6 = | Réponse: 55 | Type: addition | Astuce: Passage de dizaine
+18. 61 − 9 = | Réponse: 52 | Type: soustraction | Astuce: Passage de dizaine
+19. 75 + 8 = | Réponse: 83 | Type: addition | Astuce: Passage de dizaine
+20. 100 − 9 = | Réponse: 91 | Type: soustraction | Astuce: Passage de dizaine
+
+=== NIVEAU 2 ===
+Durée: 10 mn
+Instructions: Multiplications et divisions par 0,1 - 0,01 - 10 - 100 - 1000 - 0,5 - 0,25. Ce niveau exige 20/20 pour être validé.
+*** NIVEAU SPÉCIAL : 0 ERREUR PERMISE (20/20 requis) ***
+
+1. 45 × 10 = | Réponse: 450 | Type: multiplication | Astuce: Déplacer la virgule d'1 rang vers la droite
+2. 7,3 × 10 = | Réponse: 73 | Type: multiplication | Astuce: 7,3 → 73
+3. 0,56 × 10 = | Réponse: 5.6 | Type: multiplication | Astuce: 0,56 → 5,6
+4. 340 ÷ 10 = | Réponse: 34 | Type: division | Astuce: Déplacer la virgule d'1 rang vers la gauche
+5. 8,5 ÷ 10 = | Réponse: 0.85 | Type: division | Astuce: 8,5 → 0,85
+6. 3,7 × 100 = | Réponse: 370 | Type: multiplication | Astuce: Déplacer la virgule de 2 rangs vers la droite
+7. 0,45 × 100 = | Réponse: 45 | Type: multiplication | Astuce: 0,45 → 45
+8. 750 ÷ 100 = | Réponse: 7.5 | Type: division | Astuce: 750 → 7,5
+9. 43 ÷ 100 = | Réponse: 0.43 | Type: division | Astuce: 43 → 0,43
+10. 2,5 × 1000 = | Réponse: 2500 | Type: multiplication | Astuce: Déplacer la virgule de 3 rangs vers la droite
+11. 0,078 × 1000 = | Réponse: 78 | Type: multiplication | Astuce: 0,078 → 78
+12. 4500 ÷ 1000 = | Réponse: 4.5 | Type: division | Astuce: 4500 → 4,5
+13. 320 ÷ 1000 = | Réponse: 0.32 | Type: division | Astuce: 320 → 0,32
+14. 80 × 0,1 = | Réponse: 8 | Type: multiplication | Astuce: Multiplier par 0,1 = diviser par 10
+15. 25 × 0,1 = | Réponse: 2.5 | Type: multiplication | Astuce: 25 → 2,5
+16. 600 × 0,01 = | Réponse: 6 | Type: multiplication | Astuce: Multiplier par 0,01 = diviser par 100
+17. 75 × 0,01 = | Réponse: 0.75 | Type: multiplication | Astuce: 75 → 0,75
+18. 48 × 0,5 = | Réponse: 24 | Type: multiplication | Astuce: Multiplier par 0,5 = diviser par 2
+19. 150 × 0,5 = | Réponse: 75 | Type: multiplication | Astuce: 150 ÷ 2 = 75
+20. 80 × 0,25 = | Réponse: 20 | Type: multiplication | Astuce: Multiplier par 0,25 = diviser par 4
+21. 120 × 0,25 = | Réponse: 30 | Type: multiplication | Astuce: 120 ÷ 4 = 30
+22. 6,4 × 10 = | Réponse: 64 | Type: multiplication | Astuce: Décaler d'1 rang à droite
+23. 920 ÷ 100 = | Réponse: 9.2 | Type: division | Astuce: 920 → 9,2
+24. 0,8 × 1000 = | Réponse: 800 | Type: multiplication | Astuce: 0,8 → 800
+25. 55 × 0,1 = | Réponse: 5.5 | Type: multiplication | Astuce: 55 → 5,5
+26. 200 × 0,01 = | Réponse: 2 | Type: multiplication | Astuce: 200 → 2
+27. 64 × 0,5 = | Réponse: 32 | Type: multiplication | Astuce: 64 ÷ 2 = 32
+28. 200 × 0,25 = | Réponse: 50 | Type: multiplication | Astuce: 200 ÷ 4 = 50
+29. 3,25 × 100 = | Réponse: 325 | Type: multiplication | Astuce: 3,25 → 325
+30. 15 ÷ 1000 = | Réponse: 0.015 | Type: division | Astuce: 15 → 0,015
+31. 0,7 × 10 = | Réponse: 7 | Type: multiplication | Astuce: 0,7 → 7
+
+=== NIVEAU 3 ===
+Durée: 7 mn
+Instructions: Calcul mental uniquement. Additions, soustractions et premières multiplications/divisions simples. Aucun calcul posé.
+Erreurs permises: 2
+
+1. 38 + 7 = | Réponse: 45 | Type: addition | Astuce: Passage de dizaine
+2. 62 − 9 = | Réponse: 53 | Type: soustraction | Astuce: Passage de dizaine
+3. 47 + 8 = | Réponse: 55 | Type: addition | Astuce: Passage de dizaine
+4. 80 − 7 = | Réponse: 73 | Type: soustraction | Astuce: Passage de dizaine
+5. 6 × 4 = | Réponse: 24 | Type: multiplication | Astuce: Tables de multiplication
+6. 7 × 5 = | Réponse: 35 | Type: multiplication | Astuce: Tables de multiplication
+7. 8 × 3 = | Réponse: 24 | Type: multiplication | Astuce: Tables de multiplication
+8. 9 × 4 = | Réponse: 36 | Type: multiplication | Astuce: Tables de multiplication
+9. 6 × 5 = | Réponse: 30 | Type: multiplication | Astuce: Tables de multiplication
+10. 7 × 8 = | Réponse: 56 | Type: multiplication | Astuce: Tables de multiplication
+11. 9 × 6 = | Réponse: 54 | Type: multiplication | Astuce: Tables de multiplication
+12. 8 × 7 = | Réponse: 56 | Type: multiplication | Astuce: Tables de multiplication
+13. 24 ÷ 6 = | Réponse: 4 | Type: division | Astuce: Division simple
+14. 35 ÷ 5 = | Réponse: 7 | Type: division | Astuce: Division simple
+15. 42 ÷ 6 = | Réponse: 7 | Type: division | Astuce: Division simple
+16. 56 ÷ 8 = | Réponse: 7 | Type: division | Astuce: Division simple
+17. 54 + 9 = | Réponse: 63 | Type: addition | Astuce: Passage de dizaine
+18. 71 − 8 = | Réponse: 63 | Type: soustraction | Astuce: Passage de dizaine
+19. 65 + 7 = | Réponse: 72 | Type: addition | Astuce: Passage de dizaine
+20. 90 − 8 = | Réponse: 82 | Type: soustraction | Astuce: Passage de dizaine
+
+=== NIVEAU 3.5 - FRACTIONS 1 (QCM) ===
+Durée: 15 mn
+Instructions: Niveau spécial Fractions : 30 questions à choix multiples sur les opérations de fractions simples
+Erreurs permises: 2
+
+1. 1/2 + 1/4 = | Réponse: 0.75 (3/4) | Type: fraction | Astuce: = 2/4 + 1/4 = 3/4
+2. 1/3 + 1/6 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 2/6 + 1/6 = 3/6 = 1/2
+3. 1/4 + 1/4 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 2/4 = 1/2
+4. 1/2 + 1/6 = | Réponse: 0.667 (2/3) | Type: fraction | Astuce: = 3/6 + 1/6 = 4/6 = 2/3
+5. 1/3 + 1/3 = | Réponse: 0.667 (2/3) | Type: fraction | Astuce: = 2/3
+6. 1/5 + 2/5 = | Réponse: 0.6 (3/5) | Type: fraction | Astuce: = 3/5
+7. 1/4 + 1/2 = | Réponse: 0.75 (3/4) | Type: fraction | Astuce: = 1/4 + 2/4 = 3/4
+8. 1/6 + 1/3 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 1/6 + 2/6 = 3/6 = 1/2
+9. 1/2 − 1/4 = | Réponse: 0.25 (1/4) | Type: fraction | Astuce: = 2/4 − 1/4 = 1/4
+10. 3/4 − 1/2 = | Réponse: 0.25 (1/4) | Type: fraction | Astuce: = 3/4 − 2/4 = 1/4
+11. 2/3 − 1/3 = | Réponse: 0.333 (1/3) | Type: fraction | Astuce: = 1/3
+12. 5/6 − 1/2 = | Réponse: 0.333 (1/3) | Type: fraction | Astuce: = 5/6 − 3/6 = 2/6 = 1/3
+13. 1/2 − 1/6 = | Réponse: 0.333 (1/3) | Type: fraction | Astuce: = 3/6 − 1/6 = 2/6 = 1/3
+14. 3/4 − 1/4 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 2/4 = 1/2
+15. 2/3 − 1/6 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 4/6 − 1/6 = 3/6 = 1/2
+16. 1/2 × 1/2 = | Réponse: 0.25 (1/4) | Type: fraction | Astuce: = 1/4
+17. 1/3 × 1/2 = | Réponse: 0.167 (1/6) | Type: fraction | Astuce: = 1/6
+18. 2/3 × 1/2 = | Réponse: 0.333 (1/3) | Type: fraction | Astuce: = 2/6 = 1/3
+19. 1/4 × 2 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 2/4 = 1/2
+20. 1/2 × 3/4 = | Réponse: 0.375 (3/8) | Type: fraction | Astuce: = 3/8
+21. 2/5 × 1/2 = | Réponse: 0.2 (1/5) | Type: fraction | Astuce: = 2/10 = 1/5
+22. 1/3 × 3 = | Réponse: 1 | Type: fraction | Astuce: = 3/3 = 1
+23. 1/2 ÷ 2 = | Réponse: 0.25 (1/4) | Type: fraction | Astuce: = 1/2 × 1/2 = 1/4
+24. 1/3 ÷ 2 = | Réponse: 0.167 (1/6) | Type: fraction | Astuce: = 1/3 × 1/2 = 1/6
+25. 1/4 ÷ 2 = | Réponse: 0.125 (1/8) | Type: fraction | Astuce: = 1/4 × 1/2 = 1/8
+26. 2/3 ÷ 2 = | Réponse: 0.333 (1/3) | Type: fraction | Astuce: = 2/3 × 1/2 = 1/3
+27. 3/4 ÷ 3 = | Réponse: 0.25 (1/4) | Type: fraction | Astuce: = 3/4 × 1/3 = 1/4
+28. 1/2 ÷ 1/4 = | Réponse: 2 | Type: fraction | Astuce: = 1/2 × 4 = 2
+29. 1 ÷ 1/2 = | Réponse: 2 | Type: fraction | Astuce: = 1 × 2 = 2
+30. 1/4 ÷ 1/2 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 1/4 × 2 = 1/2
+
+=== NIVEAU 4 ===
+Durée: 10 mn
+Instructions: Additions, soustractions ≤ 100 et fractions simples (1/2, 1/3, 1/4)
+Erreurs permises: 2
+
+1. 45 + 23 = | Réponse: 68 | Type: addition | Astuce: Nombres ≤ 100
+2. 78 − 34 = | Réponse: 44 | Type: soustraction | Astuce: Nombres ≤ 100
+3. 1/2 de 16 = | Réponse: 8 | Type: fraction | Astuce: Fraction simple, calcul mental
+4. 1/3 de 21 = | Réponse: 7 | Type: fraction | Astuce: Fraction simple, calcul mental
+5. 50 + 25 = | Réponse: 75 | Type: addition | Astuce: Nombres ≤ 100
+6. 60 − 28 = | Réponse: 32 | Type: soustraction | Astuce: Nombres ≤ 100
+7. 1/4 de 24 = | Réponse: 6 | Type: fraction | Astuce: Fraction simple
+8. 1/2 de 30 = | Réponse: 15 | Type: fraction | Astuce: Fraction simple
+9. 67 + 28 = | Réponse: 95 | Type: addition | Astuce: Nombres ≤ 100
+10. 91 − 47 = | Réponse: 44 | Type: soustraction | Astuce: Nombres ≤ 100
+11. 1/3 de 27 = | Réponse: 9 | Type: fraction | Astuce: Fraction simple
+12. 1/4 de 40 = | Réponse: 10 | Type: fraction | Astuce: Fraction simple
+13. 38 + 44 = | Réponse: 82 | Type: addition | Astuce: Nombres ≤ 100
+14. 85 − 39 = | Réponse: 46 | Type: soustraction | Astuce: Nombres ≤ 100
+15. 1/2 de 48 = | Réponse: 24 | Type: fraction | Astuce: Fraction simple
+16. 1/3 de 18 = | Réponse: 6 | Type: fraction | Astuce: Fraction simple
+17. 56 + 37 = | Réponse: 93 | Type: addition | Astuce: Nombres ≤ 100
+18. 73 − 45 = | Réponse: 28 | Type: soustraction | Astuce: Nombres ≤ 100
+19. 1/4 de 32 = | Réponse: 8 | Type: fraction | Astuce: Fraction simple
+20. 1/2 de 26 = | Réponse: 13 | Type: fraction | Astuce: Fraction simple
+
+=== NIVEAU 5 ===
+Durée: 10 mn
+Instructions: Fractions simples, pourcentages simples et multiplications/divisions par 10
+Erreurs permises: 2
+
+1. 1/2 de 18 = | Réponse: 9 | Type: fraction | Astuce: Fraction simple
+2. 25 % de 40 = | Réponse: 10 | Type: pourcentage | Astuce: Pourcentage simple
+3. 10 × 7 = | Réponse: 70 | Type: multiplication | Astuce: Multiplication par 10
+4. 120 ÷ 10 = | Réponse: 12 | Type: division | Astuce: Division par 10
+5. 1/4 de 32 = | Réponse: 8 | Type: fraction | Astuce: Fraction simple
+6. 50 % de 60 = | Réponse: 30 | Type: pourcentage | Astuce: Pourcentage simple
+7. 10 × 15 = | Réponse: 150 | Type: multiplication | Astuce: Multiplication par 10
+8. 80 ÷ 10 = | Réponse: 8 | Type: division | Astuce: Division par 10
+9. 1/3 de 24 = | Réponse: 8 | Type: fraction | Astuce: Fraction simple
+10. 10 % de 50 = | Réponse: 5 | Type: pourcentage | Astuce: Pourcentage simple
+11. 10 × 23 = | Réponse: 230 | Type: multiplication | Astuce: Multiplication par 10
+12. 150 ÷ 10 = | Réponse: 15 | Type: division | Astuce: Division par 10
+13. 1/2 de 44 = | Réponse: 22 | Type: fraction | Astuce: Fraction simple
+14. 75 % de 20 = | Réponse: 15 | Type: pourcentage | Astuce: Pourcentage simple
+15. 10 × 9 = | Réponse: 90 | Type: multiplication | Astuce: Multiplication par 10
+16. 200 ÷ 10 = | Réponse: 20 | Type: division | Astuce: Division par 10
+17. 1/4 de 48 = | Réponse: 12 | Type: fraction | Astuce: Fraction simple
+18. 20 % de 100 = | Réponse: 20 | Type: pourcentage | Astuce: Pourcentage simple
+19. 10 × 11 = | Réponse: 110 | Type: multiplication | Astuce: Multiplication par 10
+20. 90 ÷ 10 = | Réponse: 9 | Type: division | Astuce: Division par 10
+
+=== NIVEAU 6 ===
+Durée: 10 mn
+Instructions: Fractions combinées, pourcentages variés et multiplications/divisions par 10 et 100
+Erreurs permises: 2
+
+1. 1/2 + 1/4 = | Réponse: 0.75 (3/4) | Type: fraction | Astuce: = 2/4 + 1/4 = 3/4
+2. 1/3 + 1/6 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 2/6 + 1/6 = 3/6 = 1/2
+3. 1/2 − 1/4 = | Réponse: 0.25 (1/4) | Type: fraction | Astuce: = 2/4 − 1/4 = 1/4
+4. 1/4 + 1/4 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 2/4 = 1/2
+5. 3/4 − 1/2 = | Réponse: 0.25 (1/4) | Type: fraction | Astuce: = 3/4 − 2/4 = 1/4
+6. 1/3 + 1/3 = | Réponse: 0.667 (2/3) | Type: fraction | Astuce: = 2/3
+7. 75 % de 80 = | Réponse: 60 | Type: pourcentage | Astuce: Pourcentage simple
+8. 50 % de 90 = | Réponse: 45 | Type: pourcentage | Astuce: Pourcentage simple
+9. 25 % de 120 = | Réponse: 30 | Type: pourcentage | Astuce: Pourcentage simple
+10. 10 % de 200 = | Réponse: 20 | Type: pourcentage | Astuce: Pourcentage simple
+11. 10 × 12 = | Réponse: 120 | Type: multiplication | Astuce: Multiplication par 10
+12. 400 ÷ 100 = | Réponse: 4 | Type: division | Astuce: Division par 100
+13. 100 × 5 = | Réponse: 500 | Type: multiplication | Astuce: Multiplication par 100
+14. 350 ÷ 10 = | Réponse: 35 | Type: division | Astuce: Division par 10
+15. 10 × 45 = | Réponse: 450 | Type: multiplication | Astuce: Multiplication par 10
+16. 700 ÷ 100 = | Réponse: 7 | Type: division | Astuce: Division par 100
+17. 100 × 8 = | Réponse: 800 | Type: multiplication | Astuce: Multiplication par 100
+18. 250 ÷ 10 = | Réponse: 25 | Type: division | Astuce: Division par 10
+19. 10 × 33 = | Réponse: 330 | Type: multiplication | Astuce: Multiplication par 10
+20. 900 ÷ 100 = | Réponse: 9 | Type: division | Astuce: Division par 100
+
+=== NIVEAU 7 ===
+Durée: 15 mn
+Instructions: Conversions simples, mesures agraires, multiplications/divisions par 0,1 et 100, partages simples
+Erreurs permises: 2
+
+1. Convertir 3500 m en km = | Réponse: 3.5 | Type: conversion | Astuce: Division par 1000
+2. 12 ha = ? a | Réponse: 1200 | Type: conversion | Astuce: 1 ha = 100 a
+3. 0,1 × 240 = | Réponse: 24 | Type: multiplication | Astuce: Multiplier par 0,1
+4. 400 ÷ 100 = | Réponse: 4 | Type: division | Astuce: Division par 100
+5. Un sac de 12 kg est partagé également entre 4 personnes. Combien chacun ? | Réponse: 3 | Type: partage | Astuce: Division simple
+6. Convertir 2500 mL en L = | Réponse: 2.5 | Type: conversion | Astuce: Division par 1000
+7. 1/2 + 1/3 = | Réponse: 0.833 (5/6) | Type: fraction | Astuce: = 3/6 + 2/6 = 5/6
+8. 2/3 − 1/6 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 4/6 − 1/6 = 3/6 = 1/2
+9. 1/4 + 1/2 = | Réponse: 0.75 (3/4) | Type: fraction | Astuce: = 1/4 + 2/4 = 3/4
+10. 3/4 − 1/4 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 2/4 = 1/2
+11. 1/3 × 2 = | Réponse: 0.667 (2/3) | Type: fraction | Astuce: = 2/3
+12. 5,5 ha = ? a | Réponse: 550 | Type: conversion | Astuce: 1 ha = 100 a
+13. 0,1 × 150 = | Réponse: 15 | Type: multiplication | Astuce: Multiplier par 0,1
+14. 600 ÷ 100 = | Réponse: 6 | Type: division | Astuce: Division par 100
+15. 4500 m = ? km | Réponse: 4.5 | Type: conversion | Astuce: Division par 1000
+16. 0,1 × 380 = | Réponse: 38 | Type: multiplication | Astuce: Multiplier par 0,1
+17. 1800 mL = ? L | Réponse: 1.8 | Type: conversion | Astuce: Division par 1000
+18. 900 ÷ 100 = | Réponse: 9 | Type: division | Astuce: Division par 100
+19. 8 ha = ? a | Réponse: 800 | Type: conversion | Astuce: 1 ha = 100 a
+20. 0,1 × 470 = | Réponse: 47 | Type: multiplication | Astuce: Multiplier par 0,1
+
+=== NIVEAU 8 ===
+Durée: 15 mn
+Instructions: Fractions et pourcentages intermédiaires, multiplications/divisions par 10, 100, 1000, partages simples
+Erreurs permises: 2
+
+1. 1/2 + 1/3 = | Réponse: 0.833 (5/6) | Type: fraction | Astuce: = 3/6 + 2/6 = 5/6
+2. 2/3 − 1/4 = | Réponse: 0.417 (5/12) | Type: fraction | Astuce: = 8/12 − 3/12 = 5/12
+3. 1/4 + 2/3 = | Réponse: 0.917 (11/12) | Type: fraction | Astuce: = 3/12 + 8/12 = 11/12
+4. 3/4 − 1/3 = | Réponse: 0.417 (5/12) | Type: fraction | Astuce: = 9/12 − 4/12 = 5/12
+5. 1/2 + 1/6 = | Réponse: 0.667 (2/3) | Type: fraction | Astuce: = 3/6 + 1/6 = 4/6 = 2/3
+6. 5/6 − 1/2 = | Réponse: 0.333 (1/3) | Type: fraction | Astuce: = 5/6 − 3/6 = 2/6 = 1/3
+7. 25 % de 120 = | Réponse: 30 | Type: pourcentage | Astuce: Pourcentage simple
+8. 75 % de 60 = | Réponse: 45 | Type: pourcentage | Astuce: Pourcentage simple
+9. 20 % de 150 = | Réponse: 30 | Type: pourcentage | Astuce: Pourcentage simple
+10. 45 × 100 = | Réponse: 4500 | Type: multiplication | Astuce: Multiplier par 100
+11. 3000 ÷ 1000 = | Réponse: 3 | Type: division | Astuce: Division par 1000
+12. 67 × 10 = | Réponse: 670 | Type: multiplication | Astuce: Multiplier par 10
+13. 8500 ÷ 100 = | Réponse: 85 | Type: division | Astuce: Division par 100
+14. 23 × 1000 = | Réponse: 23000 | Type: multiplication | Astuce: Multiplier par 1000
+15. 1000 F, A reçoit 3/5, B le reste. Combien B ? | Réponse: 400 | Type: partage | Astuce: 1000 − 600 = 400
+16. 800 F partagés en 3/4 et 1/4. Combien le 1/4 ? | Réponse: 200 | Type: partage | Astuce: 800 × 1/4
+17. 56 × 100 = | Réponse: 5600 | Type: multiplication | Astuce: Multiplier par 100
+18. 9000 ÷ 1000 = | Réponse: 9 | Type: division | Astuce: Division par 1000
+19. 34 × 10 = | Réponse: 340 | Type: multiplication | Astuce: Multiplier par 10
+20. 7200 ÷ 100 = | Réponse: 72 | Type: division | Astuce: Division par 100
+
+=== NIVEAU 9 ===
+Durée: 15 mn
+Instructions: Fractions complexes, pourcentages, conversions intermédiaires, multiplications/divisions par 10, 100, 1000
+Erreurs permises: 2
+
+1. 2/3 + 3/4 = | Réponse: 1.417 (17/12) | Type: fraction | Astuce: = 8/12 + 9/12 = 17/12
+2. 5/6 − 1/4 = | Réponse: 0.583 (7/12) | Type: fraction | Astuce: = 10/12 − 3/12 = 7/12
+3. 1/2 + 2/3 = | Réponse: 1.167 (7/6) | Type: fraction | Astuce: = 3/6 + 4/6 = 7/6
+4. 3/4 + 1/6 = | Réponse: 0.917 (11/12) | Type: fraction | Astuce: = 9/12 + 2/12 = 11/12
+5. 4/5 − 1/2 = | Réponse: 0.3 (3/10) | Type: fraction | Astuce: = 8/10 − 5/10 = 3/10
+6. 1/3 + 2/5 = | Réponse: 0.733 (11/15) | Type: fraction | Astuce: = 5/15 + 6/15 = 11/15
+7. 50 % + 25 % de 200 = | Réponse: 150 | Type: pourcentage | Astuce: 100 + 50
+8. 75 % de 160 = | Réponse: 120 | Type: pourcentage | Astuce: Pourcentage simple
+9. 40 % de 250 = | Réponse: 100 | Type: pourcentage | Astuce: Pourcentage simple
+10. Convertir 3,5 km en m = | Réponse: 3500 | Type: conversion | Astuce: Multiplier par 1000
+11. 4750 m = ? km | Réponse: 4.75 | Type: conversion | Astuce: Division par 1000
+12. 6,8 L = ? mL | Réponse: 6800 | Type: conversion | Astuce: Multiplier par 1000
+13. 35 × 100 = | Réponse: 3500 | Type: multiplication | Astuce: Multiplier par 100
+14. 4500 ÷ 1000 = | Réponse: 4.5 | Type: division | Astuce: Division par 1000
+15. 89 × 10 = | Réponse: 890 | Type: multiplication | Astuce: Multiplier par 10
+16. 12300 ÷ 100 = | Réponse: 123 | Type: division | Astuce: Division par 100
+17. 1200 F, A reçoit 3/5, B le reste. Combien B ? | Réponse: 480 | Type: partage | Astuce: 1200 × 2/5
+18. 67 × 100 = | Réponse: 6700 | Type: multiplication | Astuce: Multiplier par 100
+19. 7800 ÷ 1000 = | Réponse: 7.8 | Type: division | Astuce: Division par 1000
+20. 45 × 10 = | Réponse: 450 | Type: multiplication | Astuce: Multiplier par 10
+
+=== NIVEAU 9.5 - FRACTIONS 2 (Réponses ouvertes) ===
+Durée: 30 mn
+Instructions: Niveau spécial Fractions 2 : 30 questions ouvertes sur les opérations de fractions. Répondez sous forme de fraction (ex: 1/2, 3/4)
+Erreurs permises: 2
+
+1. 1/2 + 1/3 = | Réponse: 0.833 (5/6) | Type: fraction | Astuce: = 3/6 + 2/6 = 5/6
+2. 2/3 + 1/4 = | Réponse: 0.917 (11/12) | Type: fraction | Astuce: = 8/12 + 3/12 = 11/12
+3. 1/4 + 2/5 = | Réponse: 0.65 (13/20) | Type: fraction | Astuce: = 5/20 + 8/20 = 13/20
+4. 3/4 + 1/6 = | Réponse: 0.917 (11/12) | Type: fraction | Astuce: = 9/12 + 2/12 = 11/12
+5. 1/3 + 2/5 = | Réponse: 0.733 (11/15) | Type: fraction | Astuce: = 5/15 + 6/15 = 11/15
+6. 2/5 + 1/3 = | Réponse: 0.733 (11/15) | Type: fraction | Astuce: = 6/15 + 5/15 = 11/15
+7. 1/6 + 1/4 = | Réponse: 0.417 (5/12) | Type: fraction | Astuce: = 2/12 + 3/12 = 5/12
+8. 3/5 + 1/4 = | Réponse: 0.85 (17/20) | Type: fraction | Astuce: = 12/20 + 5/20 = 17/20
+9. 2/3 − 1/4 = | Réponse: 0.417 (5/12) | Type: fraction | Astuce: = 8/12 − 3/12 = 5/12
+10. 3/4 − 1/3 = | Réponse: 0.417 (5/12) | Type: fraction | Astuce: = 9/12 − 4/12 = 5/12
+11. 5/6 − 1/4 = | Réponse: 0.583 (7/12) | Type: fraction | Astuce: = 10/12 − 3/12 = 7/12
+12. 4/5 − 1/2 = | Réponse: 0.3 (3/10) | Type: fraction | Astuce: = 8/10 − 5/10 = 3/10
+13. 2/3 − 2/5 = | Réponse: 0.267 (4/15) | Type: fraction | Astuce: = 10/15 − 6/15 = 4/15
+14. 3/4 − 2/5 = | Réponse: 0.35 (7/20) | Type: fraction | Astuce: = 15/20 − 8/20 = 7/20
+15. 5/6 − 2/3 = | Réponse: 0.167 (1/6) | Type: fraction | Astuce: = 5/6 − 4/6 = 1/6
+16. 2/3 × 3/4 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 6/12 = 1/2
+17. 1/2 × 4/5 = | Réponse: 0.4 (2/5) | Type: fraction | Astuce: = 4/10 = 2/5
+18. 3/4 × 2/3 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 6/12 = 1/2
+19. 2/5 × 5/6 = | Réponse: 0.333 (1/3) | Type: fraction | Astuce: = 10/30 = 1/3
+20. 3/5 × 2/3 = | Réponse: 0.4 (2/5) | Type: fraction | Astuce: = 6/15 = 2/5
+21. 1/3 × 3/5 = | Réponse: 0.2 (1/5) | Type: fraction | Astuce: = 3/15 = 1/5
+22. 4/5 × 1/4 = | Réponse: 0.2 (1/5) | Type: fraction | Astuce: = 4/20 = 1/5
+23. 1/2 ÷ 1/3 = | Réponse: 1.5 (3/2) | Type: fraction | Astuce: = 1/2 × 3 = 3/2
+24. 2/3 ÷ 1/2 = | Réponse: 1.333 (4/3) | Type: fraction | Astuce: = 2/3 × 2 = 4/3
+25. 3/4 ÷ 1/2 = | Réponse: 1.5 (3/2) | Type: fraction | Astuce: = 3/4 × 2 = 3/2
+26. 1/3 ÷ 1/4 = | Réponse: 1.333 (4/3) | Type: fraction | Astuce: = 1/3 × 4 = 4/3
+27. 2/5 ÷ 1/3 = | Réponse: 1.2 (6/5) | Type: fraction | Astuce: = 2/5 × 3 = 6/5
+28. 3/5 ÷ 2 = | Réponse: 0.3 (3/10) | Type: fraction | Astuce: = 3/5 × 1/2 = 3/10
+29. 4/5 ÷ 2 = | Réponse: 0.4 (2/5) | Type: fraction | Astuce: = 4/5 × 1/2 = 2/5
+30. 5/6 ÷ 5 = | Réponse: 0.167 (1/6) | Type: fraction | Astuce: = 5/6 × 1/5 = 1/6
+
+=== NIVEAU 10 ===
+Durée: 15 mn
+Instructions: Géométrie simple (carré, rectangle, cercle), problèmes simples de temps/vitesse/distance, multiplications/divisions par 10, 100
+Erreurs permises: 2
+
+1. Carré côté 8 m. Aire ? | Réponse: 64 | Type: geometrie | Astuce: c²
+2. Rectangle 12 m × 5 m. Aire ? | Réponse: 60 | Type: geometrie | Astuce: L × l
+3. Cercle rayon 10 m, π=3,14. Aire ? | Réponse: 314 | Type: geometrie | Astuce: π × r²
+4. Un train parcourt 120 km en 2 h. Vitesse moyenne ? | Réponse: 60 | Type: vitesse | Astuce: Distance ÷ temps
+5. 36 × 100 = | Réponse: 3600 | Type: multiplication | Astuce: Multiplier par 100
+6. 7200 ÷ 1000 = | Réponse: 7.2 | Type: division | Astuce: Division par 1000
+7. 2/3 + 1/4 = | Réponse: 0.917 (11/12) | Type: fraction | Astuce: = 8/12 + 3/12 = 11/12
+8. 3/4 − 2/5 = | Réponse: 0.35 (7/20) | Type: fraction | Astuce: = 15/20 − 8/20 = 7/20
+9. 1/2 × 3/4 = | Réponse: 0.375 (3/8) | Type: fraction | Astuce: = 3/8
+10. 2/5 + 1/3 = | Réponse: 0.733 (11/15) | Type: fraction | Astuce: = 6/15 + 5/15 = 11/15
+11. 5/6 − 1/3 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 5/6 − 2/6 = 3/6 = 1/2
+12. Carré côté 11 m. Aire ? | Réponse: 121 | Type: geometrie | Astuce: c²
+13. Rectangle 15 m × 8 m. Aire ? | Réponse: 120 | Type: geometrie | Astuce: L × l
+14. Périmètre carré côté 9 m ? | Réponse: 36 | Type: geometrie | Astuce: 4 × c
+15. Voiture 90 km/h pendant 2 h. Distance ? | Réponse: 180 | Type: vitesse | Astuce: v × t
+16. Distance 200 km en 4 h. Vitesse ? | Réponse: 50 | Type: vitesse | Astuce: d ÷ t
+17. 48 × 100 = | Réponse: 4800 | Type: multiplication | Astuce: Multiplier par 100
+18. 5400 ÷ 1000 = | Réponse: 5.4 | Type: division | Astuce: Division par 1000
+19. Périmètre rectangle 10 m × 6 m ? | Réponse: 32 | Type: geometrie | Astuce: 2 × (L + l)
+20. Cercle rayon 5 m, π=3,14. Périmètre ? | Réponse: 31.4 | Type: geometrie | Astuce: 2 × π × r
+
+=== NIVEAU 11 ===
+Durée: 15 mn
+Instructions: Conversions avancées, mesures agraires, fractions et pourcentages, multiplications/divisions par 0,01 et 10
+Erreurs permises: 2
+
+1. Convertir 5,6 ha en a ? | Réponse: 560 | Type: conversion | Astuce: 1 ha = 100 a
+2. Bidon 15 L rempli aux 2/3. Combien faut-il pour le remplir ? | Réponse: 5 | Type: fraction | Astuce: 15 × 1/3
+3. 25 % de 200 = | Réponse: 50 | Type: pourcentage | Astuce: Pourcentage simple
+4. 0,01 × 450 = | Réponse: 4.5 | Type: multiplication | Astuce: Multiplier par 0,01
+5. 120 ÷ 10 = | Réponse: 12 | Type: division | Astuce: Division par 10
+6. 1000 F, A reçoit 1/2, B le reste. Combien B ? | Réponse: 500 | Type: partage | Astuce: 1000 × 1/2
+7. 3/4 + 2/3 = | Réponse: 1.417 (17/12) | Type: fraction | Astuce: = 9/12 + 8/12 = 17/12
+8. 5/6 − 3/4 = | Réponse: 0.083 (1/12) | Type: fraction | Astuce: = 10/12 − 9/12 = 1/12
+9. 1/2 × 4/5 = | Réponse: 0.4 (2/5) | Type: fraction | Astuce: = 4/10 = 2/5
+10. 2/3 ÷ 2 = | Réponse: 0.333 (1/3) | Type: fraction | Astuce: = 2/3 × 1/2 = 1/3
+11. 1/4 + 5/8 = | Réponse: 0.875 (7/8) | Type: fraction | Astuce: = 2/8 + 5/8 = 7/8
+12. 8,4 ha = ? a | Réponse: 840 | Type: conversion | Astuce: 1 ha = 100 a
+13. 0,01 × 670 = | Réponse: 6.7 | Type: multiplication | Astuce: Multiplier par 0,01
+14. 350 ÷ 10 = | Réponse: 35 | Type: division | Astuce: Division par 10
+15. 60 % de 150 = | Réponse: 90 | Type: pourcentage | Astuce: Pourcentage simple
+16. 3,25 ha = ? a | Réponse: 325 | Type: conversion | Astuce: 1 ha = 100 a
+17. 0,01 × 890 = | Réponse: 8.9 | Type: multiplication | Astuce: Multiplier par 0,01
+18. 480 ÷ 10 = | Réponse: 48 | Type: division | Astuce: Division par 10
+19. 45 % de 200 = | Réponse: 90 | Type: pourcentage | Astuce: Pourcentage simple
+20. Réservoir 20 L aux 3/4. Litres présents ? | Réponse: 15 | Type: fraction | Astuce: 20 × 3/4
+
+=== NIVEAU 12 ===
+Durée: 15 mn
+Instructions: Conversions, fractions et pourcentages intermédiaires, multiplications/divisions par 0,1 et 100
+Erreurs permises: 2
+
+1. Convertir 3,25 km en m = | Réponse: 3250 | Type: conversion | Astuce: Multiplier par 1000
+2. 1/3 de 24 = | Réponse: 8 | Type: fraction | Astuce: Fraction simple
+3. 75 % de 80 = | Réponse: 60 | Type: pourcentage | Astuce: Pourcentage simple
+4. 0,1 × 360 = | Réponse: 36 | Type: multiplication | Astuce: Multiplier par 0,1
+5. 900 ÷ 100 = | Réponse: 9 | Type: division | Astuce: Division par 100
+6. 800 F, A reçoit 3/4, B le reste. Combien B ? | Réponse: 200 | Type: partage | Astuce: 800 × 1/4
+7. 2/5 + 3/10 = | Réponse: 0.7 (7/10) | Type: fraction | Astuce: = 4/10 + 3/10 = 7/10
+8. 4/5 − 1/4 = | Réponse: 0.55 (11/20) | Type: fraction | Astuce: = 16/20 − 5/20 = 11/20
+9. 1/3 × 3/4 = | Réponse: 0.25 (1/4) | Type: fraction | Astuce: = 3/12 = 1/4
+10. 3/4 ÷ 3 = | Réponse: 0.25 (1/4) | Type: fraction | Astuce: = 3/4 × 1/3 = 1/4
+11. 2/3 + 1/5 = | Réponse: 0.867 (13/15) | Type: fraction | Astuce: = 10/15 + 3/15 = 13/15
+12. 4,75 km = ? m | Réponse: 4750 | Type: conversion | Astuce: Multiplier par 1000
+13. 0,1 × 420 = | Réponse: 42 | Type: multiplication | Astuce: Multiplier par 0,1
+14. 1500 ÷ 100 = | Réponse: 15 | Type: division | Astuce: Division par 100
+15. 80 % de 125 = | Réponse: 100 | Type: pourcentage | Astuce: Pourcentage simple
+16. 5,8 km = ? m | Réponse: 5800 | Type: conversion | Astuce: Multiplier par 1000
+17. 0,1 × 570 = | Réponse: 57 | Type: multiplication | Astuce: Multiplier par 0,1
+18. 2300 ÷ 100 = | Réponse: 23 | Type: division | Astuce: Division par 100
+19. 35 % de 400 = | Réponse: 140 | Type: pourcentage | Astuce: Pourcentage simple
+20. 2/5 de 45 = | Réponse: 18 | Type: fraction | Astuce: 45 × 2/5
+
+=== NIVEAU 13 ===
+Durée: 15 mn
+Instructions: Fractions, pourcentages, conversions, partages simples, multiplications/divisions par 10, 100, 1000
+Erreurs permises: 2
+
+1. 1/2 + 1/3 = | Réponse: 0.833 (5/6) | Type: fraction | Astuce: = 3/6 + 2/6 = 5/6
+2. 3/5 − 1/4 = | Réponse: 0.35 (7/20) | Type: fraction | Astuce: = 12/20 − 5/20 = 7/20
+3. 2/3 × 3/5 = | Réponse: 0.4 (2/5) | Type: fraction | Astuce: = 6/15 = 2/5
+4. 1/2 ÷ 3 = | Réponse: 0.167 (1/6) | Type: fraction | Astuce: = 1/2 × 1/3 = 1/6
+5. 3/4 + 1/8 = | Réponse: 0.875 (7/8) | Type: fraction | Astuce: = 6/8 + 1/8 = 7/8
+6. 5/6 − 2/9 = | Réponse: 0.611 (11/18) | Type: fraction | Astuce: = 15/18 − 4/18 = 11/18
+7. 30 % de 250 = | Réponse: 75 | Type: pourcentage | Astuce: Pourcentage simple
+8. 65 % de 200 = | Réponse: 130 | Type: pourcentage | Astuce: Pourcentage simple
+9. Convertir 4,2 km en m = | Réponse: 4200 | Type: conversion | Astuce: Multiplier par 1000
+10. 6300 m = ? km | Réponse: 6.3 | Type: conversion | Astuce: Division par 1000
+11. 45 × 1000 = | Réponse: 45000 | Type: multiplication | Astuce: Multiplier par 1000
+12. 7200 ÷ 100 = | Réponse: 72 | Type: division | Astuce: Division par 100
+13. 89 × 10 = | Réponse: 890 | Type: multiplication | Astuce: Multiplier par 10
+14. 15600 ÷ 1000 = | Réponse: 15.6 | Type: division | Astuce: Division par 1000
+15. 900 F, A reçoit 2/3, B le reste. Combien B ? | Réponse: 300 | Type: partage | Astuce: 900 × 1/3
+16. 1500 F partagés : A 3/5, B le reste. Combien B ? | Réponse: 600 | Type: partage | Astuce: 1500 × 2/5
+17. 56 × 100 = | Réponse: 5600 | Type: multiplication | Astuce: Multiplier par 100
+18. 23400 ÷ 1000 = | Réponse: 23.4 | Type: division | Astuce: Division par 1000
+19. 78 × 10 = | Réponse: 780 | Type: multiplication | Astuce: Multiplier par 10
+20. 8900 ÷ 100 = | Réponse: 89 | Type: division | Astuce: Division par 100
+
+=== NIVEAU 14 ===
+Durée: 15 mn
+Instructions: Problèmes de temps, vitesse, distance, géométrie simple, fractions, pourcentages, multiplications/divisions
+Erreurs permises: 2
+
+1. Un train parcourt 90 km en 1,5 h. Vitesse moyenne ? | Réponse: 60 | Type: vitesse | Astuce: Distance ÷ temps
+2. Carré côté 12 m. Aire ? | Réponse: 144 | Type: geometrie | Astuce: c²
+3. Rectangle 15 m × 7 m. Aire ? | Réponse: 105 | Type: geometrie | Astuce: L × l
+4. 1/3 + 2/5 = | Réponse: 0.733 (11/15) | Type: fraction | Astuce: = 5/15 + 6/15 = 11/15
+5. 4/5 − 2/3 = | Réponse: 0.133 (2/15) | Type: fraction | Astuce: = 12/15 − 10/15 = 2/15
+6. 1/4 × 2/3 = | Réponse: 0.167 (1/6) | Type: fraction | Astuce: = 2/12 = 1/6
+7. 3/5 ÷ 2 = | Réponse: 0.3 (3/10) | Type: fraction | Astuce: = 3/5 × 1/2 = 3/10
+8. 2/3 + 3/8 = | Réponse: 1.042 (25/24) | Type: fraction | Astuce: = 16/24 + 9/24 = 25/24
+9. 7/8 − 1/2 = | Réponse: 0.375 (3/8) | Type: fraction | Astuce: = 7/8 − 4/8 = 3/8
+10. 50 % de 120 = | Réponse: 60 | Type: pourcentage | Astuce: Pourcentage simple
+11. 85 % de 200 = | Réponse: 170 | Type: pourcentage | Astuce: Pourcentage simple
+12. 3600 ÷ 1000 = | Réponse: 3.6 | Type: division | Astuce: Division par 1000
+13. Voiture 75 km/h pendant 4 h. Distance ? | Réponse: 300 | Type: vitesse | Astuce: v × t
+14. Périmètre carré côté 14 m ? | Réponse: 56 | Type: geometrie | Astuce: 4 × c
+15. Cercle rayon 7 m, π=3,14. Aire ? | Réponse: 153.86 | Type: geometrie | Astuce: π × r²
+16. Distance 240 km en 4 h. Vitesse ? | Réponse: 60 | Type: vitesse | Astuce: d ÷ t
+17. 45 × 1000 = | Réponse: 45000 | Type: multiplication | Astuce: Multiplier par 1000
+18. 8400 ÷ 100 = | Réponse: 84 | Type: division | Astuce: Division par 100
+19. Périmètre rectangle 18 m × 9 m ? | Réponse: 54 | Type: geometrie | Astuce: 2 × (L + l)
+
+=== NIVEAU 15 ===
+Durée: 15 mn
+Instructions: Partages inégaux faciles, conversions, fractions et pourcentages, multiplications/divisions
+Erreurs permises: 2
+
+1. 1200 F, A reçoit 3/5, B le reste. Combien B ? | Réponse: 480 | Type: partage | Astuce: 1200 × 2/5
+2. Convertir 3,5 ha en a ? | Réponse: 350 | Type: conversion | Astuce: 1 ha = 100 a
+3. 1/2 + 3/4 = | Réponse: 1.25 (5/4) | Type: fraction | Astuce: = 2/4 + 3/4 = 5/4
+4. 5/6 − 1/3 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 5/6 − 2/6 = 3/6 = 1/2
+5. 2/5 × 5/6 = | Réponse: 0.333 (1/3) | Type: fraction | Astuce: = 10/30 = 1/3
+6. 4/5 ÷ 4 = | Réponse: 0.2 (1/5) | Type: fraction | Astuce: = 4/5 × 1/4 = 1/5
+7. 1/3 + 5/6 = | Réponse: 1.167 (7/6) | Type: fraction | Astuce: = 2/6 + 5/6 = 7/6
+8. 3/4 − 5/8 = | Réponse: 0.125 (1/8) | Type: fraction | Astuce: = 6/8 − 5/8 = 1/8
+9. 75 % de 160 = | Réponse: 120 | Type: pourcentage | Astuce: Pourcentage simple
+10. 40 % de 350 = | Réponse: 140 | Type: pourcentage | Astuce: Pourcentage simple
+11. 0,1 × 420 = | Réponse: 42 | Type: multiplication | Astuce: Multiplier par 0,1
+12. 500 ÷ 0,1 = | Réponse: 5000 | Type: division | Astuce: Division par 0,1
+13. 0,1 × 890 = | Réponse: 89 | Type: multiplication | Astuce: Multiplier par 0,1
+14. 750 ÷ 0,1 = | Réponse: 7500 | Type: division | Astuce: Division par 0,1
+15. 7,25 ha = ? a | Réponse: 725 | Type: conversion | Astuce: 1 ha = 100 a
+16. 4500 m = ? km | Réponse: 4.5 | Type: conversion | Astuce: Division par 1000
+17. 1800 F, A reçoit 2/3, B le reste. Combien B ? | Réponse: 600 | Type: partage | Astuce: 1800 × 1/3
+18. 2000 F partagés : A 7/10, B le reste. Combien B ? | Réponse: 600 | Type: partage | Astuce: 2000 × 3/10
+19. 0,1 × 630 = | Réponse: 63 | Type: multiplication | Astuce: Multiplier par 0,1
+20. 320 ÷ 0,1 = | Réponse: 3200 | Type: division | Astuce: Division par 0,1
+
+=== NIVEAU 16 ===
+Durée: 20 mn
+Instructions: Partages inégaux, fractions et pourcentages avancés, conversions, multiplications/divisions par 0,01, 0,1, 10, 100, 1000
+Erreurs permises: 2
+
+1. Pierre et Paul se partagent 1000 F. Pierre a 3 fois plus que Paul. Combien a Paul ? | Réponse: 250 | Type: partage | Astuce: 1000 ÷ 4
+2. 1/2 + 2/3 − 1/4 = | Réponse: 0.917 (11/12) | Type: fraction | Astuce: = 6/12 + 8/12 − 3/12 = 11/12
+3. 3/4 × 2/5 = | Réponse: 0.3 (3/10) | Type: fraction | Astuce: = 6/20 = 3/10
+4. 5/6 ÷ 5 = | Réponse: 0.167 (1/6) | Type: fraction | Astuce: = 5/6 × 1/5 = 1/6
+5. 2/3 + 1/2 − 1/6 = | Réponse: 1 | Type: fraction | Astuce: = 4/6 + 3/6 − 1/6 = 6/6 = 1
+6. 4/5 − 1/3 = | Réponse: 0.467 (7/15) | Type: fraction | Astuce: = 12/15 − 5/15 = 7/15
+7. 1/4 + 2/5 = | Réponse: 0.65 (13/20) | Type: fraction | Astuce: = 5/20 + 8/20 = 13/20
+8. 75 % de 240 = | Réponse: 180 | Type: pourcentage | Astuce: Pourcentage simple
+9. 35 % de 400 = | Réponse: 140 | Type: pourcentage | Astuce: Pourcentage simple
+10. 12 × 1000 = | Réponse: 12000 | Type: multiplication | Astuce: Multiplier par 1000
+11. 5 ÷ 0,01 = | Réponse: 500 | Type: division | Astuce: Diviser par 0,01
+12. 0,01 × 850 = | Réponse: 8.5 | Type: multiplication | Astuce: Multiplier par 0,01
+13. 0,1 × 670 = | Réponse: 67 | Type: multiplication | Astuce: Multiplier par 0,1
+14. 450 ÷ 0,1 = | Réponse: 4500 | Type: division | Astuce: Diviser par 0,1
+15. 4,25 km = ? m | Réponse: 4250 | Type: conversion | Astuce: Multiplier par 1000
+16. 9,5 ha = ? a | Réponse: 950 | Type: conversion | Astuce: 1 ha = 100 a
+17. 2400 F, A et B partagent 3:1. Combien B ? | Réponse: 600 | Type: partage | Astuce: 2400 ÷ 4
+18. 0,01 × 920 = | Réponse: 9.2 | Type: multiplication | Astuce: Multiplier par 0,01
+19. 78 × 100 = | Réponse: 7800 | Type: multiplication | Astuce: Multiplier par 100
+20. 6 ÷ 0,01 = | Réponse: 600 | Type: division | Astuce: Diviser par 0,01
+
+=== NIVEAU 17 ===
+Durée: 20 mn
+Instructions: Fractions et pourcentages complexes, conversions avancées, multiplications/divisions, calcul mental
+Erreurs permises: 2
+
+1. 1/3 + 2/5 − 1/6 = | Réponse: 0.567 (17/30) | Type: fraction | Astuce: = 10/30 + 12/30 − 5/30 = 17/30
+2. 3/4 × 4/9 = | Réponse: 0.333 (1/3) | Type: fraction | Astuce: = 12/36 = 1/3
+3. 5/8 ÷ 5 = | Réponse: 0.125 (1/8) | Type: fraction | Astuce: = 5/8 × 1/5 = 1/8
+4. 2/3 − 1/4 + 1/6 = | Réponse: 0.583 (7/12) | Type: fraction | Astuce: = 8/12 − 3/12 + 2/12 = 7/12
+5. 3/5 + 1/4 = | Réponse: 0.85 (17/20) | Type: fraction | Astuce: = 12/20 + 5/20 = 17/20
+6. 7/8 − 2/5 = | Réponse: 0.475 (19/40) | Type: fraction | Astuce: = 35/40 − 16/40 = 19/40
+7. 40 % + 25 % de 160 = | Réponse: 104 | Type: pourcentage | Astuce: 64 + 40
+8. 55 % de 300 = | Réponse: 165 | Type: pourcentage | Astuce: Pourcentage simple
+9. 90 % de 450 = | Réponse: 405 | Type: pourcentage | Astuce: Pourcentage simple
+10. 5,6 km = ? m | Réponse: 5600 | Type: conversion | Astuce: Multiplier par 1000
+11. 8,75 ha = ? a | Réponse: 875 | Type: conversion | Astuce: 1 ha = 100 a
+12. 3450 m = ? km | Réponse: 3.45 | Type: conversion | Astuce: Division par 1000
+13. 0,01 × 750 = | Réponse: 7.5 | Type: multiplication | Astuce: Multiplier par 0,01
+14. 4800 ÷ 100 = | Réponse: 48 | Type: division | Astuce: Diviser par 100
+15. 0,1 × 890 = | Réponse: 89 | Type: multiplication | Astuce: Multiplier par 0,1
+16. 67 × 1000 = | Réponse: 67000 | Type: multiplication | Astuce: Multiplier par 1000
+17. 1500 F, A reçoit 2/5, B le reste. Combien B ? | Réponse: 900 | Type: partage | Astuce: 1500 × 3/5
+18. 2100 F partagés 4:3. Part du second ? | Réponse: 900 | Type: partage | Astuce: 2100 × 3/7
+19. 0,01 × 480 = | Réponse: 4.8 | Type: multiplication | Astuce: Multiplier par 0,01
+20. 9200 ÷ 1000 = | Réponse: 9.2 | Type: division | Astuce: Division par 1000
+
+=== NIVEAU 18 ===
+Durée: 20 mn
+Instructions: Problèmes temps/vitesse/distance complexes, géométrie, fractions et pourcentages, multiplications/divisions
+Erreurs permises: 2
+
+1. Départ 21h34, arrivée 5h30. Temps écoulé ? | Réponse: 7h56 | Type: temps | Astuce: Calculer heures + minutes
+2. Cercle rayon 20 m, π=3,14. Aire ? | Réponse: 1256 | Type: geometrie | Astuce: π × r²
+3. Rectangle 25 m × 8 m. Aire ? | Réponse: 200 | Type: geometrie | Astuce: L × l
+4. 1/2 + 2/3 − 3/4 = | Réponse: 0.417 (5/12) | Type: fraction | Astuce: = 6/12 + 8/12 − 9/12 = 5/12
+5. 2/5 × 5/8 = | Réponse: 0.25 (1/4) | Type: fraction | Astuce: = 10/40 = 1/4
+6. 3/4 ÷ 6 = | Réponse: 0.125 (1/8) | Type: fraction | Astuce: = 3/4 × 1/6 = 1/8
+7. 5/6 − 1/2 + 1/3 = | Réponse: 0.667 (2/3) | Type: fraction | Astuce: = 5/6 − 3/6 + 2/6 = 4/6 = 2/3
+8. 1/4 + 3/8 + 1/8 = | Réponse: 0.75 (3/4) | Type: fraction | Astuce: = 2/8 + 3/8 + 1/8 = 6/8 = 3/4
+9. 75 % de 360 = | Réponse: 270 | Type: pourcentage | Astuce: Pourcentage simple
+10. 60 % de 450 = | Réponse: 270 | Type: pourcentage | Astuce: Pourcentage simple
+11. 0,1 × 980 = | Réponse: 98 | Type: multiplication | Astuce: Multiplier par 0,1
+12. Départ 14h45, arrivée 18h20. Temps écoulé ? | Réponse: 3h35 | Type: temps | Astuce: Calculer heures + minutes
+13. Train 120 km/h pendant 2,5 h. Distance ? | Réponse: 300 | Type: vitesse | Astuce: v × t
+14. Distance 450 km en 5 h. Vitesse ? | Réponse: 90 | Type: vitesse | Astuce: d ÷ t
+15. Carré côté 17 m. Aire ? | Réponse: 289 | Type: geometrie | Astuce: c²
+16. Périmètre cercle rayon 10 m, π=3,14 ? | Réponse: 62.8 | Type: geometrie | Astuce: 2 × π × r
+17. 0,01 × 560 = | Réponse: 5.6 | Type: multiplication | Astuce: Multiplier par 0,01
+18. 7500 ÷ 1000 = | Réponse: 7.5 | Type: division | Astuce: Division par 1000
+19. Périmètre rectangle 22 m × 11 m ? | Réponse: 66 | Type: geometrie | Astuce: 2 × (L + l)
+
+=== NIVEAU 19 ===
+Durée: 20 mn
+Instructions: Consolidation de tous types : fractions, pourcentages, conversions, partages inégaux, multiplications/divisions
+Erreurs permises: 2
+
+1. 1/2 + 3/4 − 1/3 = | Réponse: 0.917 (11/12) | Type: fraction | Astuce: = 6/12 + 9/12 − 4/12 = 11/12
+2. 2/5 × 3/4 = | Réponse: 0.3 (3/10) | Type: fraction | Astuce: = 6/20 = 3/10
+3. 5/8 ÷ 5 = | Réponse: 0.125 (1/8) | Type: fraction | Astuce: = 5/8 × 1/5 = 1/8
+4. 3/4 − 1/3 + 1/6 = | Réponse: 0.583 (7/12) | Type: fraction | Astuce: = 9/12 − 4/12 + 2/12 = 7/12
+5. 4/5 + 1/10 = | Réponse: 0.9 (9/10) | Type: fraction | Astuce: = 8/10 + 1/10 = 9/10
+6. 7/10 − 2/5 = | Réponse: 0.3 (3/10) | Type: fraction | Astuce: = 7/10 − 4/10 = 3/10
+7. 30 % + 25 % de 200 = | Réponse: 110 | Type: pourcentage | Astuce: 60 + 50
+8. 85 % de 600 = | Réponse: 510 | Type: pourcentage | Astuce: Pourcentage simple
+9. 7,25 km = ? m | Réponse: 7250 | Type: conversion | Astuce: Multiplier par 1000
+10. 12,5 ha = ? a | Réponse: 1250 | Type: conversion | Astuce: 1 ha = 100 a
+11. 8450 m = ? km | Réponse: 8.45 | Type: conversion | Astuce: Division par 1000
+12. 1800 F, A reçoit 5/6, B le reste. Combien B ? | Réponse: 300 | Type: partage | Astuce: 1800 × 1/6
+13. 2500 F partagés 3:2. Part du second ? | Réponse: 1000 | Type: partage | Astuce: 2500 × 2/5
+14. 120 × 1000 = | Réponse: 120000 | Type: multiplication | Astuce: Multiplier par 1000
+15. 360 ÷ 0,01 = | Réponse: 36000 | Type: division | Astuce: Diviser par 0,01
+16. 0,1 × 730 = | Réponse: 73 | Type: multiplication | Astuce: Multiplier par 0,1
+17. 0,01 × 940 = | Réponse: 9.4 | Type: multiplication | Astuce: Multiplier par 0,01
+18. 5600 ÷ 100 = | Réponse: 56 | Type: division | Astuce: Division par 100
+19. 89 × 1000 = | Réponse: 89000 | Type: multiplication | Astuce: Multiplier par 1000
+20. 420 ÷ 0,1 = | Réponse: 4200 | Type: division | Astuce: Diviser par 0,1
+
+=== NIVEAU 20 ===
+Durée: 20 mn
+Instructions: Tous types combinés : fractions, pourcentages, conversions, géométrie, partages, temps/vitesse/distance, multiplications/divisions
+Erreurs permises: 2
+
+1. 1/2 + 2/3 − 1/4 = | Réponse: 0.917 (11/12) | Type: fraction | Astuce: = 6/12 + 8/12 − 3/12 = 11/12
+2. 3/5 × 5/9 = | Réponse: 0.333 (1/3) | Type: fraction | Astuce: = 15/45 = 1/3
+3. 7/8 ÷ 7 = | Réponse: 0.125 (1/8) | Type: fraction | Astuce: = 7/8 × 1/7 = 1/8
+4. 2/3 + 1/4 − 1/6 = | Réponse: 0.75 (3/4) | Type: fraction | Astuce: = 8/12 + 3/12 − 2/12 = 9/12 = 3/4
+5. 5/6 − 1/2 + 2/3 = | Réponse: 1 | Type: fraction | Astuce: = 5/6 − 3/6 + 4/6 = 6/6 = 1
+6. 50 % + 25 % de 360 = | Réponse: 270 | Type: pourcentage | Astuce: 180 + 90
+7. 95 % de 400 = | Réponse: 380 | Type: pourcentage | Astuce: Pourcentage simple
+8. Cercle rayon 15 m, π=3,14. Aire ? | Réponse: 706.5 | Type: geometrie | Astuce: π × r²
+9. Rectangle 30 m × 12 m. Aire ? | Réponse: 360 | Type: geometrie | Astuce: L × l
+10. Carré côté 19 m. Aire ? | Réponse: 361 | Type: geometrie | Astuce: c²
+11. Périmètre cercle rayon 12 m, π=3,14 ? | Réponse: 75.36 | Type: geometrie | Astuce: 2 × π × r
+12. 2000 F, A reçoit 3/4, B le reste. Combien B ? | Réponse: 500 | Type: partage | Astuce: 2000 × 1/4
+13. 3000 F partagés 5:1. Part du second ? | Réponse: 500 | Type: partage | Astuce: 3000 ÷ 6
+14. Un train parcourt 180 km en 3 h. Vitesse moyenne ? | Réponse: 60 | Type: vitesse | Astuce: Distance ÷ temps
+15. Voiture 110 km/h pendant 4 h. Distance ? | Réponse: 440 | Type: vitesse | Astuce: v × t
+16. 0,01 × 780 = | Réponse: 7.8 | Type: multiplication | Astuce: Multiplier par 0,01
+17. 8 ÷ 0,01 = | Réponse: 800 | Type: division | Astuce: Diviser par 0,01
+18. 0,1 × 920 = | Réponse: 92 | Type: multiplication | Astuce: Multiplier par 0,1
+19. 560 ÷ 0,1 = | Réponse: 5600 | Type: division | Astuce: Diviser par 0,1
+20. 145 × 1000 = | Réponse: 145000 | Type: multiplication | Astuce: Multiplier par 1000
+
+=== NIVEAU 21 - CONCOURS ===
+Durée: 30 mn
+Instructions: Calcul mental avancé : fractions, %, partages inégaux, temps/vitesse/distance, échelle, conversions, multiplications/divisions par 0,01/0,1/10/100/1000
+Erreurs permises: 2
+
+1. Combien coûte un sac dont les 2/3 valent 900 F ? | Réponse: 1350 | Type: fraction | Astuce: 900 ÷ 2 × 3
+2. Pierre et Paul se partagent 1000 F. Pierre a 3 fois plus que Paul. Combien a Paul ? | Réponse: 250 | Type: partage | Astuce: 1000 ÷ (3+1)
+3. Un bidon rempli aux 2/3 contient 10 L. Combien faut-il ajouter pour le remplir ? | Réponse: 5 | Type: fraction | Astuce: 10 ÷ 2 × 3 = 15, puis 15 - 10
+4. Somme de 4 notes : 12, 15, 14, 13. Moyenne ? | Réponse: 13.5 | Type: moyenne | Astuce: (12+15+14+13) ÷ 4
+5. Départ 21h34, arrivée 5h30. Temps écoulé ? | Réponse: 7h56 | Type: temps | Astuce: Calcul heures + minutes
+6. 1/2 + 2/3 − 3/4 = | Réponse: 0.417 (5/12) | Type: fraction | Astuce: = 6/12 + 8/12 − 9/12 = 5/12
+7. 3/5 × 5/6 = | Réponse: 0.5 (1/2) | Type: fraction | Astuce: = 15/30 = 1/2
+8. 7/8 ÷ 7 = | Réponse: 0.125 (1/8) | Type: fraction | Astuce: = 1/8
+9. 5/6 + 1/3 − 1/2 = | Réponse: 0.667 (2/3) | Type: fraction | Astuce: = 5/6 + 2/6 − 3/6 = 4/6 = 2/3
+10. 2/5 + 3/10 = | Réponse: 0.7 (7/10) | Type: fraction | Astuce: = 4/10 + 3/10 = 7/10
+11. Échelle 1/1000 : rue 17,5 cm sur plan. Longueur réelle en cm ? | Réponse: 17500 | Type: echelle | Astuce: 17,5 × 1000
+12. 0,01 × 350 = | Réponse: 3.5 | Type: multiplication | Astuce: Multiplier par 0,01
+13. 450 ÷ 100 = | Réponse: 4.5 | Type: division | Astuce: Diviser par 100
+14. 0,1 × 280 = | Réponse: 28 | Type: multiplication | Astuce: Multiplier par 0,1
+15. 600 ÷ 1000 = | Réponse: 0.6 | Type: division | Astuce: Diviser par 1000
+16. Quel âge a ton père s'il avait 35 ans en 2015 ? | Réponse: 46 | Type: age | Astuce: 2026 − 2015 + 35
+17. Bidon 15 L rempli aux 3/5. Combien d'eau ? | Réponse: 9 | Type: fraction | Astuce: 15 × 3/5
+18. Sac dont 3/4 valent 900 F. Prix total ? | Réponse: 1200 | Type: fraction | Astuce: 900 ÷ 3 × 4
+19. Route 180 km en 3 h. Vitesse moyenne ? | Réponse: 60 | Type: vitesse | Astuce: Distance ÷ temps
+20. Champ 6 ha. 1/3 pour A, reste pour B. B en ha ? | Réponse: 4 | Type: fraction | Astuce: 6 − 2
+
+=====================================================
+FIN DU DOCUMENT
+Total: 23 niveaux (dont 2 niveaux spéciaux Fractions)
+Environ 500+ exercices
+=====================================================
