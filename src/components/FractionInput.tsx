@@ -18,11 +18,12 @@ const FractionInput: React.FC<FractionInputProps> = ({
   category = '',
   disabled = false,
 }) => {
+  // Force explicit white background + dark text for visibility in all contexts
   const baseInputClass =
-    "bg-background text-foreground placeholder:text-muted-foreground caret-foreground";
+    "bg-white text-gray-900 placeholder:text-gray-400 caret-gray-900";
 
   const focusInputClass =
-    "border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary";
+    "border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary focus:outline-none";
 
   // Memoize question analysis to prevent recalculation on every render
   const questionAnalysis = useMemo(() => ({
