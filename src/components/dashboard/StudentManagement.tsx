@@ -48,13 +48,6 @@ import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { ALL_LEVELS, getLevelInfo } from '@/utils/exerciseGenerator';
 
-interface LegacyStudent {
-  username: string;
-  isLegacy: true;
-  currentLevel: number;
-  lastActivity: string;
-}
-
 const StudentManagement: React.FC = () => {
   const {
     students: supabaseStudents,
@@ -66,7 +59,6 @@ const StudentManagement: React.FC = () => {
     generatePassword
   } = useStudentManagement();
 
-  const [legacyStudents, setLegacyStudents] = useState<LegacyStudent[]>([]);
   const { toast } = useToast();
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [isPasswordDialogOpen, setIsPasswordDialogOpen] = useState(false);
@@ -96,76 +88,25 @@ const StudentManagement: React.FC = () => {
     }
   };
 
-  // Charger les élèves legacy non migrés
-  const loadLegacyStudents = useCallback(() => {
-    // Handle both camelCase and snake_case from edge function
-    const supabaseNames = new Set(
-      supabaseStudents.map(s => {
-        const name = s.displayName || s.display_name || s.firstName || s.first_name || '';
-        return name.toLowerCase();
-      })
-    );
-
-    const legacy: LegacyStudent[] = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key && key.startsWith('studentProgress_')) {
-        try {
-          const data = JSON.parse(localStorage.getItem(key) || '{}');
-          if (data.username && !supabaseNames.has(data.username.toLowerCase())) {
-            legacy.push({
-              username: data.username,
-              isLegacy: true,
-              currentLevel: data.currentLevel || 1,
-              lastActivity: data.lastActivity || ''
-            });
-          }
-        } catch (e) {
-          console.error('Error parsing legacy student:', e);
-        }
-      }
-    }
-    setLegacyStudents(legacy.sort((a, b) => a.username.localeCompare(b.username)));
-  }, [supabaseStudents]);
-
   useEffect(() => {
     fetchStudents();
   }, [fetchStudents]);
 
-  useEffect(() => {
-    loadLegacyStudents();
-  }, [loadLegacyStudents]);
-
-  // Combine les élèves Supabase et legacy
-  // Edge function returns camelCase, normalize to snake_case
+  // Normalize students from edge function (camelCase -> snake_case)
   const allStudents = useMemo(() => {
-    const combined: any[] = [
-      ...supabaseStudents.map(s => ({
-        id: s.id,
-        first_name: s.firstName || s.first_name || '',
-        display_name: s.displayName || s.display_name || s.firstName || s.first_name || '',
-        is_active: s.isActive ?? s.is_active ?? true,
-        last_login_at: s.lastLoginAt || s.last_login_at || null,
-        created_at: s.createdAt || s.created_at || null,
-        isLegacy: false
-      })),
-      ...legacyStudents.map(s => ({
-        id: `legacy_${s.username}`,
-        first_name: s.username,
-        display_name: s.username,
-        is_active: true,
-        last_login_at: s.lastActivity,
-        created_at: null,
-        isLegacy: true,
-        currentLevel: s.currentLevel
-      }))
-    ];
-    return combined.sort((a, b) => {
+    return supabaseStudents.map(s => ({
+      id: s.id,
+      first_name: s.firstName || s.first_name || '',
+      display_name: s.displayName || s.display_name || s.firstName || s.first_name || '',
+      is_active: s.isActive ?? s.is_active ?? true,
+      last_login_at: s.lastLoginAt || s.last_login_at || null,
+      created_at: s.createdAt || s.created_at || null,
+    })).sort((a, b) => {
       const nameA = a.display_name || a.first_name || '';
       const nameB = b.display_name || b.first_name || '';
       return nameA.localeCompare(nameB);
     });
-  }, [supabaseStudents, legacyStudents]);
+  }, [supabaseStudents]);
 
   // Get current level from profile first, then fallback to localStorage
   const getStudentLevel = (studentOrName: any): number => {
@@ -306,7 +247,7 @@ const StudentManagement: React.FC = () => {
               Gestion des élèves
             </CardTitle>
             <CardDescription>
-              {allStudents.length} élève(s) • {supabaseStudents.length} compte(s) Supabase • {legacyStudents.length} legacy
+              {allStudents.length} élève(s)
             </CardDescription>
           </div>
           <div className="flex gap-2">
@@ -437,11 +378,6 @@ const StudentManagement: React.FC = () => {
                             <p className="text-sm text-muted-foreground">{student.display_name}</p>
                           )}
                         </div>
-                        {student.isLegacy && (
-                          <Badge variant="outline" className="text-xs bg-amber-50 text-amber-700 border-amber-200">
-                            Non migré
-                          </Badge>
-                        )}
                       </div>
                     </TableCell>
                     <TableCell>
@@ -450,11 +386,7 @@ const StudentManagement: React.FC = () => {
                       </Badge>
                     </TableCell>
                     <TableCell>
-                      {student.isLegacy ? (
-                        <Badge variant="outline" className="bg-amber-50 text-amber-700 border-amber-200">
-                          Legacy
-                        </Badge>
-                      ) : student.is_active ? (
+                      {student.is_active ? (
                         <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
                           Actif
                         </Badge>
@@ -471,47 +403,42 @@ const StudentManagement: React.FC = () => {
                       </div>
                     </TableCell>
                     <TableCell className="text-sm text-muted-foreground">
-                      {student.isLegacy ? '-' : formatDate(student.created_at)}
+                      {formatDate(student.created_at)}
                     </TableCell>
                     <TableCell className="text-right">
                       <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        {!student.isLegacy && (
-                          <>
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              onClick={() => {
-                                setSelectedStudent(student);
-                                setNewPassword('');
-                                setIsPasswordDialogOpen(true);
-                              }}
-                            >
-                              <Key className="h-3 w-3 mr-1" />
-                              Mot de passe
-                            </Button>
-                            <Button
-                              size="sm"
-                              variant={student.is_active ? "outline" : "default"}
-                              onClick={() => handleToggleActive(student)}
-                            >
-                              {student.is_active ? (
-                                <>
-                                  <UserX className="h-3 w-3 mr-1" />
-                                  Désactiver
-                                </>
-                              ) : (
-                                <>
-                                  <UserCheck className="h-3 w-3 mr-1" />
-                                  Réactiver
-                                </>
-                              )}
-                            </Button>
-                          </>
-                        )}
                         <Button
                           size="sm"
                           variant="outline"
-                          className="bg-blue-50"
+                          onClick={() => {
+                            setSelectedStudent(student);
+                            setNewPassword('');
+                            setIsPasswordDialogOpen(true);
+                          }}
+                        >
+                          <Key className="h-3 w-3 mr-1" />
+                          Mot de passe
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant={student.is_active ? "outline" : "default"}
+                          onClick={() => handleToggleActive(student)}
+                        >
+                          {student.is_active ? (
+                            <>
+                              <UserX className="h-3 w-3 mr-1" />
+                              Désactiver
+                            </>
+                          ) : (
+                            <>
+                              <UserCheck className="h-3 w-3 mr-1" />
+                              Réactiver
+                            </>
+                          )}
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="outline"
                           onClick={() => {
                             setSelectedStudent(student);
                             const currentLevel = getStudentLevel(student);
