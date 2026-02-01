@@ -65,14 +65,33 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Vibrant kid-friendly colors
+        "sky-blue": "hsl(var(--sky-blue))",
+        "mint-green": "hsl(var(--mint-green))",
+        "coral-orange": "hsl(var(--coral-orange))",
+        "golden-yellow": "hsl(var(--golden-yellow))",
+        "violet-purple": "hsl(var(--violet-purple))",
+        "turquoise": "hsl(var(--turquoise))",
       },
       fontFamily: {
-        sans: ['Outfit', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        "2xl": "1.5rem",
+        "3xl": "2rem",
+        "4xl": "2.5rem",
+      },
+      boxShadow: {
+        'kid': '0 10px 30px rgba(0, 0, 0, 0.25)',
+        'kid-hover': '0 20px 50px rgba(0, 0, 0, 0.35)',
+        'glow-blue': '0 0 30px rgba(56, 189, 248, 0.4)',
+        'glow-green': '0 0 30px rgba(52, 211, 153, 0.4)',
+        'glow-orange': '0 0 30px rgba(251, 146, 60, 0.4)',
+        'glow-yellow': '0 0 30px rgba(250, 204, 21, 0.4)',
+        'glow-violet': '0 0 30px rgba(167, 139, 250, 0.4)',
       },
       keyframes: {
         "accordion-down": {
@@ -91,10 +110,25 @@ export default {
             height: "0",
           },
         },
+        "bounce-soft": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-5px)" },
+        },
+        "wiggle": {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(250, 204, 21, 0.4)" },
+          "50%": { boxShadow: "0 0 40px rgba(250, 204, 21, 0.6)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "bounce-soft": "bounce-soft 2s ease-in-out infinite",
+        "wiggle": "wiggle 1s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
       },
     },
   },

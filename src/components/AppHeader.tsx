@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, LogOut, ChevronLeft } from 'lucide-react';
+import { Home, LogOut, ChevronLeft, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -17,6 +17,7 @@ interface AppHeaderProps {
   className?: string;
   variant?: 'default' | 'transparent' | 'solid';
   backLabel?: string;
+  username?: string;
 }
 
 const AppHeader: React.FC<AppHeaderProps> = ({
@@ -31,11 +32,12 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   className,
   variant = 'default',
   backLabel = 'Retour',
+  username,
 }) => {
   const bgClasses = {
-    default: 'bg-card/95 backdrop-blur-sm border-b border-border shadow-sm',
+    default: 'bg-card/80 backdrop-blur-md border-b border-border/50 shadow-lg',
     transparent: 'bg-transparent',
-    solid: 'bg-card border-b border-border shadow-sm',
+    solid: 'bg-card border-b border-border shadow-lg',
   };
 
   return (
@@ -56,7 +58,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
               onClick={onBack}
               variant="ghost"
               size="sm"
-              className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground hover:bg-muted/80 shrink-0"
+              className="flex items-center gap-1.5 text-foreground/70 hover:text-foreground hover:bg-muted/50 shrink-0"
             >
               <ChevronLeft className="w-4 h-4" />
               <span className="hidden sm:inline">{backLabel}</span>
@@ -68,7 +70,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
               onClick={onHome}
               variant="ghost"
               size="sm"
-              className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground hover:bg-muted/80 shrink-0"
+              className="flex items-center gap-1.5 text-foreground/70 hover:text-foreground hover:bg-muted/50 shrink-0"
             >
               <Home className="w-4 h-4" />
               <span className="hidden sm:inline">Accueil</span>
@@ -92,7 +94,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
           )}
         </div>
 
-        {/* Côté droit - Déconnexion & Avatar */}
+        {/* Côté droit - User & Déconnexion */}
         <div className="flex items-center gap-3 shrink-0">
           {showHome && onHome && showBack && (
             <Button
@@ -106,14 +108,13 @@ const AppHeader: React.FC<AppHeaderProps> = ({
             </Button>
           )}
 
-          {/* Simple User Display */}
-          <div className="flex items-center gap-2">
-            {/* We assume 'Student' usually, but could accept a 'username' prop in future refactor */}
-            <div className="hidden md:flex flex-col items-end mr-1">
-              <span className="text-xs font-semibold text-foreground">Mon Compte</span>
-              <span className="text-[10px] text-muted-foreground">Élève</span>
+          {/* User Display */}
+          <div className="flex items-center gap-2 bg-muted/30 rounded-full px-3 py-1.5">
+            <Avatar name={username || 'Élève'} size="sm" className="border-2 border-primary/30" />
+            <div className="hidden md:flex flex-col items-start">
+              <span className="text-xs font-semibold text-foreground">{username || 'Élève'}</span>
+              <span className="text-[10px] text-muted-foreground">Connecté</span>
             </div>
-            <Avatar name="Élève" size="sm" className="border-2 border-primary/20" />
           </div>
 
           {showLogout && onLogout && (
@@ -121,7 +122,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
               onClick={onLogout}
               variant="ghost"
               size="icon"
-              className="text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
+              className="text-foreground/60 hover:text-destructive hover:bg-destructive/10 transition-colors"
               title="Déconnexion"
             >
               <LogOut className="w-5 h-5" />

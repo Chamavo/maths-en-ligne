@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { User, Lock, LogIn, Eye, EyeOff, AlertCircle } from 'lucide-react';
+import { User, Lock, LogIn, Eye, EyeOff, AlertCircle, Star, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -37,41 +37,66 @@ const StudentLogin: React.FC<StudentLoginProps> = ({ onLoginSuccess, onTeacherLo
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
+    <div className="min-h-screen gradient-bg flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Decorative shapes */}
+      <div className="kumon-shape kumon-shape-1" />
+      <div className="kumon-shape kumon-shape-2" />
+      <div className="kumon-shape kumon-shape-3" />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-md"
+        className="w-full max-w-md relative z-10"
       >
-        <Card className="shadow-xl border-0 overflow-hidden">
-          <div className="h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" />
+        <Card className="bg-card/90 backdrop-blur-md border-border/50 shadow-2xl overflow-hidden">
+          {/* Top gradient bar */}
+          <div className="h-2 bg-gradient-to-r from-primary via-secondary to-accent" />
           
-          <CardHeader className="text-center pb-2">
+          <CardHeader className="text-center pb-2 pt-8">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-              className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg"
+              className="relative w-24 h-24 mx-auto mb-4"
             >
-              <span className="text-4xl">🎓</span>
+              {/* Animated stars around logo */}
+              <motion.div 
+                className="absolute -top-2 -right-2"
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+              >
+                <Star className="w-6 h-6 text-warning" fill="currentColor" />
+              </motion.div>
+              <motion.div 
+                className="absolute -bottom-1 -left-1"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <Star className="w-5 h-5 text-warning" fill="currentColor" />
+              </motion.div>
+              
+              <div className="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center shadow-glow-blue">
+                <span className="text-5xl">🎓</span>
+              </div>
             </motion.div>
-            <CardTitle className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            
+            <CardTitle className="text-3xl font-extrabold gradient-text">
               Maths en ligne
             </CardTitle>
-            <CardDescription className="text-base">
-              Connecte-toi pour commencer à apprendre !
+            <CardDescription className="text-base text-muted-foreground mt-2">
+              Connecte-toi pour commencer à apprendre ! 🚀
             </CardDescription>
           </CardHeader>
 
-          <CardContent className="space-y-6 pt-4">
-            <form onSubmit={handleSubmit} className="space-y-4">
+          <CardContent className="space-y-6 pt-4 pb-8 px-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
               {error && (
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                 >
-                  <Alert variant="destructive" className="bg-red-50 border-red-200">
+                  <Alert variant="destructive" className="bg-destructive/10 border-destructive/30">
                     <AlertCircle className="h-4 w-4" />
                     <AlertDescription>{error}</AlertDescription>
                   </Alert>
@@ -79,8 +104,8 @@ const StudentLogin: React.FC<StudentLoginProps> = ({ onLoginSuccess, onTeacherLo
               )}
 
               <div className="space-y-2">
-                <Label htmlFor="firstName" className="text-sm font-medium flex items-center gap-2">
-                  <User className="h-4 w-4 text-blue-500" />
+                <Label htmlFor="firstName" className="text-sm font-semibold flex items-center gap-2 text-foreground">
+                  <User className="h-4 w-4 text-primary" />
                   Mon prénom
                 </Label>
                 <Input
@@ -89,15 +114,15 @@ const StudentLogin: React.FC<StudentLoginProps> = ({ onLoginSuccess, onTeacherLo
                   placeholder="Entre ton prénom..."
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
-                  className="h-12 text-lg border-2 focus:border-blue-500 transition-colors"
+                  className="h-12 text-lg bg-muted/50 border-border/50 focus:border-primary focus:ring-primary/30 transition-all"
                   autoComplete="username"
                   autoFocus
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-sm font-medium flex items-center gap-2">
-                  <Lock className="h-4 w-4 text-purple-500" />
+                <Label htmlFor="password" className="text-sm font-semibold flex items-center gap-2 text-foreground">
+                  <Lock className="h-4 w-4 text-secondary" />
                   Mon mot de passe
                 </Label>
                 <div className="relative">
@@ -107,13 +132,13 @@ const StudentLogin: React.FC<StudentLoginProps> = ({ onLoginSuccess, onTeacherLo
                     placeholder="Entre ton mot de passe..."
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="h-12 text-lg border-2 focus:border-purple-500 transition-colors pr-12"
+                    className="h-12 text-lg bg-muted/50 border-border/50 focus:border-secondary focus:ring-secondary/30 transition-all pr-12"
                     autoComplete="current-password"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                   </button>
@@ -123,18 +148,18 @@ const StudentLogin: React.FC<StudentLoginProps> = ({ onLoginSuccess, onTeacherLo
               <Button
                 type="submit"
                 disabled={isLoading || !firstName.trim() || !password.trim()}
-                className="w-full h-12 text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl"
+                className="w-full h-12 text-lg font-bold bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all shadow-lg hover:shadow-glow-blue text-primary-foreground"
               >
                 {isLoading ? (
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                    className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                    className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full"
                   />
                 ) : (
                   <>
-                    <LogIn className="mr-2 h-5 w-5" />
-                    Se connecter
+                    <Rocket className="mr-2 h-5 w-5" />
+                    C'est parti !
                   </>
                 )}
               </Button>
@@ -142,10 +167,10 @@ const StudentLogin: React.FC<StudentLoginProps> = ({ onLoginSuccess, onTeacherLo
 
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-200" />
+                <div className="w-full border-t border-border/50" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">ou</span>
+                <span className="px-3 bg-card text-muted-foreground">ou</span>
               </div>
             </div>
 
@@ -153,12 +178,12 @@ const StudentLogin: React.FC<StudentLoginProps> = ({ onLoginSuccess, onTeacherLo
               type="button"
               variant="outline"
               onClick={onTeacherLogin}
-              className="w-full h-10 text-gray-600 hover:text-gray-800 hover:bg-gray-50"
+              className="w-full h-10 text-muted-foreground hover:text-foreground hover:bg-muted/50 border-border/50"
             >
-              Accès enseignant
+              Accès enseignant 👨‍🏫
             </Button>
 
-            <p className="text-center text-xs text-gray-400 mt-4">
+            <p className="text-center text-xs text-muted-foreground mt-4">
               Demande ton mot de passe à ton professeur si tu ne l'as pas 😊
             </p>
           </CardContent>
