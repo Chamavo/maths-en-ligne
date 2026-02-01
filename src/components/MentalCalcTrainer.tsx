@@ -71,7 +71,12 @@ const MentalCalcTrainer = () => {
 
   // Set session when student logs in - load saved level from localStorage
   useEffect(() => {
-    if (student) {
+    // IMPORTANT: teachers are also authenticated users; the student hook can
+    // briefly resolve a "student" profile for them (via profiles). If we let
+    // that set the app session, the UI can flip/flop between roles causing
+    // erratic level locking and input resets. When a teacher user is present,
+    // never create a student session.
+    if (student && !teacherUser) {
       // Charger le niveau sauvegardé depuis localStorage
       const studentName = student.display_name || student.first_name;
       const progressKey = `studentProgress_${studentName.toLowerCase()}`;
@@ -96,7 +101,7 @@ const MentalCalcTrainer = () => {
         studentId: student.id,
       });
     }
-  }, [student]);
+  }, [student, teacherUser]);
 
   // Set session when teacher logs in
   useEffect(() => {
