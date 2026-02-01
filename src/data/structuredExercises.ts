@@ -304,6 +304,7 @@ export const niveaux: NiveauData[] = [
       { enonce: "56 × 100 =", type: "multiplication", reponse: 5600, astuce: "Multiplier par 100" },
       { enonce: "9000 ÷ 1000 =", type: "division", reponse: 9, astuce: "Division par 1000" },
       { enonce: "34 × 10 =", type: "multiplication", reponse: 340, astuce: "Multiplier par 10" },
+      { enonce: "18,7 ÷ 0,01 =", type: "division", reponse: 1870, astuce: "Diviser par 0,01 = multiplier par 100" },
     ]
   },
   {
