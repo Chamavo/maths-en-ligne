@@ -255,19 +255,19 @@
   }
 
   /* High-contrast exercise input styling (used by FractionInput and friends) */
+  /* CRITICAL: Use direct hex colors to guarantee visibility regardless of CSS variable issues */
   .exercise-input {
-    /* Use !important to beat any accidental text-transparent / injected rules */
-    background-color: hsl(var(--exercise-input-bg)) !important;
-    color: hsl(var(--exercise-input-fg)) !important;
-    caret-color: hsl(var(--exercise-input-fg)) !important;
-    -webkit-text-fill-color: hsl(var(--exercise-input-fg)) !important;
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+    caret-color: #1e293b !important;
+    -webkit-text-fill-color: #1e293b !important;
     opacity: 1 !important;
     filter: none !important;
   }
 
   .exercise-input::placeholder {
-    color: hsl(var(--exercise-input-placeholder)) !important;
-    -webkit-text-fill-color: hsl(var(--exercise-input-placeholder)) !important;
+    color: #94a3b8 !important;
+    -webkit-text-fill-color: #94a3b8 !important;
   }
 }
 
