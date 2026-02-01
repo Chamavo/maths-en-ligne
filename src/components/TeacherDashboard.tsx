@@ -25,7 +25,6 @@ import DashboardActivityChart from './dashboard/DashboardActivityChart';
 import DashboardStudentCard from './dashboard/DashboardStudentCard';
 import DashboardModuleStats from './dashboard/DashboardModuleStats';
 import StudentManagement from './dashboard/StudentManagement';
-import DataMigration from './dashboard/DataMigration';
 
 interface TeacherDashboardProps {
   isOpen: boolean;
@@ -522,7 +521,6 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ isOpen, onClose }) 
                 {/* Accounts Management Tab */}
                 <TabsContent value="accounts" className="mt-0 space-y-6">
                   <StudentManagement />
-                  <DataMigration />
                 </TabsContent>
 
                 {/* Students Tracking Tab */}
