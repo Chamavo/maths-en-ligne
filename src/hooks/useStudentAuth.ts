@@ -33,6 +33,25 @@ export const useStudentAuth = () => {
 
   const fetchStudentProfile = async (userId: string) => {
     try {
+      // Teachers are authenticated users too and have a profile row.
+      // If we treat them as students, the app can flip/flop between roles
+      // (teacher vs student), causing erratic level locking and input resets.
+      // So: if the authenticated user has the 'teacher' role, do NOT set student.
+      const { data: rolesData, error: rolesError } = await supabase
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', userId);
+
+      if (!rolesError) {
+        const roles = rolesData ?? [];
+        const hasTeacherRole = roles.some((r: any) => r.role === 'teacher');
+        if (hasTeacherRole) {
+          setStudent(null);
+          return;
+        }
+        // Backward-compatible: if no roles row exists, we still allow student fallback.
+      }
+
       // First, try to get from profiles table
       const { data: profileData } = await supabase
         .from('profiles')
