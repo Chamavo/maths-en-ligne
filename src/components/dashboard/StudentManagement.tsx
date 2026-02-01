@@ -98,8 +98,12 @@ const StudentManagement: React.FC = () => {
 
   // Charger les élèves legacy non migrés
   const loadLegacyStudents = useCallback(() => {
+    // Handle both camelCase and snake_case from edge function
     const supabaseNames = new Set(
-      supabaseStudents.map(s => (s.display_name || s.first_name).toLowerCase())
+      supabaseStudents.map(s => {
+        const name = s.displayName || s.display_name || s.firstName || s.first_name || '';
+        return name.toLowerCase();
+      })
     );
 
     const legacy: LegacyStudent[] = [];
@@ -133,9 +137,18 @@ const StudentManagement: React.FC = () => {
   }, [loadLegacyStudents]);
 
   // Combine les élèves Supabase et legacy
+  // Edge function returns camelCase, normalize to snake_case
   const allStudents = useMemo(() => {
     const combined: any[] = [
-      ...supabaseStudents.map(s => ({ ...s, isLegacy: false })),
+      ...supabaseStudents.map(s => ({
+        id: s.id,
+        first_name: s.firstName || s.first_name || '',
+        display_name: s.displayName || s.display_name || s.firstName || s.first_name || '',
+        is_active: s.isActive ?? s.is_active ?? true,
+        last_login_at: s.lastLoginAt || s.last_login_at || null,
+        created_at: s.createdAt || s.created_at || null,
+        isLegacy: false
+      })),
       ...legacyStudents.map(s => ({
         id: `legacy_${s.username}`,
         first_name: s.username,
@@ -147,9 +160,11 @@ const StudentManagement: React.FC = () => {
         currentLevel: s.currentLevel
       }))
     ];
-    return combined.sort((a, b) =>
-      (a.display_name || a.first_name).localeCompare(b.display_name || b.first_name)
-    );
+    return combined.sort((a, b) => {
+      const nameA = a.display_name || a.first_name || '';
+      const nameB = b.display_name || b.first_name || '';
+      return nameA.localeCompare(nameB);
+    });
   }, [supabaseStudents, legacyStudents]);
 
   // Get current level from profile first, then fallback to localStorage
