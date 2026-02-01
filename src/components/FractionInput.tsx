@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { parseFraction, isFractionQuestion, isTimeQuestion, isFractionOperationQuestion, isInputFractionFormat, isTimeCategory } from '@/utils/fractionUtils';
 
 interface FractionInputProps {
@@ -18,91 +18,135 @@ const FractionInput: React.FC<FractionInputProps> = ({
   category = '',
   disabled = false,
 }) => {
-  const [inputMode, setInputMode] = useState<'number' | 'fraction' | 'time'>('number');
+  // Memoize question analysis to prevent recalculation on every render
+  const questionAnalysis = useMemo(() => ({
+    isFractionOp: isFractionOperationQuestion(question),
+    showFractionOption: isFractionQuestion(question),
+    isTimeQuestionType: isTimeQuestion(question) || isTimeCategory(category),
+  }), [question, category]);
+
+  const { isFractionOp, showFractionOption, isTimeQuestionType } = questionAnalysis;
+  const showTimeOption = isTimeQuestionType;
+
+  // Determine initial mode based on question type
+  const getInitialMode = useCallback((): 'number' | 'fraction' | 'time' => {
+    if (isFractionOp) return 'fraction';
+    if (isTimeQuestionType) return 'time';
+    return 'number';
+  }, [isFractionOp, isTimeQuestionType]);
+
+  const [inputMode, setInputMode] = useState<'number' | 'fraction' | 'time'>(getInitialMode);
   const [numerator, setNumerator] = useState('');
   const [denominator, setDenominator] = useState('');
   const [hours, setHours] = useState('');
   const [minutes, setMinutes] = useState('');
-  const [showFractionWarning, setShowFractionWarning] = useState(false);
   
-  const isFractionOp = isFractionOperationQuestion(question);
-  const showFractionOption = isFractionQuestion(question);
-  const isTimeQuestionType = isTimeQuestion(question) || isTimeCategory(category);
-  const showTimeOption = isTimeQuestionType;
+  // Track previous question to detect changes
+  const prevQuestionRef = useRef(question);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const numeratorRef = useRef<HTMLInputElement>(null);
+  const hoursRef = useRef<HTMLInputElement>(null);
   
-  // Pour les opérations de fractions, forcer le mode fraction
-  // Pour les questions de temps, forcer le mode temps
+  // Reset input state when question changes (not just mode)
   useEffect(() => {
-    if (isFractionOp) {
-      setInputMode('fraction');
-    } else if (isTimeQuestionType) {
-      setInputMode('time');
+    if (prevQuestionRef.current !== question) {
+      prevQuestionRef.current = question;
+      
+      // Determine new mode
+      const newMode = getInitialMode();
+      setInputMode(newMode);
+      
+      // Clear all input states
+      setNumerator('');
+      setDenominator('');
+      setHours('');
+      setMinutes('');
+      
+      // Focus appropriate input after state update (use requestAnimationFrame for reliability)
+      requestAnimationFrame(() => {
+        if (newMode === 'fraction' && numeratorRef.current) {
+          numeratorRef.current.focus();
+        } else if (newMode === 'time' && hoursRef.current) {
+          hoursRef.current.focus();
+        } else if (inputRef.current) {
+          inputRef.current.focus();
+        }
+      });
     }
-  }, [isFractionOp, isTimeQuestionType]);
+  }, [question, getInitialMode]);
   
-  const handleNumericChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleNumericChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
-  };
+  }, [onChange]);
   
-  const handleNumeratorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNumerator(e.target.value);
-    if (e.target.value && denominator) {
-      onChange(`${e.target.value}/${denominator}`);
+  const handleNumeratorChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const newNumerator = e.target.value;
+    setNumerator(newNumerator);
+    if (newNumerator && denominator) {
+      onChange(`${newNumerator}/${denominator}`);
+    } else if (newNumerator) {
+      // Partial input - update parent with just numerator for validation awareness
+      onChange(newNumerator);
     }
-  };
+  }, [denominator, onChange]);
   
-  const handleDenominatorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDenominator(e.target.value);
-    if (numerator && e.target.value) {
-      onChange(`${numerator}/${e.target.value}`);
+  const handleDenominatorChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const newDenominator = e.target.value;
+    setDenominator(newDenominator);
+    if (numerator && newDenominator) {
+      onChange(`${numerator}/${newDenominator}`);
     }
-  };
+  }, [numerator, onChange]);
 
-  const handleHoursChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleHoursChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     setHours(val);
-    onChange(`${val}:${minutes.padStart(2, '0') || '00'}`);
-  };
+    const paddedMinutes = minutes.padStart(2, '0') || '00';
+    onChange(`${val}:${paddedMinutes}`);
+  }, [minutes, onChange]);
 
-  const handleMinutesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleMinutesChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     let val = e.target.value;
     // Limiter à 59
     if (parseInt(val) > 59) val = '59';
     setMinutes(val);
     onChange(`${hours || '0'}:${val.padStart(2, '0')}`);
-  };
+  }, [hours, onChange]);
   
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !disabled) {
       e.preventDefault();
       onSubmit();
     }
-  };
+  }, [disabled, onSubmit]);
   
-  const switchToFraction = () => {
+  const switchToFraction = useCallback(() => {
     setInputMode('fraction');
     setNumerator('');
     setDenominator('');
     onChange('');
-  };
+    requestAnimationFrame(() => numeratorRef.current?.focus());
+  }, [onChange]);
   
-  const switchToNumber = () => {
+  const switchToNumber = useCallback(() => {
     setInputMode('number');
     onChange('');
-  };
+    requestAnimationFrame(() => inputRef.current?.focus());
+  }, [onChange]);
 
-  const switchToTime = () => {
+  const switchToTime = useCallback(() => {
     setInputMode('time');
     setHours('');
     setMinutes('');
     onChange('');
-  };
+    requestAnimationFrame(() => hoursRef.current?.focus());
+  }, [onChange]);
   
   return (
     <div className="space-y-3">
       {/* Pour les opérations de fractions, afficher un message */}
       {isFractionOp && (
-        <p className="text-center text-sm font-medium text-purple-600">
+        <p className="text-center text-sm font-medium text-primary">
           📝 Répondez sous forme de fraction (ex: 1/2, 3/4)
         </p>
       )}
@@ -115,8 +159,8 @@ const FractionInput: React.FC<FractionInputProps> = ({
             onClick={switchToNumber}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
               inputMode === 'number'
-                ? 'bg-purple-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                ? 'bg-primary text-primary-foreground'
+                : 'bg-muted text-muted-foreground hover:bg-muted/80'
             }`}
           >
             Nombre
@@ -127,8 +171,8 @@ const FractionInput: React.FC<FractionInputProps> = ({
               onClick={switchToFraction}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 inputMode === 'fraction'
-                  ? 'bg-purple-600 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-muted text-muted-foreground hover:bg-muted/80'
               }`}
             >
               Fraction
@@ -140,8 +184,8 @@ const FractionInput: React.FC<FractionInputProps> = ({
               onClick={switchToTime}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 inputMode === 'time'
-                  ? 'bg-purple-600 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-muted text-muted-foreground hover:bg-muted/80'
               }`}
             >
               Durée (HH:mm)
@@ -152,14 +196,14 @@ const FractionInput: React.FC<FractionInputProps> = ({
       
       {inputMode === 'number' && (
         <input
+          ref={inputRef}
           type="text"
           inputMode="decimal"
           value={value}
           onChange={handleNumericChange}
           onKeyDown={handleKeyDown}
-          className="w-full text-center text-4xl font-bold px-4 py-4 border-2 border-purple-300 rounded-lg focus:ring-4 focus:ring-purple-200 focus:border-purple-500"
+          className="w-full text-center text-4xl font-bold px-4 py-4 border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary"
           placeholder="?"
-          autoFocus
           disabled={disabled}
         />
       )}
@@ -167,22 +211,22 @@ const FractionInput: React.FC<FractionInputProps> = ({
       {inputMode === 'fraction' && (
         <div className="flex items-center justify-center gap-2">
           <input
+            ref={numeratorRef}
             type="number"
             value={numerator}
             onChange={handleNumeratorChange}
             onKeyDown={handleKeyDown}
-            className="w-24 text-center text-3xl font-bold px-3 py-3 border-2 border-purple-300 rounded-lg focus:ring-4 focus:ring-purple-200 focus:border-purple-500"
+            className="w-24 text-center text-3xl font-bold px-3 py-3 border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary"
             placeholder="?"
-            autoFocus
             disabled={disabled}
           />
-          <span className="text-4xl font-bold text-gray-600">/</span>
+          <span className="text-4xl font-bold text-muted-foreground">/</span>
           <input
             type="number"
             value={denominator}
             onChange={handleDenominatorChange}
             onKeyDown={handleKeyDown}
-            className="w-24 text-center text-3xl font-bold px-3 py-3 border-2 border-purple-300 rounded-lg focus:ring-4 focus:ring-purple-200 focus:border-purple-500"
+            className="w-24 text-center text-3xl font-bold px-3 py-3 border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary"
             placeholder="?"
             disabled={disabled}
           />
@@ -192,18 +236,18 @@ const FractionInput: React.FC<FractionInputProps> = ({
       {inputMode === 'time' && (
         <div className="flex items-center justify-center gap-2">
           <input
+            ref={hoursRef}
             type="number"
             min="0"
             max="99"
             value={hours}
             onChange={handleHoursChange}
             onKeyDown={handleKeyDown}
-            className="w-20 text-center text-3xl font-bold px-3 py-3 border-2 border-purple-300 rounded-lg focus:ring-4 focus:ring-purple-200 focus:border-purple-500"
+            className="w-20 text-center text-3xl font-bold px-3 py-3 border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary"
             placeholder="H"
-            autoFocus
             disabled={disabled}
           />
-          <span className="text-4xl font-bold text-gray-600">:</span>
+          <span className="text-4xl font-bold text-muted-foreground">:</span>
           <input
             type="number"
             min="0"
@@ -211,7 +255,7 @@ const FractionInput: React.FC<FractionInputProps> = ({
             value={minutes}
             onChange={handleMinutesChange}
             onKeyDown={handleKeyDown}
-            className="w-20 text-center text-3xl font-bold px-3 py-3 border-2 border-purple-300 rounded-lg focus:ring-4 focus:ring-purple-200 focus:border-purple-500"
+            className="w-20 text-center text-3xl font-bold px-3 py-3 border-2 border-primary/30 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary"
             placeholder="mm"
             disabled={disabled}
           />
@@ -219,13 +263,13 @@ const FractionInput: React.FC<FractionInputProps> = ({
       )}
       
       {!isFractionOp && showFractionOption && inputMode === 'number' && (
-        <p className="text-center text-sm text-gray-500">
+        <p className="text-center text-sm text-muted-foreground">
           💡 Tu peux aussi répondre en fraction (ex: 1/2, 3/4)
         </p>
       )}
       
       {!isFractionOp && showTimeOption && inputMode === 'number' && (
-        <p className="text-center text-sm text-gray-500">
+        <p className="text-center text-sm text-muted-foreground">
           💡 Tu peux aussi répondre en durée (ex: 1:45 pour 1h45min)
         </p>
       )}

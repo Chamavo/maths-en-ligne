@@ -332,27 +332,42 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
 
   const submitAnswer = () => {
     const currentExercise = exercises[currentExerciseIndex];
+    
+    // DEFENSIVE CHECK: Prevent submission if no answer provided
+    if (currentExercise.isQCM) {
+      if (selectedChoice === null) {
+        console.warn('Attempted to submit QCM without selection');
+        return;
+      }
+    } else {
+      const trimmedAnswer = userAnswer.trim();
+      if (trimmedAnswer === '') {
+        console.warn('Attempted to submit empty answer');
+        return;
+      }
+    }
+    
     let parsedAnswer: number | null = null;
     let needsSimplification = false;
     let simplifiedForm = '';
 
     if (currentExercise.isQCM && selectedChoice !== null) {
       parsedAnswer = selectedChoice;
-    } else if (userAnswer !== '') {
+    } else if (userAnswer.trim() !== '') {
       // Vérifier si c'est une question de fraction qui nécessite une réponse simplifiée
       const isFractionOp = isFractionOperationQuestion(currentExercise.question);
 
-      if (isFractionOp && !isInputFractionFormat(userAnswer)) {
+      if (isFractionOp && !isInputFractionFormat(userAnswer.trim())) {
         return;
       }
 
       // Pour les questions de fractions, valider que la réponse est simplifiée
-      if (isFractionOp && isInputFractionFormat(userAnswer)) {
+      if (isFractionOp && isInputFractionFormat(userAnswer.trim())) {
         const correctAnswerNum = typeof currentExercise.answer === 'string'
           ? parseFraction(currentExercise.answer) || 0
           : currentExercise.answer;
 
-        const validation = validateFractionAnswer(userAnswer, correctAnswerNum, true);
+        const validation = validateFractionAnswer(userAnswer.trim(), correctAnswerNum, true);
         parsedAnswer = validation.userValue;
         needsSimplification = validation.needsSimplification;
         simplifiedForm = validation.simplifiedForm;
@@ -363,15 +378,25 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
           currentExercise.hint = `Ta réponse ${userAnswer} est correcte mais pas simplifiée. La forme simplifiée est ${simplifiedForm}`;
         }
       } else {
-        parsedAnswer = parseFraction(userAnswer);
+        parsedAnswer = parseFraction(userAnswer.trim());
       }
     }
 
-    if (parsedAnswer === null) return;
+    // DEFENSIVE CHECK: Ensure we have a valid parsed answer
+    if (parsedAnswer === null) {
+      console.warn('Failed to parse answer:', userAnswer);
+      return;
+    }
 
     const correctAnswerNum = typeof currentExercise.answer === 'string'
       ? parseFraction(currentExercise.answer) || 0
       : currentExercise.answer;
+
+    // DEFENSIVE CHECK: Validate correctAnswerNum is a valid number
+    if (typeof correctAnswerNum !== 'number' || isNaN(correctAnswerNum)) {
+      console.error('Invalid correct answer for exercise:', currentExercise);
+      return;
+    }
 
     // La réponse est incorrecte si la valeur ne correspond pas OU si elle n'est pas simplifiée
     const valueCorrect = Math.abs(parsedAnswer - correctAnswerNum) < 0.01;
