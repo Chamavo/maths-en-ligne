@@ -33,33 +33,76 @@ export const useStudentAuth = () => {
 
   const fetchStudentProfile = async (userId: string) => {
     try {
-      const { data, error } = await supabase
+      // First, try to get from profiles table
+      const { data: profileData } = await supabase
         .from('profiles')
         .select('*')
         .eq('user_id', userId)
         .maybeSingle();
 
-      if (error) throw error;
-
-      if (data) {
-        const profileData = data as any;
-
+      if (profileData) {
+        const profile = profileData as any;
         setStudent({
-          id: profileData.id,
-          first_name: profileData.display_name?.split(' ')[0] || '',
+          id: profile.id,
+          first_name: profile.display_name?.split(' ')[0] || '',
           last_name: '',
-          display_name: profileData.display_name || '',
-          level: 1, // Will be loaded from localStorage in MentalCalcTrainer
-          username: profileData.display_name || '',
+          display_name: profile.display_name || '',
+          level: 1,
+          username: profile.display_name || '',
           password_hash: '',
           is_active: true,
-          created_at: profileData.created_at,
-          updated_at: profileData.updated_at,
+          created_at: profile.created_at,
+          updated_at: profile.updated_at,
           created_by: null
         });
+      } else {
+        // Fallback: Use auth.user metadata if no profile exists
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          const displayName = user.user_metadata?.display_name || 
+                             user.email?.split('@')[0] || 
+                             'Élève';
+          setStudent({
+            id: user.id,
+            first_name: displayName.split(' ')[0] || displayName,
+            last_name: '',
+            display_name: displayName,
+            level: 1,
+            username: displayName,
+            password_hash: '',
+            is_active: true,
+            created_at: user.created_at,
+            updated_at: user.updated_at || user.created_at,
+            created_by: null
+          });
+        }
       }
     } catch (error) {
       console.error('Error fetching student profile:', error);
+      // Even on error, try to use auth user as fallback
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          const displayName = user.user_metadata?.display_name || 
+                             user.email?.split('@')[0] || 
+                             'Élève';
+          setStudent({
+            id: user.id,
+            first_name: displayName.split(' ')[0] || displayName,
+            last_name: '',
+            display_name: displayName,
+            level: 1,
+            username: displayName,
+            password_hash: '',
+            is_active: true,
+            created_at: user.created_at,
+            updated_at: user.updated_at || user.created_at,
+            created_by: null
+          });
+        }
+      } catch (fallbackError) {
+        console.error('Fallback auth also failed:', fallbackError);
+      }
     } finally {
       setLoading(false);
     }

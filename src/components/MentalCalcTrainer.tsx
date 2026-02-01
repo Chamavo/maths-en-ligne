@@ -101,27 +101,22 @@ const MentalCalcTrainer = () => {
   // Set session when teacher logs in
   useEffect(() => {
     if (teacherUser) {
-      // Check if user has teacher role
-      setTimeout(() => {
-        setTimeout(async () => {
-          // Direct query to profiles table instead of RPC to avoid migration issues
-          const { data: profileRaw } = await supabase
-            .from('profiles')
-            .select('role')
-            .eq('id', teacherUser.id)
-            .single();
+      // Check if user has teacher role via user_roles table
+      setTimeout(async () => {
+        const { data: roleData } = await supabase
+          .from('user_roles')
+          .select('role')
+          .eq('user_id', teacherUser.id)
+          .eq('role', 'teacher')
+          .maybeSingle();
 
-          const profile = profileRaw as any;
-          const isTeacher = profile?.role === 'teacher' || teacherUser.user_metadata?.role === 'teacher';
-
-          if (isTeacher) {
-            setSession({
-              username: teacherUser.email?.split('@')[0] || 'Enseignant',
-              level: 21,
-              isTeacher: true,
-            });
-          }
-        }, 0);
+        if (roleData) {
+          setSession({
+            username: teacherUser.email?.split('@')[0] || 'Enseignant',
+            level: 21,
+            isTeacher: true,
+          });
+        }
       }, 0);
     }
   }, [teacherUser]);
