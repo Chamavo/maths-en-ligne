@@ -43,6 +43,7 @@ import {
 } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { useStudentManagement } from '@/hooks/useStudentAuth';
+import { supabase } from '@/integrations/supabase/client';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { ALL_LEVELS, getLevelInfo } from '@/utils/exerciseGenerator';
@@ -78,6 +79,22 @@ const StudentManagement: React.FC = () => {
   const [newPassword, setNewPassword] = useState('');
   const [newDisplayName, setNewDisplayName] = useState('');
   const [copiedPassword, setCopiedPassword] = useState<string | null>(null);
+
+  // Helper functions
+  const handleGeneratePassword = () => {
+    setNewPassword(generatePassword());
+  };
+
+  const handleCopyPassword = async (password: string) => {
+    try {
+      await navigator.clipboard.writeText(password);
+      setCopiedPassword(password);
+      setTimeout(() => setCopiedPassword(null), 2000);
+      toast({ title: "Copié !", description: "Mot de passe copié dans le presse-papiers" });
+    } catch (e) {
+      console.error('Failed to copy:', e);
+    }
+  };
 
   // Charger les élèves legacy non migrés
   const loadLegacyStudents = useCallback(() => {
@@ -160,43 +177,19 @@ const StudentManagement: React.FC = () => {
     if (!selectedStudent) return;
 
     const levelNum = parseFloat(selectedLevel);
-
-    if (selectedStudent.isLegacy) {
-      // Legacy localStorage update
-      const studentName = selectedStudent.display_name || selectedStudent.first_name;
-      const key = `studentProgress_${studentName.toLowerCase()}`;
-      const data = localStorage.getItem(key);
-      let progress;
-      try {
-        progress = data ? JSON.parse(data) : { username: studentName };
-      } catch {
-        progress = { username: studentName };
-      }
-      progress.currentLevel = levelNum;
-      localStorage.setItem(key, JSON.stringify(progress));
-    } else {
-      // Backend update
-      // We need to upsert student_progression
-      const { error } = await supabase
-        .from('student_progression')
-        .upsert({
-          user_id: selectedStudent.id,
-          current_level: levelNum,
-          status: 'active',
-          consecutive_failures: 0
-        });
-
-      if (error) {
-        toast({
-          title: "Erreur",
-          description: "Impossible de mettre à jour le niveau",
-          variant: "destructive"
-        });
-        return;
-      }
-
-      await fetchStudents();
+    const studentName = selectedStudent.display_name || selectedStudent.first_name;
+    
+    // Always use localStorage for level storage (student_progression table doesn't exist)
+    const key = `studentProgress_${studentName.toLowerCase()}`;
+    const data = localStorage.getItem(key);
+    let progress;
+    try {
+      progress = data ? JSON.parse(data) : { username: studentName };
+    } catch {
+      progress = { username: studentName };
     }
+    progress.currentLevel = levelNum;
+    localStorage.setItem(key, JSON.stringify(progress));
 
     toast({
       title: "Niveau mis à jour !",

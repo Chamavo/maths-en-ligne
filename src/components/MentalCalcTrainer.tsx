@@ -73,7 +73,8 @@ const MentalCalcTrainer = () => {
   useEffect(() => {
     if (student) {
       // Charger le niveau sauvegardé depuis localStorage
-      const progressKey = `studentProgress_${(student.displayName || student.firstName).toLowerCase()}`;
+      const studentName = student.display_name || student.first_name;
+      const progressKey = `studentProgress_${studentName.toLowerCase()}`;
       const savedProgress = localStorage.getItem(progressKey);
       let savedLevel = 1;
 
@@ -89,7 +90,7 @@ const MentalCalcTrainer = () => {
       }
 
       setSession({
-        username: student.displayName || student.firstName,
+        username: studentName,
         level: savedLevel,
         isTeacher: false,
         studentId: student.id,
