@@ -17,11 +17,12 @@ const StudentLogin: React.FC<StudentLoginProps> = ({ onLoginSuccess, onTeacherLo
   const [firstName, setFirstName] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const { login, isLoading, error, clearError } = useStudentAuth();
+  const [error, setError] = useState<string | null>(null);
+  const { login, loading: isLoading } = useStudentAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    clearError();
+    setError(null);
 
     if (!firstName.trim() || !password.trim()) {
       return;
@@ -30,6 +31,8 @@ const StudentLogin: React.FC<StudentLoginProps> = ({ onLoginSuccess, onTeacherLo
     const success = await login(firstName.trim(), password);
     if (success) {
       onLoginSuccess();
+    } else {
+      setError("Prénom ou mot de passe incorrect");
     }
   };
 

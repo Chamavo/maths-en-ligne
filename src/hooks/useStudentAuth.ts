@@ -36,35 +36,25 @@ export const useStudentAuth = () => {
       const { data, error } = await supabase
         .from('profiles')
         .select('*')
-        .eq('id', userId)
+        .eq('user_id', userId)
         .maybeSingle();
 
       if (error) throw error;
 
-      // We also need the progression to fully hydrate the student object
-      const { data: progression } = await supabase
-        .from('student_progression')
-        .select('*')
-        .eq('user_id', userId)
-        .maybeSingle();
-
       if (data) {
         const profileData = data as any;
-        const progressionData = progression as any;
 
         setStudent({
           id: profileData.id,
-          first_name: profileData.first_name || '',
-          last_name: profileData.last_name || '',
+          first_name: profileData.display_name?.split(' ')[0] || '',
+          last_name: '',
           display_name: profileData.display_name || '',
-          // Use progression data if available, else defaults
-          level: progressionData?.current_level || 1,
-          // Legacy fields mapping
-          username: profileData.first_name || '', // simplified
+          level: 1, // Will be loaded from localStorage in MentalCalcTrainer
+          username: profileData.display_name || '',
           password_hash: '',
           is_active: true,
-          created_at: data.created_at,
-          updated_at: data.created_at,
+          created_at: profileData.created_at,
+          updated_at: profileData.updated_at,
           created_by: null
         });
       }
@@ -90,18 +80,6 @@ export const useStudentAuth = () => {
       }
 
       toast.success("Bon retour, " + firstName + " !");
-
-      // Update last login
-      // We don't block UI for this, it's fire-and-forget
-      supabase.auth.getUser().then(({ data: { user } }) => {
-        if (user) {
-          supabase.from('profiles')
-            .update({ last_login_at: new Date().toISOString() })
-            .eq('id', user.id)
-            .then();
-        }
-      });
-
       return true;
     } catch (e) {
       console.error('Login exception:', e);

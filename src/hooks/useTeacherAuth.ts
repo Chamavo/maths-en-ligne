@@ -13,14 +13,15 @@ export const useTeacherAuth = () => {
     const checkSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
-        // Verify role
-        const { data: profile } = await supabase
-          .from('profiles')
+        // Verify role from user_roles table
+        const { data: roleData } = await supabase
+          .from('user_roles')
           .select('role')
-          .eq('id', session.user.id)
-          .single();
+          .eq('user_id', session.user.id)
+          .eq('role', 'teacher')
+          .maybeSingle();
 
-        if (profile?.role === 'teacher') {
+        if (roleData) {
           setIsAuthenticated(true);
         } else {
           setIsAuthenticated(false);
@@ -33,12 +34,13 @@ export const useTeacherAuth = () => {
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       if (session) {
-        const { data: profile } = await supabase
-          .from('profiles')
+        const { data: roleData } = await supabase
+          .from('user_roles')
           .select('role')
-          .eq('id', session.user.id)
-          .single();
-        setIsAuthenticated(profile?.role === 'teacher');
+          .eq('user_id', session.user.id)
+          .eq('role', 'teacher')
+          .maybeSingle();
+        setIsAuthenticated(!!roleData);
       } else {
         setIsAuthenticated(false);
       }
