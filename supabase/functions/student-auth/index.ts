@@ -74,12 +74,27 @@ serve(async (req) => {
           return new Response(JSON.stringify({ error: createError.message }), { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
         }
 
-        // Add student role to user_roles table
+        // Add student role and profile
         if (user.user) {
-          await supabase.from('user_roles').insert({
+          // Insert into user_roles
+          const { error: roleError } = await supabase.from('user_roles').insert({
             user_id: user.user.id,
             role: 'student'
           });
+          
+          if (roleError) {
+            console.error("Role insert error:", roleError);
+          }
+
+          // Insert into profiles table
+          const { error: profileError } = await supabase.from('profiles').insert({
+            user_id: user.user.id,
+            display_name: displayName || firstName
+          });
+
+          if (profileError) {
+            console.error("Profile insert error:", profileError);
+          }
         }
 
         return new Response(JSON.stringify({ success: true, student: user.user }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
