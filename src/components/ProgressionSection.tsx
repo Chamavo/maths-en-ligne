@@ -26,6 +26,7 @@ import {
   checkAndRecordAbandon,
   LevelBlockInfo
 } from '@/utils/levelBlockingSystem';
+import LevelBlockedScreen from '@/components/progression/LevelBlockedScreen';
 
 // Fonction pour lancer les confettis simples
 const triggerConfetti = () => {
@@ -240,6 +241,7 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
   }>({ canTake: true, daysRemaining: 0, lastNote: null });
   const [isInEvaluation, setIsInEvaluation] = useState(false);
   const [blockingInfo, setBlockingInfo] = useState<LevelBlockInfo | null>(null);
+  const [showBlockedScreen, setShowBlockedScreen] = useState(false);
   const [questionErrorCount, setQuestionErrorCount] = useState<Map<string, number>>(new Map());
   const [showAIHelp, setShowAIHelp] = useState(false);
   const [currentQuestionForAI, setCurrentQuestionForAI] = useState<Exercise | null>(null);
@@ -553,6 +555,14 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
         // Échec : enregistrer et vérifier si blocage via DB
         const newBlockingInfo = await recordLevelFailure(session.username, currentLevel);
         setBlockingInfo(newBlockingInfo);
+        
+        // Si blocage activé, afficher l'écran de blocage après les résultats
+        if (newBlockingInfo && newBlockingInfo.isBlocked) {
+          // On laisse d'abord voir l'écran de résultats, puis on redirige vers l'écran de blocage
+          setTimeout(() => {
+            setShowBlockedScreen(true);
+          }, 100);
+        }
       }
     }
 
@@ -683,48 +693,79 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
                     </button>
                   )}
 
-                  {/* Message de blocage après 3 échecs */}
+                  {/* Message de blocage après 3 échecs avec boutons clairs */}
                   {!passed && blockingInfo && blockingInfo.isBlocked && blockingInfo.level === currentLevel && (
-                    <div className="bg-destructive/10 border-2 border-destructive/30 rounded-xl p-6 mb-4">
-                      <div className="flex items-center gap-3 mb-3">
-                        <Lock className="w-8 h-8 text-destructive" />
-                        <h3 className="text-xl font-bold text-destructive">Niveau bloqué ! 🔒</h3>
+                    <>
+                      <div className="bg-destructive/10 border-2 border-destructive/30 rounded-xl p-6 mb-4">
+                        <div className="flex items-center gap-3 mb-3">
+                          <Lock className="w-8 h-8 text-destructive" />
+                          <h3 className="text-xl font-bold text-destructive">Niveau bloqué ! 🔒</h3>
+                        </div>
+                        <p className="text-foreground mb-4">
+                          Tu as fait 3 tentatives sans succès au niveau {currentLevel}.
+                        </p>
+                        <p className="text-muted-foreground">
+                          👉 <strong>Va t'entraîner dans la rubrique Révisions</strong> : tu dois réussir <span className="font-bold text-primary">10 réponses justes d'affilée</span> pour débloquer ce niveau.
+                        </p>
                       </div>
-                      <p className="text-foreground mb-4">
-                        Tu as été éjecté du niveau {currentLevel} car tu ne maîtrises pas encore les calculs.
-                      </p>
-                      <p className="text-muted-foreground">
-                        👉 <strong>Va t'entraîner dans la rubrique Révisions</strong>, choisis les notions qui te donnent du mal et entraîne-toi :
-                        <span className="font-bold text-primary"> tu dois avoir 10 réponses justes d'affilée</span> pour que le niveau {currentLevel} de la Progression se débloque.
-                      </p>
-                    </div>
+                      
+                      {/* Boutons d'action pour niveau bloqué */}
+                      <button
+                        onClick={() => {
+                          setResults([]);
+                          onBack(); // Retour au menu principal pour accéder aux révisions
+                        }}
+                        className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-primary-foreground font-semibold py-4 rounded-lg transition duration-200 flex items-center justify-center gap-2"
+                      >
+                        <Brain className="w-5 h-5" />
+                        Aller aux Révisions
+                        <ChevronRight className="w-5 h-5" />
+                      </button>
+                      
+                      <button
+                        onClick={() => { setResults([]); setIsTestMode(false); }}
+                        className="w-full bg-muted hover:bg-muted/80 text-foreground font-semibold py-4 rounded-lg transition duration-200 flex items-center justify-center gap-2"
+                      >
+                        <Home className="w-5 h-5" />
+                        Retour au menu des niveaux
+                      </button>
+                    </>
                   )}
 
                   {/* N'afficher "Recommencer" que si le niveau n'est pas bloqué */}
                   {!passed && !(blockingInfo && blockingInfo.isBlocked && blockingInfo.level === currentLevel) && (
-                    <button
-                      onClick={() => startLevel(currentLevel)}
-                      className="w-full bg-primary hover:bg-primary/80 text-primary-foreground font-semibold py-4 rounded-lg transition duration-200 flex items-center justify-center gap-2"
-                    >
-                      <RotateCcw className="w-5 h-5" /> Recommencer ce niveau
-                    </button>
+                    <>
+                      <button
+                        onClick={() => startLevel(currentLevel)}
+                        className="w-full bg-primary hover:bg-primary/80 text-primary-foreground font-semibold py-4 rounded-lg transition duration-200 flex items-center justify-center gap-2"
+                      >
+                        <RotateCcw className="w-5 h-5" /> Recommencer ce niveau
+                      </button>
+                      <button
+                        onClick={() => { setResults([]); setIsTestMode(false); }}
+                        className="w-full bg-muted hover:bg-muted/80 text-foreground font-semibold py-4 rounded-lg transition duration-200"
+                      >
+                        Retour au menu
+                      </button>
+                    </>
                   )}
 
                   {passed && (
-                    <button
-                      onClick={() => startLevel(currentLevel)}
-                      className="w-full bg-primary hover:bg-primary/80 text-primary-foreground font-semibold py-4 rounded-lg transition duration-200 flex items-center justify-center gap-2"
-                    >
-                      <RotateCcw className="w-5 h-5" /> Recommencer ce niveau
-                    </button>
+                    <>
+                      <button
+                        onClick={() => startLevel(currentLevel)}
+                        className="w-full bg-primary hover:bg-primary/80 text-primary-foreground font-semibold py-4 rounded-lg transition duration-200 flex items-center justify-center gap-2"
+                      >
+                        <RotateCcw className="w-5 h-5" /> Recommencer ce niveau
+                      </button>
+                      <button
+                        onClick={() => { setResults([]); setIsTestMode(false); }}
+                        className="w-full bg-muted hover:bg-muted/80 text-foreground font-semibold py-4 rounded-lg transition duration-200"
+                      >
+                        Retour au menu
+                      </button>
+                    </>
                   )}
-
-                  <button
-                    onClick={() => { setResults([]); setIsTestMode(false); }}
-                    className="w-full bg-muted hover:bg-muted/80 text-foreground font-semibold py-4 rounded-lg transition duration-200"
-                  >
-                    Retour au menu
-                  </button>
                 </>
               )}
             </div>
@@ -956,6 +997,23 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
     );
   }
 
+  // Écran de blocage (niveau bloqué après 3 échecs)
+  if (showBlockedScreen && blockingInfo && blockingInfo.isBlocked) {
+    return (
+      <LevelBlockedScreen
+        blockingInfo={blockingInfo}
+        onGoToRevisions={() => {
+          setShowBlockedScreen(false);
+          onBack(); // Retour au menu principal qui permet d'accéder aux révisions
+        }}
+        onGoToMenu={() => {
+          setShowBlockedScreen(false);
+          setResults([]);
+        }}
+      />
+    );
+  }
+
   // Menu principal des niveaux
   return (
     <div className="min-h-screen gradient-bg flex flex-col">
@@ -1057,25 +1115,34 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
                 {[1, 2, 3, 4, 5].map((level) => {
                   const unlocked = isLevelUnlocked(level);
                   const isCurrent = session.level === level;
-                  const isOneErrorLevel = ONE_ERROR_LEVELS.includes(level);
+                  const isBlocked = isLevelBlockedByFailures(level);
 
                   return (
                     <button
                       key={level}
-                      onClick={() => unlocked && startLevel(level)}
-                      disabled={!unlocked}
-                      className={`p-4 rounded-xl font-bold text-xl transition-all duration-200 ${!unlocked
-                        ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                        : isCurrent
-                          ? 'bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg transform hover:scale-105'
-                          : 'bg-gradient-to-br from-primary/80 to-secondary/80 text-primary-foreground hover:shadow-lg hover:scale-105'
+                      onClick={() => {
+                        if (isBlocked) {
+                          setShowBlockedScreen(true);
+                        } else if (unlocked) {
+                          startLevel(level);
+                        }
+                      }}
+                      disabled={!unlocked && !isBlocked}
+                      className={`p-4 rounded-xl font-bold text-xl transition-all duration-200 ${isBlocked
+                        ? 'bg-destructive/20 text-destructive border-2 border-destructive/50 cursor-pointer hover:bg-destructive/30'
+                        : !unlocked
+                          ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                          : isCurrent
+                            ? 'bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg transform hover:scale-105'
+                            : 'bg-gradient-to-br from-primary/80 to-secondary/80 text-primary-foreground hover:shadow-lg hover:scale-105'
                         }`}
                     >
                       <div className="flex flex-col items-center gap-1">
-                        {isCurrent && <Trophy className="w-5 h-5" />}
+                        {isCurrent && !isBlocked && <Trophy className="w-5 h-5" />}
+                        {isBlocked && <Lock className="w-4 h-4" />}
                         <span>N{level}</span>
                         <span className="text-xs">15q • 8min</span>
-                        {!unlocked && <span className="text-xs">🔒</span>}
+                        {!unlocked && !isBlocked && <span className="text-xs">🔒</span>}
                       </div>
                     </button>
                   );
@@ -1087,21 +1154,31 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
                 const level = 5.5;
                 const unlocked = isLevelUnlocked(level);
                 const isCurrent = session.level === level;
+                const isBlocked = isLevelBlockedByFailures(level);
 
                 return (
                   <button
                     key={level}
-                    onClick={() => unlocked && startLevel(level)}
-                    disabled={!unlocked}
-                    className={`w-full p-4 rounded-xl font-bold transition-all duration-200 ${!unlocked
-                      ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                      : 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg hover:scale-[1.02]'
+                    onClick={() => {
+                      if (isBlocked) {
+                        setShowBlockedScreen(true);
+                      } else if (unlocked) {
+                        startLevel(level);
+                      }
+                    }}
+                    disabled={!unlocked && !isBlocked}
+                    className={`w-full p-4 rounded-xl font-bold transition-all duration-200 ${isBlocked
+                      ? 'bg-destructive/20 text-destructive border-2 border-destructive/50 cursor-pointer hover:bg-destructive/30'
+                      : !unlocked
+                        ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                        : 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-lg hover:scale-[1.02]'
                       }`}
                   >
                     <div className="flex items-center justify-center gap-3">
                       <Star className="w-5 h-5" />
                       <span>📐 Fondamentaux (Fractions = Décimaux = %) - 15 questions - 15 min - 1 erreur autorisée</span>
-                      {!unlocked && <span>🔒</span>}
+                      {isBlocked && <Lock className="w-5 h-5" />}
+                      {!unlocked && !isBlocked && <span>🔒</span>}
                     </div>
                   </button>
                 );
@@ -1113,23 +1190,33 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
                   const level = 6;
                   const unlocked = isLevelUnlocked(level);
                   const isCurrent = session.level === level;
+                  const isBlocked = isLevelBlockedByFailures(level);
 
                   return (
                     <button
                       key={level}
-                      onClick={() => unlocked && startLevel(level)}
-                      disabled={!unlocked}
-                      className={`p-4 rounded-xl font-bold text-xl transition-all duration-200 ${!unlocked
-                        ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                        : isCurrent
-                          ? 'bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg transform hover:scale-105'
-                          : 'bg-gradient-to-br from-primary/80 to-secondary/80 text-primary-foreground hover:shadow-lg hover:scale-105'
+                      onClick={() => {
+                        if (isBlocked) {
+                          setShowBlockedScreen(true);
+                        } else if (unlocked) {
+                          startLevel(level);
+                        }
+                      }}
+                      disabled={!unlocked && !isBlocked}
+                      className={`p-4 rounded-xl font-bold text-xl transition-all duration-200 ${isBlocked
+                        ? 'bg-destructive/20 text-destructive border-2 border-destructive/50 cursor-pointer hover:bg-destructive/30'
+                        : !unlocked
+                          ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                          : isCurrent
+                            ? 'bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg transform hover:scale-105'
+                            : 'bg-gradient-to-br from-primary/80 to-secondary/80 text-primary-foreground hover:shadow-lg hover:scale-105'
                         }`}
                     >
                       <div className="flex flex-col items-center gap-1">
-                        {isCurrent && <Trophy className="w-5 h-5" />}
+                        {isCurrent && !isBlocked && <Trophy className="w-5 h-5" />}
+                        {isBlocked && <Lock className="w-5 h-5" />}
                         <span>Niveau 6</span>
-                        {!unlocked && <span className="text-xs">🔒</span>}
+                        {!unlocked && !isBlocked && <span className="text-xs">🔒</span>}
                       </div>
                     </button>
                   );
@@ -1146,10 +1233,17 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
                 return (
                   <button
                     key={level}
-                    onClick={() => unlocked && !isBlocked && startLevel(level)}
-                    disabled={!unlocked || isBlocked}
+                    onClick={() => {
+                      if (isBlocked) {
+                        // Afficher l'écran de blocage au lieu de ne rien faire
+                        setShowBlockedScreen(true);
+                      } else if (unlocked) {
+                        startLevel(level);
+                      }
+                    }}
+                    disabled={!unlocked && !isBlocked}
                     className={`w-full p-4 rounded-xl font-bold transition-all duration-200 ${isBlocked
-                      ? 'bg-destructive/20 text-destructive border-2 border-destructive/50 cursor-not-allowed'
+                      ? 'bg-destructive/20 text-destructive border-2 border-destructive/50 cursor-pointer hover:bg-destructive/30'
                       : !unlocked
                         ? 'bg-muted text-muted-foreground cursor-not-allowed'
                         : 'bg-gradient-to-r from-orange-400 to-pink-500 text-white hover:shadow-lg hover:scale-[1.02]'
@@ -1161,6 +1255,9 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
                       {isBlocked && <Lock className="w-5 h-5" />}
                       {!unlocked && !isBlocked && <span>🔒</span>}
                     </div>
+                    {isBlocked && (
+                      <div className="text-sm mt-1 opacity-80">Cliquez pour voir comment débloquer</div>
+                    )}
                   </button>
                 );
               })()}
@@ -1170,23 +1267,33 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
                 {[7, 8].map((level) => {
                   const unlocked = isLevelUnlocked(level);
                   const isCurrent = session.level === level;
+                  const isBlocked = isLevelBlockedByFailures(level);
 
                   return (
                     <button
                       key={level}
-                      onClick={() => unlocked && startLevel(level)}
-                      disabled={!unlocked}
-                      className={`p-4 rounded-xl font-bold text-xl transition-all duration-200 ${!unlocked
-                        ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                        : isCurrent
-                          ? 'bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg transform hover:scale-105'
-                          : 'bg-gradient-to-br from-primary/80 to-secondary/80 text-primary-foreground hover:shadow-lg hover:scale-105'
+                      onClick={() => {
+                        if (isBlocked) {
+                          setShowBlockedScreen(true);
+                        } else if (unlocked) {
+                          startLevel(level);
+                        }
+                      }}
+                      disabled={!unlocked && !isBlocked}
+                      className={`p-4 rounded-xl font-bold text-xl transition-all duration-200 ${isBlocked
+                        ? 'bg-destructive/20 text-destructive border-2 border-destructive/50 cursor-pointer hover:bg-destructive/30'
+                        : !unlocked
+                          ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                          : isCurrent
+                            ? 'bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg transform hover:scale-105'
+                            : 'bg-gradient-to-br from-primary/80 to-secondary/80 text-primary-foreground hover:shadow-lg hover:scale-105'
                         }`}
                     >
                       <div className="flex flex-col items-center gap-1">
-                        {isCurrent && <Trophy className="w-5 h-5" />}
+                        {isCurrent && !isBlocked && <Trophy className="w-5 h-5" />}
+                        {isBlocked && <Lock className="w-4 h-4" />}
                         <span>N{level}</span>
-                        {!unlocked && <span className="text-xs">🔒</span>}
+                        {!unlocked && !isBlocked && <span className="text-xs">🔒</span>}
                       </div>
                     </button>
                   );
@@ -1198,21 +1305,31 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
                 const level = 8.5;
                 const unlocked = isLevelUnlocked(level);
                 const isCurrent = session.level === level;
+                const isBlocked = isLevelBlockedByFailures(level);
 
                 return (
                   <button
                     key={level}
-                    onClick={() => unlocked && startLevel(level)}
-                    disabled={!unlocked}
-                    className={`w-full p-4 rounded-xl font-bold transition-all duration-200 ${!unlocked
-                      ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                      : 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:shadow-lg hover:scale-[1.02]'
+                    onClick={() => {
+                      if (isBlocked) {
+                        setShowBlockedScreen(true);
+                      } else if (unlocked) {
+                        startLevel(level);
+                      }
+                    }}
+                    disabled={!unlocked && !isBlocked}
+                    className={`w-full p-4 rounded-xl font-bold transition-all duration-200 ${isBlocked
+                      ? 'bg-destructive/20 text-destructive border-2 border-destructive/50 cursor-pointer hover:bg-destructive/30'
+                      : !unlocked
+                        ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                        : 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:shadow-lg hover:scale-[1.02]'
                       }`}
                   >
                     <div className="flex items-center justify-center gap-3">
                       <Star className="w-5 h-5" />
                       <span>🔢 Opérations (20 questions - 15 min - 2 erreurs autorisées)</span>
-                      {!unlocked && <span>🔒</span>}
+                      {isBlocked && <Lock className="w-5 h-5" />}
+                      {!unlocked && !isBlocked && <span>🔒</span>}
                     </div>
                   </button>
                 );
@@ -1223,23 +1340,33 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
                 {[9, 10].map((level) => {
                   const unlocked = isLevelUnlocked(level);
                   const isCurrent = session.level === level;
+                  const isBlocked = isLevelBlockedByFailures(level);
 
                   return (
                     <button
                       key={level}
-                      onClick={() => unlocked && startLevel(level)}
-                      disabled={!unlocked}
-                      className={`p-4 rounded-xl font-bold text-xl transition-all duration-200 ${!unlocked
-                        ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                        : isCurrent
-                          ? 'bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg transform hover:scale-105'
-                          : 'bg-gradient-to-br from-primary/80 to-secondary/80 text-primary-foreground hover:shadow-lg hover:scale-105'
+                      onClick={() => {
+                        if (isBlocked) {
+                          setShowBlockedScreen(true);
+                        } else if (unlocked) {
+                          startLevel(level);
+                        }
+                      }}
+                      disabled={!unlocked && !isBlocked}
+                      className={`p-4 rounded-xl font-bold text-xl transition-all duration-200 ${isBlocked
+                        ? 'bg-destructive/20 text-destructive border-2 border-destructive/50 cursor-pointer hover:bg-destructive/30'
+                        : !unlocked
+                          ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                          : isCurrent
+                            ? 'bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg transform hover:scale-105'
+                            : 'bg-gradient-to-br from-primary/80 to-secondary/80 text-primary-foreground hover:shadow-lg hover:scale-105'
                         }`}
                     >
                       <div className="flex flex-col items-center gap-1">
-                        {isCurrent && <Trophy className="w-5 h-5" />}
+                        {isCurrent && !isBlocked && <Trophy className="w-5 h-5" />}
+                        {isBlocked && <Lock className="w-4 h-4" />}
                         <span>N{level}</span>
-                        {!unlocked && <span className="text-xs">🔒</span>}
+                        {!unlocked && !isBlocked && <span className="text-xs">🔒</span>}
                       </div>
                     </button>
                   );
@@ -1255,10 +1382,16 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
                 return (
                   <button
                     key={level}
-                    onClick={() => unlocked && !isBlocked && startLevel(level)}
-                    disabled={!unlocked || isBlocked}
+                    onClick={() => {
+                      if (isBlocked) {
+                        setShowBlockedScreen(true);
+                      } else if (unlocked) {
+                        startLevel(level);
+                      }
+                    }}
+                    disabled={!unlocked && !isBlocked}
                     className={`w-full p-4 rounded-xl font-bold transition-all duration-200 ${isBlocked
-                      ? 'bg-destructive/20 text-destructive border-2 border-destructive/50 cursor-not-allowed'
+                      ? 'bg-destructive/20 text-destructive border-2 border-destructive/50 cursor-pointer hover:bg-destructive/30'
                       : !unlocked
                         ? 'bg-muted text-muted-foreground cursor-not-allowed'
                         : 'bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:shadow-lg hover:scale-[1.02]'
@@ -1280,26 +1413,36 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
                   const unlocked = isLevelUnlocked(level);
                   const isCurrent = session.level === level;
                   const isPerfectLevel = level === 20;
+                  const isBlocked = isLevelBlockedByFailures(level);
 
                   return (
                     <button
                       key={level}
-                      onClick={() => unlocked && startLevel(level)}
-                      disabled={!unlocked}
-                      className={`p-4 rounded-xl font-bold text-xl transition-all duration-200 ${!unlocked
-                        ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                        : isCurrent
-                          ? 'bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg transform hover:scale-105'
-                          : isPerfectLevel
-                            ? 'bg-gradient-to-br from-amber-500 to-orange-600 text-white hover:shadow-lg hover:scale-105'
-                            : 'bg-gradient-to-br from-primary/80 to-secondary/80 text-primary-foreground hover:shadow-lg hover:scale-105'
+                      onClick={() => {
+                        if (isBlocked) {
+                          setShowBlockedScreen(true);
+                        } else if (unlocked) {
+                          startLevel(level);
+                        }
+                      }}
+                      disabled={!unlocked && !isBlocked}
+                      className={`p-4 rounded-xl font-bold text-xl transition-all duration-200 ${isBlocked
+                        ? 'bg-destructive/20 text-destructive border-2 border-destructive/50 cursor-pointer hover:bg-destructive/30'
+                        : !unlocked
+                          ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                          : isCurrent
+                            ? 'bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg transform hover:scale-105'
+                            : isPerfectLevel
+                              ? 'bg-gradient-to-br from-amber-500 to-orange-600 text-white hover:shadow-lg hover:scale-105'
+                              : 'bg-gradient-to-br from-primary/80 to-secondary/80 text-primary-foreground hover:shadow-lg hover:scale-105'
                         }`}
                     >
                       <div className="flex flex-col items-center gap-1">
-                        {isCurrent && <Trophy className="w-5 h-5" />}
+                        {isCurrent && !isBlocked && <Trophy className="w-5 h-5" />}
+                        {isBlocked && <Lock className="w-4 h-4" />}
                         <span>N{level}</span>
-                        {isPerfectLevel && <span className="text-xs">⚡20/20</span>}
-                        {!unlocked && <span className="text-xs">🔒</span>}
+                        {isPerfectLevel && !isBlocked && <span className="text-xs">⚡20/20</span>}
+                        {!unlocked && !isBlocked && <span className="text-xs">🔒</span>}
                       </div>
                     </button>
                   );
