@@ -156,9 +156,17 @@ const ComprendreLeMondeSection: React.FC<ComprendreLeMondeProps> = ({
           question_id: question!.id
         });
         
+        // Mark daily completion in localStorage to unlock other modules
+        const today = new Date().toISOString().split('T')[0];
+        const completionKey = `worldQuestionCompleted_${username.toLowerCase()}_${today}`;
+        localStorage.setItem(completionKey, 'true');
+        
+        // Trigger storage event for other components
+        window.dispatchEvent(new Event('storage'));
+        
         toast({
           title: "Réponse enregistrée ! ✨",
-          description: "Merci pour ta réflexion. Reviens demain pour une nouvelle question !",
+          description: "Les autres modules sont maintenant débloqués !",
         });
       }
     } catch (error) {
