@@ -110,12 +110,17 @@ const StudentLogin: React.FC<StudentLoginProps> = ({ onLoginSuccess, onTeacherLo
                 </Label>
                 <Input
                   id="firstName"
+                  name="firstName"
                   type="text"
                   placeholder="Entre ton prénom..."
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   className="h-12 text-lg bg-muted/50 border-border/50 focus:border-primary focus:ring-primary/30 transition-all"
-                  autoComplete="username"
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck={false}
+                  data-form-type="other"
                   autoFocus
                 />
               </div>
@@ -128,12 +133,14 @@ const StudentLogin: React.FC<StudentLoginProps> = ({ onLoginSuccess, onTeacherLo
                 <div className="relative">
                   <Input
                     id="password"
+                    name="password"
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Entre ton mot de passe..."
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="h-12 text-lg bg-muted/50 border-border/50 focus:border-secondary focus:ring-secondary/30 transition-all pr-12"
-                    autoComplete="current-password"
+                    autoComplete="off"
+                    data-form-type="other"
                   />
                   <button
                     type="button"
