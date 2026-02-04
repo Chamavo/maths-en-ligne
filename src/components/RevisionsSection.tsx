@@ -151,6 +151,37 @@ const RevisionsSection: React.FC<RevisionsSectionProps> = ({
             </p>
           </motion.div>
 
+          {/* Bandeau Comprendre les pourcentages */}
+          <motion.button
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            whileHover={{ scale: 1.02, y: -3 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => {/* TODO: contenu à venir */}}
+            className="w-full mb-6 relative overflow-hidden bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 rounded-2xl p-5 text-white shadow-xl group"
+          >
+            {/* Effet de brillance */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+            
+            <div className="relative z-10 flex items-center justify-center gap-4">
+              <div className="bg-white/20 p-3 rounded-xl">
+                <span className="text-3xl">📊</span>
+              </div>
+              <div className="text-left flex-1">
+                <h3 className="text-xl md:text-2xl font-bold">Comprendre les pourcentages</h3>
+                <p className="text-sm md:text-base text-white/90">Maîtrise les pourcentages pas à pas ! 🎯</p>
+              </div>
+              <motion.div
+                animate={{ x: [0, 8, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="text-3xl hidden sm:block"
+              >
+                →
+              </motion.div>
+            </div>
+          </motion.button>
+
           {/* Grille des 6 catégories */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category, index) => {
