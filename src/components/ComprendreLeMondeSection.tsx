@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Globe, Send, CheckCircle, Bot, Loader2, MessageCircle } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Globe, Send, CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -11,6 +11,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useAITutor } from '@/hooks/useAITutor';
 import { useStudentAuth } from '@/hooks/useStudentAuth';
 import AppHeader from './AppHeader';
+import AITutorDialog from './AITutorDialog';
 
 interface ComprendreLeMondeProps {
   username: string;
@@ -38,9 +39,7 @@ const ComprendreLeMondeSection: React.FC<ComprendreLeMondeProps> = ({
   const [isLoading, setIsLoading] = useState(true);
   const [userId, setUserId] = useState<string | null>(null);
   const [studentId, setStudentId] = useState<string | null>(null);
-  const [showAIExplanation, setShowAIExplanation] = useState(false);
-  const [isAIThinking, setIsAIThinking] = useState(false);
-  const [aiExplanation, setAiExplanation] = useState<string | null>(null);
+  const [showAIDialog, setShowAIDialog] = useState(false);
   
   const { toast } = useToast();
   const { askForHelp, isLoading: isAILoading, aiMessage, clearMessage } = useAITutor();
@@ -156,7 +155,7 @@ const ComprendreLeMondeSection: React.FC<ComprendreLeMondeProps> = ({
           question_id: question!.id
         });
         
-        // Mark daily completion in localStorage to unlock other modules
+        // Mark daily completion in localStorage
         const today = new Date().toISOString().split('T')[0];
         const completionKey = `worldQuestionCompleted_${username.toLowerCase()}_${today}`;
         localStorage.setItem(completionKey, 'true');
@@ -166,7 +165,18 @@ const ComprendreLeMondeSection: React.FC<ComprendreLeMondeProps> = ({
         
         toast({
           title: "Réponse enregistrée ! ✨",
-          description: "Les autres modules sont maintenant débloqués !",
+          description: "Ton tuteur IA va t'expliquer...",
+        });
+        
+        // Automatically show AI dialog and request explanation
+        setShowAIDialog(true);
+        askForHelp({
+          type: 'world_explanation',
+          worldQuestion: question?.question || '',
+          worldChoices: question?.choices || { A: '', B: '', C: '', D: '' },
+          userChoice: selectedChoice,
+          justification: justification.trim(),
+          theme: question?.theme || '',
         });
       }
     } catch (error) {
@@ -179,6 +189,11 @@ const ComprendreLeMondeSection: React.FC<ComprendreLeMondeProps> = ({
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleCloseAIDialog = () => {
+    setShowAIDialog(false);
+    clearMessage();
   };
 
   if (isLoading) {
@@ -233,7 +248,7 @@ const ComprendreLeMondeSection: React.FC<ComprendreLeMondeProps> = ({
           className="bg-card rounded-2xl shadow-xl p-6"
         >
           {hasAnsweredToday ? (
-            // Message après avoir répondu + Explication IA
+            // Message après avoir répondu
             <div className="text-center py-6">
               <motion.div
                 initial={{ scale: 0 }}
@@ -256,18 +271,17 @@ const ComprendreLeMondeSection: React.FC<ComprendreLeMondeProps> = ({
                 </p>
               </div>
               
-              {/* Bouton pour demander une explication IA */}
-              {!showAIExplanation ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                >
-                  <Button
-                    onClick={async () => {
-                      setShowAIExplanation(true);
-                      setIsAIThinking(true);
-                      const result = await askForHelp({
+              {/* Bouton pour voir à nouveau l'explication IA */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <Button
+                  onClick={() => {
+                    setShowAIDialog(true);
+                    if (!aiMessage) {
+                      askForHelp({
                         type: 'world_explanation',
                         worldQuestion: question?.question || '',
                         worldChoices: question?.choices || { A: '', B: '', C: '', D: '' },
@@ -275,49 +289,16 @@ const ComprendreLeMondeSection: React.FC<ComprendreLeMondeProps> = ({
                         justification: todayResponse?.justification || '',
                         theme: question?.theme || '',
                       });
-                      setAiExplanation(result);
-                      setIsAIThinking(false);
-                    }}
-                    className="bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white px-6 py-3 text-lg"
-                  >
-                    <MessageCircle className="w-5 h-5 mr-2" />
-                    🤖 Comprendre les ordres de grandeur
-                  </Button>
-                  <p className="text-xs text-muted-foreground mt-2">
-                    L'IA va t'expliquer la logique sans te donner la réponse
-                  </p>
-                </motion.div>
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-4"
+                    }
+                  }}
+                  className="bg-gradient-to-r from-secondary to-primary hover:opacity-90 text-primary-foreground px-6 py-3 text-lg"
                 >
-                  {isAIThinking || isAILoading ? (
-                    <div className="flex flex-col items-center gap-4 py-6">
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                      >
-                        <Loader2 className="w-10 h-10 text-teal-500" />
-                      </motion.div>
-                      <p className="text-muted-foreground">
-                        Je réfléchis à comment t'expliquer... 🤔
-                      </p>
-                    </div>
-                  ) : (
-                    <div className="bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-900/30 dark:to-emerald-900/30 rounded-2xl p-5 text-left border border-teal-200 dark:border-teal-700">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Bot className="w-6 h-6 text-teal-600" />
-                        <h3 className="font-bold text-foreground">Ton tuteur t'explique :</h3>
-                      </div>
-                      <p className="text-foreground leading-relaxed whitespace-pre-wrap">
-                        {aiExplanation || aiMessage || "Désolé, je n'ai pas pu générer une explication. Réessaie !"}
-                      </p>
-                    </div>
-                  )}
-                </motion.div>
-              )}
+                  🤖 Comprendre les ordres de grandeur
+                </Button>
+                <p className="text-xs text-muted-foreground mt-2">
+                  L'IA va t'expliquer la logique sans te donner la réponse
+                </p>
+              </motion.div>
               
               <p className="text-muted-foreground mt-6">
                 ✨ Reviens demain pour découvrir une nouvelle question !
@@ -437,6 +418,15 @@ const ComprendreLeMondeSection: React.FC<ComprendreLeMondeProps> = ({
         </motion.div>
         </div>
       </div>
+      
+      {/* AI Tutor Dialog */}
+      <AITutorDialog
+        isOpen={showAIDialog}
+        onClose={handleCloseAIDialog}
+        message={aiMessage}
+        isLoading={isAILoading}
+        title="Comprendre les ordres de grandeur 🌍"
+      />
     </div>
   );
 };
