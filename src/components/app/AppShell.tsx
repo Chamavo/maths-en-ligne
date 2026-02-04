@@ -211,6 +211,7 @@ const AppShell = ({ session, onSessionChange, onLogout }: AppShellProps) => {
             onSelectSujets={() => setCurrentView('sujets')}
             onSelectProblemes={() => setCurrentView('problemes')}
             onSelectMonde={() => setCurrentView('monde')}
+            onSelectPourcentages={() => {/* TODO: Vue pourcentages à implémenter */}}
             onLogout={handleLogout}
           />
         );
