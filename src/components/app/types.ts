@@ -12,4 +12,5 @@ export type AppView =
   | 'revision-quiz'
   | 'sujets'
   | 'problemes'
-  | 'monde';
+  | 'monde'
+  | 'pourcentages';

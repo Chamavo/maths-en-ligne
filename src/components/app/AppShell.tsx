@@ -13,6 +13,7 @@ import ProblemesSection from '@/components/ProblemesSection';
 import ComprendreLeMondeSection from '@/components/ComprendreLeMondeSection';
 import NewTeacherDashboard from '@/components/dashboard/NewTeacherDashboard';
 import FloatingDashboardButton from '@/components/FloatingDashboardButton';
+import PercentagesCircuit from '@/components/percentages/PercentagesCircuit';
 
 import type { AppSession, AppView } from './types';
 
@@ -187,6 +188,14 @@ const AppShell = ({ session, onSessionChange, onLogout }: AppShellProps) => {
           />
         );
 
+      case 'pourcentages':
+        return (
+          <PercentagesCircuit
+            username={session.username}
+            onBack={() => setCurrentView('home')}
+          />
+        );
+
       default:
         if (session.isTeacher) {
           return (
@@ -211,7 +220,7 @@ const AppShell = ({ session, onSessionChange, onLogout }: AppShellProps) => {
             onSelectSujets={() => setCurrentView('sujets')}
             onSelectProblemes={() => setCurrentView('problemes')}
             onSelectMonde={() => setCurrentView('monde')}
-            onSelectPourcentages={() => {/* TODO: Vue pourcentages à implémenter */}}
+            onSelectPourcentages={() => setCurrentView('pourcentages')}
             onLogout={handleLogout}
           />
         );
