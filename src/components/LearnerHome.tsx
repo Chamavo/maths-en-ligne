@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Star, FileText, Calculator, HelpCircle, Trophy } from 'lucide-react';
+import { BookOpen, Star, FileText, Calculator, Globe, HelpCircle, Trophy } from 'lucide-react';
 import { motion } from 'framer-motion';
 import AppHeader from './AppHeader';
 
@@ -113,7 +113,7 @@ const LearnerHome: React.FC<LearnerHomeProps> = ({
             </p>
           </motion.div>
 
-          {/* Bannière "Spécial Pourcentages : le circuit" - Thème F1 */}
+          {/* Bannière "Comprendre le monde" - CTA principal */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -122,42 +122,42 @@ const LearnerHome: React.FC<LearnerHomeProps> = ({
           >
             <motion.button
               onClick={onSelectMonde}
-              className="w-full relative overflow-hidden rounded-3xl p-5 sm:p-6 kid-card bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-600"
+              className="w-full relative overflow-hidden rounded-3xl p-5 sm:p-6 kid-card bg-gradient-to-r from-warning via-accent to-warning"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              {/* Drapeaux à damier décoratifs */}
-              <div className="absolute top-2 right-2 text-2xl sm:text-3xl opacity-80">🏁</div>
-              <div className="absolute bottom-2 left-2 text-2xl sm:text-3xl opacity-80">🏁</div>
-
-              {/* Effet de brillance racing */}
+              {/* Étoile décorative */}
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                className="absolute top-3 right-3"
+                animate={{ scale: [1, 1.2, 1], rotate: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <Star className="w-8 h-8 text-foreground/80" fill="currentColor" />
+              </motion.div>
+
+              {/* Effet de brillance */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-foreground/20 to-transparent"
                 animate={{ x: ["-100%", "100%"] }}
-                transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.5 }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
               />
               
               <div className="relative z-10 flex items-center justify-center gap-4 sm:gap-6">
-                {/* Voiture F1 animée */}
-                <motion.div 
-                  className="text-4xl sm:text-5xl"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  🏎️
-                </motion.div>
+                <div className="icon-circle">
+                  <Globe className="w-8 h-8 sm:w-10 sm:h-10 text-warning" />
+                </div>
                 <div className="text-left flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xl sm:text-2xl font-bold text-white drop-shadow-lg">🏆 Spécial Pourcentages : le circuit</span>
+                    <span className="text-xl sm:text-2xl font-bold text-warning-foreground">🌟 Commence ta journée ici !</span>
                   </div>
-                  <p className="text-sm sm:text-base text-white/90">
-                    Tu peux poser les opérations avec un stylo ✏️ • Pas de chrono !
+                  <p className="text-sm sm:text-base text-warning-foreground/90">
+                    Réponds à la question du jour sur le monde qui t'entoure 🌍
                   </p>
                 </div>
                 <motion.div
                   animate={{ x: [0, 8, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
-                  className="text-3xl text-white hidden sm:block"
+                  className="text-3xl text-warning-foreground hidden sm:block"
                 >
                   →
                 </motion.div>
