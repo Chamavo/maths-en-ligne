@@ -3,6 +3,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Student } from '@/types/student';
 import { toast } from 'sonner';
 import { generateStudentEmail } from '@/utils/auth';
+import { migrateLocalStorageToDatabase } from '@/utils/levelBlockingSystem';
 
 /**
  * Checks if the given user has the 'teacher' role.
@@ -164,6 +165,13 @@ export const useStudentAuth = () => {
         console.error("Login error:", error);
         toast.error("Nom d'utilisateur ou mot de passe incorrect");
         return false;
+      }
+
+      // Migrate localStorage data to database after successful login
+      try {
+        await migrateLocalStorageToDatabase(firstName);
+      } catch (migrationError) {
+        console.error('Migration error (non-blocking):', migrationError);
       }
 
       toast.success("Bon retour, " + firstName + " !");

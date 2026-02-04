@@ -1,11 +1,48 @@
 // Hook personnalisé pour gérer l'état du module Pourcentages
+// Utilise Supabase pour la persistence avec fallback localStorage
 import { useState, useCallback, useEffect } from 'react';
 import type { PlayerProgress } from '@/data/percentagesCircuit/types';
 import { seasons } from '@/data/percentagesCircuit/seasons';
+import { supabase } from '@/integrations/supabase/client';
 
 const STORAGE_KEY = 'percentagesCircuit_progress';
+const MODE = 'pourcentages';
 
-const getInitialProgress = (studentName: string): PlayerProgress => {
+interface ProgressionRow {
+  id: string;
+  extra_data: {
+    xp?: number;
+    badges?: string[];
+    completedGPs?: string[];
+    seasonScores?: Record<number, Record<number, number>>;
+    currentSeasonId?: number;
+    currentGPId?: number;
+  } | null;
+  current_level: number;
+}
+
+const getInitialProgress = (): PlayerProgress => ({
+  currentSeasonId: 1,
+  currentGPId: 1,
+  completedGPs: new Set(),
+  xp: 0,
+  badges: [],
+  seasonScores: {},
+});
+
+const parseProgressFromRow = (row: ProgressionRow): PlayerProgress => {
+  const extra = row.extra_data || {};
+  return {
+    currentSeasonId: extra.currentSeasonId ?? 1,
+    currentGPId: extra.currentGPId ?? 1,
+    completedGPs: new Set(extra.completedGPs || []),
+    xp: extra.xp ?? 0,
+    badges: extra.badges || [],
+    seasonScores: extra.seasonScores || {},
+  };
+};
+
+const loadFromLocalStorage = (studentName: string): PlayerProgress => {
   const key = `${STORAGE_KEY}_${studentName.toLowerCase()}`;
   const saved = localStorage.getItem(key);
   
@@ -23,30 +60,100 @@ const getInitialProgress = (studentName: string): PlayerProgress => {
     }
   }
   
-  return {
-    currentSeasonId: 1,
-    currentGPId: 1,
-    completedGPs: new Set(),
-    xp: 0,
-    badges: [],
-    seasonScores: {},
-  };
+  return getInitialProgress();
 };
 
 export const usePercentagesProgress = (studentName: string) => {
   const [progress, setProgress] = useState<PlayerProgress>(() => 
-    getInitialProgress(studentName)
+    loadFromLocalStorage(studentName)
   );
+  const [userId, setUserId] = useState<string | null>(null);
 
-  // Sauvegarder dans localStorage à chaque changement
+  // Get current user on mount
   useEffect(() => {
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      setUserId(user?.id ?? null);
+    });
+  }, []);
+
+  // Load from database on mount (if authenticated)
+  useEffect(() => {
+    const loadFromDatabase = async () => {
+      if (!userId) return;
+      
+      try {
+        const { data, error } = await supabase
+          .from('student_progression')
+          .select('id, extra_data, current_level')
+          .eq('user_id', userId)
+          .eq('student_name', studentName.toLowerCase())
+          .eq('mode', MODE)
+          .maybeSingle();
+        
+        if (!error && data) {
+          const dbProgress = parseProgressFromRow(data as ProgressionRow);
+          // Use database progress if it has more data
+          const localProgress = loadFromLocalStorage(studentName);
+          const useDb = dbProgress.completedGPs.size >= localProgress.completedGPs.size;
+          
+          if (useDb) {
+            setProgress(dbProgress);
+          } else {
+            // Migrate local to DB
+            await saveToDatabase(localProgress);
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load progress from database:', err);
+      }
+    };
+    
+    loadFromDatabase();
+  }, [userId, studentName]);
+
+  // Save to database
+  const saveToDatabase = async (progressData: PlayerProgress) => {
+    if (!userId) return;
+    
+    const extraData = {
+      xp: progressData.xp,
+      badges: progressData.badges,
+      completedGPs: Array.from(progressData.completedGPs),
+      seasonScores: progressData.seasonScores,
+      currentSeasonId: progressData.currentSeasonId,
+      currentGPId: progressData.currentGPId,
+    };
+    
+    try {
+      await supabase
+        .from('student_progression')
+        .upsert({
+          user_id: userId,
+          student_name: studentName.toLowerCase(),
+          mode: MODE,
+          current_level: progressData.currentSeasonId,
+          extra_data: extraData,
+        }, {
+          onConflict: 'user_id,student_name,mode'
+        });
+    } catch (err) {
+      console.error('Failed to save progress to database:', err);
+    }
+  };
+
+  // Sauvegarder à chaque changement
+  useEffect(() => {
+    // Save to localStorage (backup)
     const key = `${STORAGE_KEY}_${studentName.toLowerCase()}`;
     const toSave = {
       ...progress,
       completedGPs: Array.from(progress.completedGPs),
     };
     localStorage.setItem(key, JSON.stringify(toSave));
-  }, [progress, studentName]);
+    
+    // Save to database
+    saveToDatabase(progress);
+  }, [progress, studentName, userId]);
 
   const addXP = useCallback((amount: number) => {
     setProgress(prev => ({ ...prev, xp: prev.xp + amount }));
@@ -139,11 +246,22 @@ export const usePercentagesProgress = (studentName: string) => {
     return progress.xp;
   }, [progress]);
 
-  const resetProgress = useCallback(() => {
+  const resetProgress = useCallback(async () => {
     const key = `${STORAGE_KEY}_${studentName.toLowerCase()}`;
     localStorage.removeItem(key);
-    setProgress(getInitialProgress(studentName));
-  }, [studentName]);
+    
+    // Also reset in database
+    if (userId) {
+      await supabase
+        .from('student_progression')
+        .delete()
+        .eq('user_id', userId)
+        .eq('student_name', studentName.toLowerCase())
+        .eq('mode', MODE);
+    }
+    
+    setProgress(getInitialProgress());
+  }, [studentName, userId]);
 
   return {
     progress,
