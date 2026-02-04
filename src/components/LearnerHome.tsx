@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BookOpen, Star, FileText, Calculator, Globe, HelpCircle, Trophy, Lock } from 'lucide-react';
+import React from 'react';
+import { BookOpen, Star, FileText, Calculator, Globe, HelpCircle, Trophy } from 'lucide-react';
 import { motion } from 'framer-motion';
 import AppHeader from './AppHeader';
 
@@ -22,32 +22,6 @@ const LearnerHome: React.FC<LearnerHomeProps> = ({
   onSelectMonde,
   onLogout,
 }) => {
-  // Check if user completed "Comprendre le monde" today
-  const [dailyCompleted, setDailyCompleted] = useState(false);
-
-  useEffect(() => {
-    const today = new Date().toISOString().split('T')[0];
-    const completionKey = `worldQuestionCompleted_${username.toLowerCase()}_${today}`;
-    const completed = localStorage.getItem(completionKey) === 'true';
-    setDailyCompleted(completed);
-
-    // Listen for storage changes (when user completes world question)
-    const handleStorageChange = () => {
-      const nowCompleted = localStorage.getItem(completionKey) === 'true';
-      setDailyCompleted(nowCompleted);
-    };
-
-    window.addEventListener('storage', handleStorageChange);
-    // Also check on focus in case localStorage was updated in another tab
-    window.addEventListener('focus', handleStorageChange);
-    
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-      window.removeEventListener('focus', handleStorageChange);
-    };
-  }, [username]);
-
-  const isLocked = !dailyCompleted;
   const cards = [
     {
       id: 'calcul',
@@ -56,7 +30,6 @@ const LearnerHome: React.FC<LearnerHomeProps> = ({
       emoji: '🚀',
       icon: Calculator,
       gradient: 'from-sky-blue to-primary',
-      lockedGradient: 'from-muted/60 to-muted/40',
       shadowColor: 'shadow-glow-blue',
       onClick: onSelectCalcul,
     },
@@ -67,7 +40,6 @@ const LearnerHome: React.FC<LearnerHomeProps> = ({
       emoji: '📖',
       icon: BookOpen,
       gradient: 'from-secondary to-mint-green',
-      lockedGradient: 'from-muted/60 to-muted/40',
       shadowColor: 'shadow-glow-green',
       onClick: onSelectRevisions,
     },
@@ -78,7 +50,6 @@ const LearnerHome: React.FC<LearnerHomeProps> = ({
       emoji: '🎯',
       icon: HelpCircle,
       gradient: 'from-accent to-coral-orange',
-      lockedGradient: 'from-muted/60 to-muted/40',
       shadowColor: 'shadow-glow-orange',
       onClick: onSelectProblemes,
     },
@@ -89,7 +60,6 @@ const LearnerHome: React.FC<LearnerHomeProps> = ({
       emoji: '📋',
       icon: FileText,
       gradient: 'from-violet-purple to-primary',
-      lockedGradient: 'from-muted/60 to-muted/40',
       shadowColor: 'shadow-glow-violet',
       onClick: onSelectSujets,
     },
@@ -200,62 +170,41 @@ const LearnerHome: React.FC<LearnerHomeProps> = ({
             {cards.map((card, index) => (
               <motion.button
                 key={card.id}
-                onClick={isLocked ? undefined : card.onClick}
-                disabled={isLocked}
+                onClick={card.onClick}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                whileHover={isLocked ? {} : { 
+                whileHover={{ 
                   scale: 1.05, 
                   y: -10,
                 }}
-                whileTap={isLocked ? {} : { scale: 0.98 }}
-                className={`relative overflow-hidden rounded-3xl p-5 sm:p-6 text-foreground shadow-kid group kid-card bg-gradient-to-br ${isLocked ? card.lockedGradient : card.gradient} ${isLocked ? 'cursor-not-allowed opacity-75' : ''}`}
+                whileTap={{ scale: 0.98 }}
+                className={`relative overflow-hidden rounded-3xl p-5 sm:p-6 text-foreground shadow-kid group kid-card bg-gradient-to-br ${card.gradient}`}
               >
-                {/* Cadenas ou étoile en haut à droite */}
-                {isLocked ? (
-                  <motion.div
-                    className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-destructive/90 rounded-full p-1.5 sm:p-2"
-                    animate={{ 
-                      scale: [1, 1.1, 1],
-                    }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    <Lock className="w-5 h-5 sm:w-6 sm:h-6 text-destructive-foreground" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    className="absolute top-2 right-2 sm:top-3 sm:right-3"
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                      opacity: [0.7, 1, 0.7]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
-                  >
-                    <Star className="w-5 h-5 sm:w-6 sm:h-6 text-warning" fill="currentColor" />
-                  </motion.div>
-                )}
+                {/* Étoile en haut à droite */}
+                <motion.div
+                  className="absolute top-2 right-2 sm:top-3 sm:right-3"
+                  animate={{ 
+                    scale: [1, 1.2, 1],
+                    opacity: [0.7, 1, 0.7]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+                >
+                  <Star className="w-5 h-5 sm:w-6 sm:h-6 text-warning" fill="currentColor" />
+                </motion.div>
                 
-                {/* Effet de brillance au survol (seulement si débloqué) */}
-                {!isLocked && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-foreground/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                )}
+                {/* Effet de brillance au survol */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-foreground/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 
                 <div className="relative z-10 flex flex-col items-center gap-3 sm:gap-4">
-                  {/* Icône dans cercle - grisé si verrouillé */}
-                  <div className={`icon-circle ${isLocked ? 'bg-muted/50' : ''}`}>
-                    {isLocked ? (
-                      <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-muted-foreground/50" />
-                    ) : (
-                      <card.icon className="w-8 h-8 sm:w-10 sm:h-10 text-muted" />
-                    )}
+                  {/* Icône dans cercle */}
+                  <div className="icon-circle">
+                    <card.icon className="w-8 h-8 sm:w-10 sm:h-10 text-muted" />
                   </div>
                   
                   <div className="text-center">
-                    <h2 className={`text-lg sm:text-xl font-bold mb-1 ${isLocked ? 'text-muted-foreground/70' : 'text-primary-foreground'}`}>{card.title}</h2>
-                    <p className={`text-xs sm:text-sm ${isLocked ? 'text-muted-foreground/50' : 'text-primary-foreground/80'}`}>
-                      {isLocked ? '🔒 Commence ta journée d\'abord !' : card.subtitle}
-                    </p>
+                    <h2 className="text-lg sm:text-xl font-bold mb-1 text-primary-foreground">{card.title}</h2>
+                    <p className="text-xs sm:text-sm text-primary-foreground/80">{card.subtitle}</p>
                   </div>
                 </div>
               </motion.button>
