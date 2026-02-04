@@ -31,7 +31,7 @@ const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
 const AI_GATEWAY_URL = 'https://ai.gateway.lovable.dev/v1/chat/completions';
 
 interface TutorRequest {
-  type: 'math_help' | 'world_explanation' | 'problem_help';
+  type: 'math_help' | 'world_explanation' | 'problem_help' | 'percentage_help';
   // For math_help
   question?: string;
   correctAnswer?: string | number;
@@ -54,6 +54,11 @@ interface TutorRequest {
   raisonnementEleve?: string;
   reponseCorrecte?: string | number | (string | number)[];
   unite?: string;
+  // For percentage_help
+  exerciseType?: string;
+  correctAnswers?: string[];
+  seasonId?: number;
+  feedbackFocus?: string;
 }
 
 serve(async (req) => {
@@ -270,6 +275,48 @@ ${raisonnementEleve ? `- Raisonnement de l'élève : ${raisonnementEleve}` : ''}
 CONSIGNE :
 ${isCorrect ? 'La réponse est CORRECTE ! Félicite l\'élève et explique la solution.' : `Fournis une aide pédagogique adaptée au niveau d'indice ${indicesDejaVus}. ${helpType === 'correction_finale' ? 'Donne la solution complète avec explication.' : 'Ne donne PAS la réponse finale.'}`}
 Réponds de façon concise (maximum 6-8 phrases) et bienveillante.`;
+
+    } else if (type === 'percentage_help') {
+      const { question, exerciseType, userAnswer, correctAnswers, seasonId, feedbackFocus } = requestBody;
+      
+      // Déterminer le thème de la saison
+      const seasonThemes: Record<number, string> = {
+        1: 'Comprendre % = sur 100',
+        2: 'Fractions et Pourcentages (1/2, 1/4, 1/10)',
+        3: 'Décimaux et Pourcentages (0.5, 0.25, 0.1)',
+        4: 'Calculer un pourcentage',
+        5: 'Remises et promotions',
+        6: 'Raisonnement et stratégie',
+      };
+      
+      const seasonTheme = seasonThemes[seasonId || 1] || 'Pourcentages';
+      
+      systemPrompt = `Tu es un ingénieur de course F1 qui aide un jeune pilote (11 ans) à maîtriser les pourcentages ! 🏎️
+
+TON STYLE :
+- Utilise des métaphores F1 (stands, pneus, carburant, tour rapide, DRS, etc.)
+- Sois encourageant et dynamique comme un ingénieur radio
+- Utilise des emojis pour rendre les explications vivantes
+- Maximum 4-5 phrases, sois concis comme un message radio
+
+RÈGLES PÉDAGOGIQUES :
+- Ne donne JAMAIS la réponse directement
+- Guide l'élève vers la bonne méthode
+- Explique l'erreur de façon positive
+- Valorise l'effort et la progression
+- Utilise des exemples concrets liés à la F1
+
+THÈME ACTUEL : ${seasonTheme}
+FOCUS PÉDAGOGIQUE : ${feedbackFocus || 'compréhension générale'}`;
+
+      userPrompt = `L'élève a répondu à cet exercice :
+
+Question : ${question}
+Type d'exercice : ${exerciseType}
+Réponse de l'élève : ${userAnswer}
+${correctAnswers ? `Réponses correctes attendues : ${correctAnswers.join(', ')}` : ''}
+
+Analyse sa réponse et donne-lui un feedback F1 pour l'aider à progresser. Si la réponse est correcte, félicite-le ! Si elle est incorrecte, guide-le sans donner la solution.`;
 
     } else {
       throw new Error('Invalid request type');
