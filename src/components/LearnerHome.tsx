@@ -1,7 +1,8 @@
 import React from 'react';
-import { BookOpen, Star, FileText, Calculator, Globe, HelpCircle, Trophy } from 'lucide-react';
+import { BookOpen, Star, FileText, Calculator, Globe, HelpCircle, Trophy, PenLine } from 'lucide-react';
 import { motion } from 'framer-motion';
 import AppHeader from './AppHeader';
+import mercedesF1 from '@/assets/mercedes-f1.png';
 
 interface LearnerHomeProps {
   username: string;
@@ -10,6 +11,7 @@ interface LearnerHomeProps {
   onSelectSujets: () => void;
   onSelectProblemes: () => void;
   onSelectMonde: () => void;
+  onSelectPourcentages: () => void;
   onLogout: () => void;
 }
 
@@ -20,6 +22,7 @@ const LearnerHome: React.FC<LearnerHomeProps> = ({
   onSelectSujets,
   onSelectProblemes,
   onSelectMonde,
+  onSelectPourcentages,
   onLogout,
 }) => {
   const cards = [
@@ -165,7 +168,62 @@ const LearnerHome: React.FC<LearnerHomeProps> = ({
             </motion.button>
           </motion.div>
 
-          {/* Grille de 4 cartes colorées */}
+          {/* Bandeau Spécial Pourcentages - Circuit F1 */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="mb-8"
+          >
+            <motion.button
+              onClick={onSelectPourcentages}
+              className="w-full relative overflow-hidden rounded-3xl p-5 sm:p-6 kid-card bg-gradient-to-r from-card via-muted to-card border-2 border-secondary/50"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              {/* Effet de brillance racing */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/20 to-transparent"
+                animate={{ x: ["-100%", "100%"] }}
+                transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
+              />
+              
+              {/* Ligne de course décorative */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-destructive via-secondary to-destructive" />
+              
+              <div className="relative z-10 flex items-center justify-between gap-4 sm:gap-6">
+                <div className="flex items-center gap-4 flex-1">
+                  <div className="icon-circle bg-secondary/20 border-secondary/50">
+                    <span className="text-2xl sm:text-3xl">🏎️</span>
+                  </div>
+                  <div className="text-left">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-xl sm:text-2xl font-bold text-foreground">Spécial Pourcentages : le circuit</span>
+                      <span className="text-lg">🏁</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm sm:text-base text-secondary">
+                      <PenLine className="w-4 h-4" />
+                      <span>Tu peux poser les opérations avec un stylo</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Image Mercedes F1 */}
+                <motion.div
+                  className="hidden sm:block"
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <img 
+                    src={mercedesF1} 
+                    alt="Mercedes F1" 
+                    className="h-16 sm:h-20 object-contain drop-shadow-lg"
+                  />
+                </motion.div>
+              </div>
+            </motion.button>
+          </motion.div>
+
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
             {cards.map((card, index) => (
               <motion.button
