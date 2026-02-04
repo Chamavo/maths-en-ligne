@@ -211,6 +211,68 @@ export type Database = {
           },
         ]
       }
+      student_progression: {
+        Row: {
+          created_at: string
+          current_correct_streak: number
+          current_level: number
+          extra_data: Json | null
+          fail_count: number
+          id: string
+          is_blocked: boolean
+          level_in_progress: boolean | null
+          level_started_at: string | null
+          mode: string
+          required_correct_streak: number
+          student_id: string | null
+          student_name: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          current_correct_streak?: number
+          current_level?: number
+          extra_data?: Json | null
+          fail_count?: number
+          id?: string
+          is_blocked?: boolean
+          level_in_progress?: boolean | null
+          level_started_at?: string | null
+          mode?: string
+          required_correct_streak?: number
+          student_id?: string | null
+          student_name: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          current_correct_streak?: number
+          current_level?: number
+          extra_data?: Json | null
+          fail_count?: number
+          id?: string
+          is_blocked?: boolean
+          level_in_progress?: boolean | null
+          level_started_at?: string | null
+          mode?: string
+          required_correct_streak?: number
+          student_id?: string | null
+          student_name?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "student_progression_student_id_fkey"
+            columns: ["student_id"]
+            isOneToOne: false
+            referencedRelation: "students"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       student_question_history: {
         Row: {
           attempt_number: number
