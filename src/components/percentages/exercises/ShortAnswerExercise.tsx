@@ -10,6 +10,7 @@ interface ShortAnswerExerciseProps {
   isAnswered: boolean;
   isCorrect: boolean | null;
   onSubmit: (answer: string) => void;
+  mustRetry?: boolean;
 }
 
 const ShortAnswerExercise: React.FC<ShortAnswerExerciseProps> = ({
@@ -17,6 +18,7 @@ const ShortAnswerExercise: React.FC<ShortAnswerExerciseProps> = ({
   isAnswered,
   isCorrect,
   onSubmit,
+  mustRetry,
 }) => {
   const [answer, setAnswer] = useState('');
 
@@ -31,6 +33,13 @@ const ShortAnswerExercise: React.FC<ShortAnswerExerciseProps> = ({
       handleSubmit();
     }
   };
+
+  // Réinitialiser le champ si on doit réessayer
+  React.useEffect(() => {
+    if (mustRetry === false && !isAnswered) {
+      setAnswer('');
+    }
+  }, [mustRetry, isAnswered]);
 
   // Extraire la question avec le placeholder
   const questionParts = exercise.question.split('___');
@@ -51,8 +60,8 @@ const ShortAnswerExercise: React.FC<ShortAnswerExerciseProps> = ({
               className={`w-24 sm:w-32 text-center text-lg font-bold inline-block ${
                 isAnswered
                   ? isCorrect
-                    ? 'border-green-500 bg-green-500/10'
-                    : 'border-red-500 bg-red-500/10'
+                    ? 'border-emerald-500 bg-emerald-500/10'
+                    : 'border-destructive bg-destructive/10'
                   : 'border-primary'
               }`}
               placeholder="?"
@@ -65,20 +74,6 @@ const ShortAnswerExercise: React.FC<ShortAnswerExerciseProps> = ({
           {questionParts[1]}
         </div>
       </div>
-
-      {/* Affichage de la bonne réponse si erreur */}
-      {isAnswered && !isCorrect && exercise.expected_answers && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center p-4 bg-green-500/10 border border-green-500/30 rounded-xl"
-        >
-          <p className="text-sm text-muted-foreground">Réponse attendue :</p>
-          <p className="text-lg font-bold text-green-600">
-            {exercise.expected_answers[0]} {exercise.unit || ''}
-          </p>
-        </motion.div>
-      )}
 
       {/* Bouton valider */}
       {!isAnswered && (

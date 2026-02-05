@@ -1,5 +1,5 @@
 // Composant pour les exercices d'association (drag & drop simplifié)
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, XCircle } from 'lucide-react';
@@ -10,6 +10,7 @@ interface AssociationExerciseProps {
   isAnswered: boolean;
   isCorrect: boolean | null;
   onSubmit: (matches: Record<string, string>) => void;
+  mustRetry?: boolean;
 }
 
 const AssociationExercise: React.FC<AssociationExerciseProps> = ({
@@ -17,14 +18,23 @@ const AssociationExercise: React.FC<AssociationExerciseProps> = ({
   isAnswered,
   isCorrect,
   onSubmit,
+  mustRetry,
 }) => {
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [matches, setMatches] = useState<Record<string, string>>({});
 
-  if (!exercise.pairs) return null;
-
   const leftItems = exercise.pairs.map(p => p.left);
   const rightItems = [...exercise.pairs.map(p => p.right)].sort(() => Math.random() - 0.5);
+
+  // Réinitialiser si on doit réessayer
+  useEffect(() => {
+    if (mustRetry === false && !isAnswered) {
+      setMatches({});
+      setSelectedLeft(null);
+    }
+  }, [mustRetry, isAnswered]);
+
+  if (!exercise.pairs) return null;
 
   const handleLeftClick = (item: string) => {
     if (isAnswered) return;
@@ -90,9 +100,9 @@ const AssociationExercise: React.FC<AssociationExerciseProps> = ({
                 disabled={isAnswered}
                 className={`w-full p-3 rounded-xl border-2 transition-all ${
                   result === 'correct'
-                    ? 'border-green-500 bg-green-500/10'
+                    ? 'border-emerald-500 bg-emerald-500/10'
                     : result === 'incorrect'
-                      ? 'border-red-500 bg-red-500/10'
+                      ? 'border-destructive bg-destructive/10'
                       : isSelected
                         ? 'border-primary bg-primary/10'
                         : hasMatch
@@ -104,8 +114,8 @@ const AssociationExercise: React.FC<AssociationExerciseProps> = ({
               >
                 <div className="flex items-center justify-between">
                   <span className="font-medium">{item}</span>
-                  {result === 'correct' && <CheckCircle className="w-4 h-4 text-green-500" />}
-                  {result === 'incorrect' && <XCircle className="w-4 h-4 text-red-500" />}
+                  {result === 'correct' && <CheckCircle className="w-4 h-4 text-emerald-500" />}
+                  {result === 'incorrect' && <XCircle className="w-4 h-4 text-destructive" />}
                   {hasMatch && !isAnswered && (
                     <span className="text-xs text-muted-foreground">→ {hasMatch}</span>
                   )}
@@ -134,9 +144,9 @@ const AssociationExercise: React.FC<AssociationExerciseProps> = ({
                 className={`w-full p-3 rounded-xl border-2 transition-all ${
                   isAnswered
                     ? isCorrectMatch
-                      ? 'border-green-500 bg-green-500/10'
+                      ? 'border-emerald-500 bg-emerald-500/10'
                       : isMatched
-                        ? 'border-red-500 bg-red-500/10'
+                        ? 'border-destructive bg-destructive/10'
                         : 'border-muted'
                     : isMatched
                       ? 'border-secondary bg-secondary/10'

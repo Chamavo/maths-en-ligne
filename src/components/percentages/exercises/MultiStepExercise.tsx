@@ -1,5 +1,5 @@
 // Composant pour les exercices multi-étapes
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,6 +11,7 @@ interface MultiStepExerciseProps {
   isAnswered: boolean;
   isCorrect: boolean | null;
   onSubmit: (answer: string) => void;
+  mustRetry?: boolean;
 }
 
 const MultiStepExercise: React.FC<MultiStepExerciseProps> = ({
@@ -18,6 +19,7 @@ const MultiStepExercise: React.FC<MultiStepExerciseProps> = ({
   isAnswered,
   isCorrect,
   onSubmit,
+  mustRetry,
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [stepAnswers, setStepAnswers] = useState<string[]>([]);
@@ -25,6 +27,15 @@ const MultiStepExercise: React.FC<MultiStepExerciseProps> = ({
 
   const steps = exercise.steps || [];
   const totalSteps = steps.length;
+
+  // Réinitialiser si on doit réessayer
+  useEffect(() => {
+    if (mustRetry === false && !isAnswered) {
+      setCurrentStep(0);
+      setStepAnswers([]);
+      setFinalAnswer('');
+    }
+  }, [mustRetry, isAnswered]);
 
   const handleStepComplete = () => {
     if (currentStep < totalSteps - 1) {
@@ -110,8 +121,8 @@ const MultiStepExercise: React.FC<MultiStepExerciseProps> = ({
             className={`text-lg text-center ${
               isAnswered
                 ? isCorrect
-                  ? 'border-green-500 bg-green-500/10'
-                  : 'border-red-500 bg-red-500/10'
+                  ? 'border-emerald-500 bg-emerald-500/10'
+                  : 'border-destructive bg-destructive/10'
                 : ''
             }`}
             placeholder="Écris ta réponse..."
@@ -121,20 +132,6 @@ const MultiStepExercise: React.FC<MultiStepExerciseProps> = ({
           )}
         </div>
       </motion.div>
-
-      {/* Affichage de la bonne réponse si erreur */}
-      {isAnswered && !isCorrect && exercise.expected_answers && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center p-4 bg-green-500/10 border border-green-500/30 rounded-xl"
-        >
-          <p className="text-sm text-muted-foreground">Réponse attendue :</p>
-          <p className="text-lg font-bold text-green-600">
-            {exercise.expected_answers[0]} {exercise.unit || ''}
-          </p>
-        </motion.div>
-      )}
 
       {/* Bouton valider */}
       {!isAnswered && (

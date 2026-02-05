@@ -11,6 +11,7 @@ interface QCMExerciseProps {
   isCorrect: boolean | null;
   onSelectAnswer: (answer: string) => void;
   onValidate: () => void;
+  correctAnswer?: string | null;
 }
 
 const QCMExercise: React.FC<QCMExerciseProps> = ({
@@ -20,6 +21,7 @@ const QCMExercise: React.FC<QCMExerciseProps> = ({
   isCorrect,
   onSelectAnswer,
   onValidate,
+  correctAnswer,
 }) => {
   if (!exercise.choices) return null;
 
@@ -35,10 +37,7 @@ const QCMExercise: React.FC<QCMExerciseProps> = ({
         {exercise.choices.map((choice, index) => {
           const isSelected = selectedAnswer === choice;
           const showResult = isAnswered;
-          // Pour QCM, la bonne réponse est généralement le 2ème choix (index 1) basé sur les données
-          // Mais on devrait comparer avec expected_answers si disponible
-          const isThisCorrect = exercise.expected_answers?.includes(choice) || 
-            (exercise.choices && index === 1); // Fallback basé sur structure données
+          const isThisCorrect = correctAnswer === choice;
 
           return (
             <motion.button
@@ -48,9 +47,9 @@ const QCMExercise: React.FC<QCMExerciseProps> = ({
               className={`p-4 rounded-xl border-2 text-left transition-all ${
                 showResult
                   ? isThisCorrect
-                    ? 'border-green-500 bg-green-500/10'
+                    ? 'border-emerald-500 bg-emerald-500/10'
                     : isSelected
-                      ? 'border-red-500 bg-red-500/10'
+                      ? 'border-destructive bg-destructive/10'
                       : 'border-muted'
                   : isSelected
                     ? 'border-primary bg-primary/10'
@@ -63,9 +62,9 @@ const QCMExercise: React.FC<QCMExerciseProps> = ({
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${
                   showResult
                     ? isThisCorrect
-                      ? 'bg-green-500 text-white'
+                      ? 'bg-emerald-500 text-white'
                       : isSelected
-                        ? 'bg-red-500 text-white'
+                        ? 'bg-destructive text-destructive-foreground'
                         : 'bg-muted'
                     : isSelected
                       ? 'bg-primary text-primary-foreground'
