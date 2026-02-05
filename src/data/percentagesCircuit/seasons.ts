@@ -255,6 +255,7 @@ export const seasons: Season[] = [
             type: 'qcm',
             question: 'Un pilote a parcouru la moitié de la course. En pourcentage :',
             choices: ['25 %', '50 %', '75 %'],
+            expected_answers: ['50 %'],
             ai_feedback_focus: 'moitié en pourcentage',
             gamification: 'dashboard_light',
           },
