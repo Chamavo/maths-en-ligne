@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { getGrandPrix, getSeasonById } from '@/data/percentagesCircuit/seasons';
 import type { Exercise } from '@/data/percentagesCircuit/types';
 import { usePercentageAI } from '@/hooks/usePercentageAI';
+import { useF1Sounds } from '@/hooks/useF1Sounds';
 import {
   QCMExercise,
   ShortAnswerExercise,
@@ -48,6 +49,7 @@ const GrandPrixRunner: React.FC<GrandPrixRunnerProps> = ({
   const [showOffTrack, setShowOffTrack] = useState(false);
 
   const { analyzeAnswer, getSuccessFeedback, isLoading, aiMessage, clearMessage } = usePercentageAI();
+  const { playEngineStart, playSuccessBeep, playOffTrack, playCheckpoint } = useF1Sounds();
 
   const exercises = useMemo(() => grandPrix?.exercises || [], [grandPrix]);
   const currentExercise = exercises[currentIndex];
@@ -160,9 +162,11 @@ const GrandPrixRunner: React.FC<GrandPrixRunnerProps> = ({
       setStreak(s => s + 1);
       setMustRetry(false);
       getSuccessFeedback();
+      playSuccessBeep();
     } else {
       // Afficher l'animation de sortie de piste
       setShowOffTrack(true);
+      playOffTrack();
       setTimeout(() => setShowOffTrack(false), 1500);
       
       setStreak(0);
@@ -207,8 +211,10 @@ const GrandPrixRunner: React.FC<GrandPrixRunnerProps> = ({
       setStreak(s => s + 1);
       setMustRetry(false);
       getSuccessFeedback();
+      playSuccessBeep();
     } else {
       setShowOffTrack(true);
+      playOffTrack();
       setTimeout(() => setShowOffTrack(false), 1500);
       
       setStreak(0);
@@ -226,6 +232,7 @@ const GrandPrixRunner: React.FC<GrandPrixRunnerProps> = ({
 
   const handleNext = () => {
     if (currentIndex < exercises.length - 1) {
+      playCheckpoint();
       setCurrentIndex(currentIndex + 1);
       setIsAnswered(false);
       setIsCorrect(null);
@@ -329,7 +336,10 @@ const GrandPrixRunner: React.FC<GrandPrixRunnerProps> = ({
               transition={{ delay: 2.5 }}
             >
               <Button
-                onClick={() => setShowStartScreen(false)}
+                onClick={() => {
+                  playEngineStart();
+                  setShowStartScreen(false);
+                }}
                 size="lg"
                 className="w-full py-8 text-xl font-bold bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-lg"
               >
