@@ -221,6 +221,7 @@ const AppShell = ({ session, onSessionChange, onLogout }: AppShellProps) => {
             onSelectProblemes={() => setCurrentView('problemes')}
             onSelectMonde={() => setCurrentView('monde')}
             onSelectPourcentages={() => setCurrentView('pourcentages')}
+            onSelectProblemesLogique={() => setCurrentView('problemes-logique')}
             onLogout={handleLogout}
           />
         );

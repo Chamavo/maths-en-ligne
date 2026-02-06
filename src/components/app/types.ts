@@ -13,4 +13,5 @@ export type AppView =
   | 'sujets'
   | 'problemes'
   | 'monde'
-  | 'pourcentages';
+  | 'pourcentages'
+  | 'problemes-logique';

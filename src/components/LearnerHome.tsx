@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Star, FileText, Calculator, Globe, HelpCircle, Trophy, PenLine } from 'lucide-react';
+import { BookOpen, Star, FileText, Calculator, Globe, HelpCircle, Trophy, PenLine, Lightbulb } from 'lucide-react';
 import { motion } from 'framer-motion';
 import AppHeader from './AppHeader';
 import mercedesF1 from '@/assets/mercedes-f1.png';
@@ -12,6 +12,7 @@ interface LearnerHomeProps {
   onSelectProblemes: () => void;
   onSelectMonde: () => void;
   onSelectPourcentages: () => void;
+  onSelectProblemesLogique: () => void;
   onLogout: () => void;
 }
 
@@ -23,6 +24,7 @@ const LearnerHome: React.FC<LearnerHomeProps> = ({
   onSelectProblemes,
   onSelectMonde,
   onSelectPourcentages,
+  onSelectProblemesLogique,
   onLogout,
 }) => {
   const cards = [
@@ -173,7 +175,7 @@ const LearnerHome: React.FC<LearnerHomeProps> = ({
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="mb-8"
+            className="mb-4"
           >
             <motion.button
               onClick={onSelectPourcentages}
@@ -219,6 +221,69 @@ const LearnerHome: React.FC<LearnerHomeProps> = ({
                     alt="Mercedes F1" 
                     className="h-16 sm:h-20 object-contain drop-shadow-lg"
                   />
+                </motion.div>
+              </div>
+            </motion.button>
+          </motion.div>
+
+          {/* Bandeau Problèmes sans calcul - Réflexion logique */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-8"
+          >
+            <motion.button
+              onClick={onSelectProblemesLogique}
+              className="w-full relative overflow-hidden rounded-3xl p-5 sm:p-6 kid-card bg-gradient-to-r from-warning/20 via-warning/30 to-warning/20 border-2 border-warning/50"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              {/* Effet de brillance pensée */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-warning/20 to-transparent"
+                animate={{ x: ["-100%", "100%"] }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 1.5 }}
+              />
+              
+              {/* Ligne décorative supérieure */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-warning via-warning/70 to-warning" />
+              
+              <div className="relative z-10 flex items-center justify-between gap-4 sm:gap-6">
+                <div className="flex items-center gap-4 flex-1">
+                  <div className="icon-circle bg-warning/30 border-warning/50">
+                    <Lightbulb className="w-7 h-7 sm:w-8 sm:h-8 text-warning" />
+                  </div>
+                  <div className="text-left">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-xl sm:text-2xl font-bold text-foreground">Je résous des problèmes sans calcul</span>
+                      <span className="text-lg">🧩</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm sm:text-base text-muted-foreground">
+                      <span>Réfléchis, observe, déduis... pas besoin de calculer !</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Emoji penseur */}
+                <motion.div
+                  className="hidden sm:flex items-center gap-1"
+                  animate={{ 
+                    y: [0, -3, 0],
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <span className="text-4xl">🤔</span>
+                  <motion.span 
+                    className="text-2xl"
+                    animate={{ 
+                      opacity: [0.5, 1, 0.5],
+                      scale: [0.9, 1.1, 0.9]
+                    }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    💡
+                  </motion.span>
                 </motion.div>
               </div>
             </motion.button>
